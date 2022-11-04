@@ -103,4 +103,4 @@ _Filling out the following roles and responsibilities is suggested only. Some ro
 * Matthew O'Bar
 * Mason Synder
 * _Team Member C_:
-* _Team Member D_:
+* Chase Fowler
