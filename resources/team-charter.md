@@ -75,14 +75,14 @@ Constant communication, regular morning standup meetings 15-30 min, good documen
 * Matthew O'Bar - being able to take an idea all the way from an idea to a tangible product
 * Mason Synder - being resourceful
 * Alex Leuang - 
-* Chase Fowler - 
+* Chase Fowler - creativity, having an idea of how everything works together
 
 **What each team member wants to achieve: e.g. improve analytical skills, learn project management skills, develop public speaking skills, speak up more, speak up less, etc.**
 
 * Matthew O'Bar - improve undertsanding of the overall flow of the developement cycle of product
 * Mason Synder - project planning, unit testing
 * Alex Leuang - 
-* Chase Fowler:
+* Chase Fowler - improve communication/teamwork, unit testing
 
 ## Team Member Roles and Responsibilities
 
