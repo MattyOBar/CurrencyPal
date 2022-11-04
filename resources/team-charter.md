@@ -26,63 +26,63 @@ The following guide might be helpful as you work through your teams charter:
 
 ### Team Members
 
-- _Team Member A_
-- _Team Member B_
-- _Team Member C_
-- _Team Member D_
+- Chase Fowler
+- Alex Leuang
+- Mason Synder
+- Matthew O'Bar
 
 ### Psychological safety
 
 * **How can we take risks on this team without feeling insecure or embarrassed?**
-  _E.g., Be open to opinions that differ from your own, actively ask for opinions from each member of the team, do not interrupt each other, don’t place blame, all suggestions or questions are encouraged, listened to, considered equally, and never judged_
+No yelling or name calling, judgement free zone.  Be respectful of each other.
 
 * **How do we address situations where any team member feels unsafe?**
-  _E.g., communicate when there is a misunderstanding, don’t move forward until the situation is resolved, directly address and resolve negativity, give and receive feedback with a positive, strength-building mindset, if necessary, escalate to an instructor 
+We can assign one individual as a mediator between the two parties that are having an issue, 
 
 ### Dependability, Structure, Clarity
 
 * **How can we count on each other to do high quality work on time?**
-  _E.g., estimate task size, break down large tasks, call out tasks at risk early, ask each other for help, how to ensure timely code reviews, how to share knowledge, help each other hold accountability give frequent, scheduled updates_
+  Time blocking, asking each other for help, make sure tasks are assigned appropriately
 
 * **How do we address missed deadlines?**
-  _E.g., acknowledge, but don’t punish slipped dates, figure out what went wrong, identify lessons for future_
+dont immediately blame one individual, try to figure the 4 W's (When, Why, Where, What), refactor future plans.
 
 * **How can we make goals, roles, and execution plans on our team clear?**
-  _E.g., where to track goals and when to review them, use definitive, quantifiable terminology, include clear background on why this goal is necessary, include “done” criteria for the goal (code is pushed with integration tests, document is reviewed, etc.)_
+ Use a task tracker to deligate tasks/responsibilities, regular meetings/checkins for progress updates, 
 
 
 ### Goals
 
 * **Overall: What is our overall objective for the Learn & Be Curious unit?**
-  _E.g., “Apply what we’ve learned throughout this program in a team project to prepare ourselves for internships and full-time SDE roles.”_
+To Learn more java.  Gain experience working on a team on a full project.
 
 
 * **Performance: What do we want to prioritize in terms of what we achieve?**
-  _What will be true when you have 'succeeded' on this project? E.g. enjoy ourselves, maintain our energy to the end, ensure all team members participate, create professional connections, exceed instructor expectations, efficiently pace the project so we’re not rushing at the end, etc._
+Have a working project at the end, working at an efficient pace, polishing our skillset.
 
 
 * **Learning: What are the things that our team wants to learn?**
-  _E.g., develop SDE knowledge, enhance leadership skills, master project planning, improve testing skills, etc_
+Incorporating APIs, project planning, front end design, updating databases, testing on a database
 
 
 * **Task processes: What processes will our team follow to meet our goals, complete tasks, or to build team relationships?**
-  _E.g., leadership, meeting procedures/length of meetings, expectations for meeting attendance and timeliness, other types of meetings (happy hours, lunch and learns)_
+Constant communication, regular morning standup meetings 15-30 min, good documentation.
 
 ## Meaning & Impact
 
 **What is personally important for each team member about becoming an SDE?**
 
-* _Team Member A_:
-* _Team Member B_:
-* _Team Member C_:
-* _Team Member D_:
+* Matthew O'Bar - being able to take an idea all the way from an idea to a tangible product
+* Mason Synder - being resourceful
+* Alex Leuang - 
+* Chase Fowler - 
 
 **What each team member wants to achieve: e.g. improve analytical skills, learn project management skills, develop public speaking skills, speak up more, speak up less, etc.**
 
-* _Team Member A_:
-* _Team Member B_:
-* _Team Member C_:
-* _Team Member D_:
+* Matthew O'Bar - improve undertsanding of the overall flow of the developement cycle of product
+* Mason Synder - project planning, unit testing
+* Alex Leuang - 
+* Chase Fowler:
 
 ## Team Member Roles and Responsibilities
 
@@ -100,7 +100,7 @@ _Filling out the following roles and responsibilities is suggested only. Some ro
 
 **I agree to the terms and conditions of these team agreements:**
 
-* _Team Member A_:
-* _Team Member B_:
+* Matthew O'Bar
+* Mason Synder
 * _Team Member C_:
 * _Team Member D_:
