@@ -10,45 +10,51 @@ _You should take a look at the [example design document](example-design-document
 
 ## 1. Problem Statement
 
-_Explain clearly what problem you are trying to solve._
+our company needs a tool to be able to quickly send or recieve various currencies.
 
 ## 2. Top Questions to Resolve in Review
 
 _List the most important questions you have about your design, or things that you are still debating internally that you might like help working through._
 
-1.
-2.
-3.
+1. extra features?
+2. how are we going to structure our database?
+3. 
 
 ## 3. Use Cases
 
 _This is where we work backwards from the customer and define what our customers would like to do (and why). You may also include use cases for yourselves (as developers), or for the organization providing the product to customers._
 
-U1. _As a [product] customer, I want to `<result>` when I `<action>`_
+U1. _As a [product] customer, I want to `quickly and effieciently find exchange rates` when I `know the set amount I would like to exchange`_
 
-U2. _As a [product] customer, I want to view my grocery list when I log into the grocery list page_
+U2. _As a [product] customer, I want to view my bank statements when I log into my account_
 
-U3. ...
+U3. as a product customer, I want to view the history of each currency to predict trends
 
 ## 4. Project Scope
 
 _Clarify which parts of the problem you intend to solve. It helps reviewers know what questions to ask to make sure you are solving for what you say and stops discussions from getting sidetracked by aspects you do not intend to handle in your design._
+Getting real time exchange rates that are stored in a database and updated frequently to be as accurate as possible.
 
 ### 4.1. In Scope
 
 _Which parts of the problem defined in Sections 1 and 2 will you solve with this design? This should include the base functionality of your product. What pieces are required for your product to work?_
+We need to make calls to an API frequently
+
 
 _The functionality described above should be what your design is focused on. You do not need to include the design for any out of scope features or expansions._
 
 ### 4.2. Out of Scope
 
 _Based on your problem description in Sections 1 and 2, are there any aspects you are not planning to solve? Do potential expansions or related problems occur to you that you want to explicitly say you are not worrying about now? Feel free to put anything here that you think your team can't accomplish in the unit, but would love to do with more time._
+The ability to send and request money
 
 _The functionality here does not need to be accounted for in your design._
 
 # 5. Proposed Architecture Overview
 
 _Describe broadly how you are proposing to solve for the requirements you described in Section 2. This may include class diagram(s) showing what components you are planning to build. You should argue why this architecture (organization of components) is reasonable. That is, why it represents a good data flow and a good separation of concerns. Where applicable, argue why this architecture satisfies the stated requirements._
+
+
 
 # 6. API
 
