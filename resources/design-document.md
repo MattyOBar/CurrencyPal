@@ -33,11 +33,13 @@ U3. as a product customer, I want to view the history of each currency to predic
 ## 4. Project Scope
 
 _Clarify which parts of the problem you intend to solve. It helps reviewers know what questions to ask to make sure you are solving for what you say and stops discussions from getting sidetracked by aspects you do not intend to handle in your design._
+
 Getting real time exchange rates that are stored in a database and updated frequently to be as accurate as possible.
 
 ### 4.1. In Scope
 
 _Which parts of the problem defined in Sections 1 and 2 will you solve with this design? This should include the base functionality of your product. What pieces are required for your product to work?_
+
 We need to make calls to an API frequently
 
 
@@ -46,6 +48,7 @@ _The functionality described above should be what your design is focused on. You
 ### 4.2. Out of Scope
 
 _Based on your problem description in Sections 1 and 2, are there any aspects you are not planning to solve? Do potential expansions or related problems occur to you that you want to explicitly say you are not worrying about now? Feel free to put anything here that you think your team can't accomplish in the unit, but would love to do with more time._
+
 The ability to send and request money
 
 _The functionality here does not need to be accounted for in your design._
@@ -54,6 +57,7 @@ _The functionality here does not need to be accounted for in your design._
 
 _Describe broadly how you are proposing to solve for the requirements you described in Section 2. This may include class diagram(s) showing what components you are planning to build. You should argue why this architecture (organization of components) is reasonable. That is, why it represents a good data flow and a good separation of concerns. Where applicable, argue why this architecture satisfies the stated requirements._
 
+See PlantUML
 
 
 # 6. API
@@ -61,6 +65,8 @@ _Describe broadly how you are proposing to solve for the requirements you descri
 ## 6.1. Public Models
 
 _Define the data models your service will expose in its responses via your *`-Model`* package. These will be equivalent to the *`PlaylistModel`* and *`SongModel`* from the Unit 3 project._
+
+None necessary
 
 ## 6.2. _First Endpoint_
 
