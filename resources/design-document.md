@@ -57,7 +57,7 @@ _The functionality here does not need to be accounted for in your design._
 
 _Describe broadly how you are proposing to solve for the requirements you described in Section 2. This may include class diagram(s) showing what components you are planning to build. You should argue why this architecture (organization of components) is reasonable. That is, why it represents a good data flow and a good separation of concerns. Where applicable, argue why this architecture satisfies the stated requirements._
 
-See PlantUML
+[See PlantUML](resources/currencyConverterCD.puml)
 
 
 # 6. API
