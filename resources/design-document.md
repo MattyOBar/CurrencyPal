@@ -68,14 +68,25 @@ _Describe the behavior of the first endpoint you will build into your service AP
 
 _(You should have a separate section for each of the endpoints you are expecting to build...)_
 
+We don't require anything, we are using https://api.freecurrencyapi.com/v1/latest to populate our database of currencies and respective excahnge rates.
+
+
 ## 6.3 _Second Endpoint_
 
 _(repeat, but you can use shorthand here, indicating what is different, likely primarily the data in/out and error conditions. If the sequence diagram is nearly identical, you can say in a few words how it is the same/different from the first endpoint)_
 
+As a stretch goal we are using this API https://freecurrencyapi.com/docs/historical to graph trends among currencies.
+
+
 # 7. Tables
 
 _Define the DynamoDB tables you will need for the data your service will use. It may be helpful to first think of what objects your service will need, then translate that to a table structure, like with the *`Playlist` POJO* versus the `playlists` table in the Unit 3 project._
+Currencies
+Customers
+Transactions
 
 # 8. Pages
 
 _Include mock-ups of the web pages you expect to build. These can be as sophisticated as mockups/wireframes using drawing software, or as simple as hand-drawn pictures that represent the key customer-facing components of the pages. It should be clear what the interactions will be on the page, especially where customers enter and submit data. You may want to accompany the mockups with some description of behaviors of the page (e.g. “When customer submits the submit-dog-photo button, the customer is sent to the doggie detail page”)_
+See figma link for mock ups
+https://www.figma.com/file/afDeHOTDS6MTtBdTeWLQIT/Untitled?node-id=1%3A13
