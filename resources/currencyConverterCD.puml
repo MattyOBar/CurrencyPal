@@ -1,0 +1,75 @@
+Currency -- Currencies
+Transaction -- TransactionDAO
+TransactionDAO -- CreateTransactionActivity
+TransactionDAO -- UpdateTransactionActivity
+TransactionDAO -- GetTransactionActivity
+Currency -- CurrencyDAO
+Transaction -- Customer
+Transaction -- CurrencyDAO
+CurrencyDAO -- getCurrencyActivity
+CurrencyDAO -- createCurrencyActivity
+CurrencyDAO -- updateCurrencyActivity
+class Currency {
+double currentRate
+Currencies currency
+int ranking
+}
+ENUM Currencies {
+USD, AUD, BGN
+BRL
+CAD
+CHF
+CNY
+CZK
+DKK
+EUR
+GBP
+HKD
+HRK
+HUF
+IDR
+ILS
+INR
+ISK
+JPY
+KRW
+MXN
+MYR
+NOK
+NZD
+}
+class CurrencyDAO {
+DynamoDBMapper mapper
+MetricsPublisher metrics
+getCurrency() : Currency
+createCurrency() : Currency
+updateCurrency() : Currency
+}
+class createCurrencyActivity{
+}
+class updateCurrencyActivity{
+}
+class getCurrencyActivity {
+}
+class TransactionDAO {
+DynamoDBMapper mapper
+MetricsPublisher metrics
+getTransactionActivity() : Transaction
+updateTransactionActivity() : Transaction
+createTransactionActivity() : Transaction
+}
+class Transaction {
+String transactionId
+Currency currency
+}
+class UpdateTransactionActivity {
+}
+class CreateTransactionActivity {
+}
+class GetTransactionActivity {
+}
+class Customer {
+String customerId;
+String name;
+String DOB;
+}
