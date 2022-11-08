@@ -10,7 +10,7 @@ _You should take a look at the [example design document](example-design-document
 
 ## 1. Problem Statement
 
-our company needs a tool to be able to quickly send or recieve various currencies.
+Our company needs a tool to be able to quickly send or recieve various currencies.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -88,8 +88,8 @@ As a stretch goal we are using this API https://freecurrencyapi.com/docs/histori
 
 _Define the DynamoDB tables you will need for the data your service will use. It may be helpful to first think of what objects your service will need, then translate that to a table structure, like with the *`Playlist` POJO* versus the `playlists` table in the Unit 3 project._
 
-Currencies
-Customers
+Currencies, 
+Customers, 
 Transactions
 
 # 8. Pages
