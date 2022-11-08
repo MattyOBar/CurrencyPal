@@ -10,8 +10,8 @@ Our company needs a tool to be able to quickly send or recieve various currencie
 
 ## 2. Top Questions to Resolve in Review
 
-1. extra features?
-2. how are we going to structure our database?
+1. Extra features?
+2. How are we going to structure our database?
 3. 
 
 ## 3. Use Cases
