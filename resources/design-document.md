@@ -109,7 +109,7 @@ We don't require anything, we are using https://api.freecurrencyapi.com/v1/lates
 ## 6.3. Update Transaction Endpoint
 * Accepts a `PUT` request to `/transaction/:transactionId`
 * Accepts data to update a Transaction, inlcuding the updated isShown, transactionId, Currency, Customer, and amountToConvert.
-*   if the transactionId is not found return `TransactionNotFoundException`
+   * if the transactionId is not found return `TransactionNotFoundException`
 
 
 # 7. Tables
