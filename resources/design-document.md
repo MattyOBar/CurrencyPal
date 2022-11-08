@@ -37,18 +37,18 @@ U8. As a CurrencyPal customer, I want to send myself an alert when currencies re
 
 ### 4.1. In Scope
 
-Getting the most current currency exchange rates
-View the history of a currency's exchange rate
-Be able to exchange currency and update personal balance
-View transaction history by currency
-View transaction history by user
-View all transaction history
+* Getting the most current currency exchange rates
+* View the history of a currency's exchange rate
+* Be able to exchange currency and update personal balance
+* View transaction history by currency
+* View transaction history by user
+* View all transaction history
 
 ### 4.2. Out of Scope
 
-The ability to send and request money
-The ability to let users create individual accounts
-The ability to send alerts to users
+* The ability to send and request money
+* The ability to let users create individual accounts
+* The ability to send alerts to users
 
 # 5. Proposed Architecture Overview
 This initial iteration will provide the minimum lovable product (MLP) including the ability to view currency exchange rates, execute exchanges, and viewing transaction history through various filters.
