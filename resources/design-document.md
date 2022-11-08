@@ -49,11 +49,12 @@ U8. As a CurrencyPal customer, I want to send myself an alert when currencies re
 * The ability to send and request money
 * The ability to let users create individual accounts
 * The ability to send alerts to users
+* Using a scheduler to update the exchange rate cache
 
 # 5. Proposed Architecture Overview
 This initial iteration will provide the minimum lovable product (MLP) including the ability to view currency exchange rates, execute exchanges, and viewing transaction history through various filters.
 
-We will use API Gateway and Lambda to create *INSERT NUMBER HERE* endpoints (*INSERT ENDPOINTS HERE*) that will handle the creation, updating and retrieval of our transactions and exchange rates.
+We will use API Gateway and Lambda to create 5 endpoints (GetCurrency, UpdateCurrency, GetTransaction, UpdateTransaction, CreateTransaction) that will handle the creation, updating and retrieval of our transactions and exchange rates.
 
 We will retrieve the initial exchange rates from [freecurrencyapi](https://freecurrencyapi.com/) and store those in a table in DynamoDB.  We will then reference that table whenever we do our conversions.  We will have a button on our website for our users to use to update the rates to their most current state.  The button will use our DynamoDB table if it has been less then 12 hours otherwise it will use our API endpoints to update the exchange rates (Updating to an automated scheduler is currently out of scope).
 
@@ -66,7 +67,7 @@ We will be using tables in DynamoDB to store all of our transaction history and 
 
 ## 6.1. Public Models
 
-_Define the data models your service will expose in its responses via your *`-Model`* package. These will be equivalent to the *`PlaylistModel`* and *`SongModel`* from the Unit 3 project._
+
 ```
 // CurrencyModel
 
@@ -108,7 +109,7 @@ We don't require anything, we are using https://api.freecurrencyapi.com/v1/lates
 
 ## 6.3. Update Transaction Endpoint
 * Accepts a `PUT` request to `/transaction/:transactionId`
-* Accepts data to update a Transaction, inlcuding the updated isShown, transactionId, Currency, Customer, and amountToConvert.
+* Accepts data to update a Transaction, inlcuding the updated isShown and the transactionId.
    * if the transactionId is not found return `TransactionNotFoundException`
 
 
