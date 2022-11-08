@@ -16,7 +16,7 @@ Our company needs a tool to be able to quickly send or recieve various currencie
 
 ## 3. Use Cases
 
-U1. As a CurrencyPal customer I want to `quickly and effieciently find exchange rates` when I `know the set amount I would like to exchange`
+U1. As a CurrencyPal customer I want to quickly and effieciently find exchange rates when I know the set amount I would like to exchange
 
 U2. As a CurrencyPal customer, I want to view all transaction history
 
