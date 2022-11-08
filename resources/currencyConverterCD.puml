@@ -1,4 +1,5 @@
-Currency -- Currencies
+@startuml
+Currency -- CurrencyAbrv
 Transaction -- TransactionDAO
 TransactionDAO -- CreateTransactionActivity
 TransactionDAO -- UpdateTransactionActivity
@@ -7,14 +8,19 @@ Currency -- CurrencyDAO
 Transaction -- Customer
 Transaction -- CurrencyDAO
 CurrencyDAO -- getCurrencyActivity
-CurrencyDAO -- createCurrencyActivity
 CurrencyDAO -- updateCurrencyActivity
+Currency -- CountryName
 class Currency {
 double currentRate
-Currencies currency
+CurrencyAbrv currencyAbrv
+CountryName countryName
 int ranking
 }
-ENUM Currencies {
+ENUM CountryName{
+
+}
+
+ENUM CurrencyAbrv {
 USD, AUD, BGN
 BRL
 CAD
@@ -45,8 +51,7 @@ getCurrency() : Currency
 createCurrency() : Currency
 updateCurrency() : Currency
 }
-class createCurrencyActivity{
-}
+
 class updateCurrencyActivity{
 }
 class getCurrencyActivity {
@@ -61,6 +66,9 @@ createTransactionActivity() : Transaction
 class Transaction {
 String transactionId
 Currency currency
+Customer customer
+double amountToConvert
+boolean isShown
 }
 class UpdateTransactionActivity {
 }
@@ -73,3 +81,4 @@ String customerId;
 String name;
 String DOB;
 }
+@enduml
