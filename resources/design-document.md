@@ -86,7 +86,7 @@ boolean isShown;
 
 
 ## 6.2. Get Currency Endpoint
-* Accepts `GET` requests to `/currency/:currencyDAO`
+* Accepts `GET` requests to `/currency/:currency`
 * Accepts the currency  and returns currentRate.
     * If the given currency is not found, will throw a
       `CurrencyNotFoundException`
@@ -94,7 +94,7 @@ boolean isShown;
 We don't require anything, we are using https://api.freecurrencyapi.com/v1/latest to populate our database of currencies and respective excahnge rates.
 
 ## 6.3. Update Currency Endpoint
-* Accepts `PUT` requests to `/currency/:currencyDAO`
+* Accepts `PUT` requests to `/currency/:currency`
 * Accepts data to update a Currency, including the updated double currentRate, Currency enum, CountryName enum, and int ranking
   * if the currency name is not found, will throw a `CurrencyNotFoundException`
 ## 6.4. Get Transaction Endpoint
