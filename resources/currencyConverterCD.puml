@@ -80,5 +80,6 @@ class Customer {
 String customerId;
 String name;
 String DOB;
+Map<Currency, double> balance
 }
 @enduml

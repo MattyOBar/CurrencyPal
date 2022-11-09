@@ -6,7 +6,7 @@
 
 ## 1. Problem Statement
 
-Our company needs a tool to be able to quickly send or recieve various currencies.
+Our company needs a tool to be able to quickly send or receive various currencies.  This tool will be used by our bank tellers to help facilitate transactions for our customers.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -16,21 +16,17 @@ Our company needs a tool to be able to quickly send or recieve various currencie
 
 ## 3. Use Cases
 
-U1. As a CurrencyPal customer I want to quickly and effieciently find exchange rates when I know the set amount I would like to exchange
+U1. As a CurrencyPal bank teller, I want to quickly and efficiently find exchange rates when I know the set amount I would like to exchange.
 
-U2. As a CurrencyPal customer, I want to view all transaction history
+U2. As a CurrencyPal bank teller, I want to be able to create a transaction to convert a specific amount of money from one currency to another.
 
-U3. As a CurrencyPal customer, I want to view the history of each currency to predict trends
+U3. As a CurrencyPal bank teller, I want to look up transaction history by customerID.
 
-U4. As a CurrencyPal customer, I want to look up transaction history by name/customerID.
+U4. As a CurrencyPal bank teller, I want to view the transaction history by currency.
 
-U5. As a CurrencyPal customer, I want to be able to create a transaction, where I convert my money from one currency to another.
-
-U6. As a CurrencyPal customer, I want to be able to send other users money in whatever currency I choose to convert it too.
-
-U7. As a CurrencyPal customer, customer, I want to view the transaction history by currency.
-
-U8. As a CurrencyPal customer, I want to send myself an alert when currencies reach a certain rate.
+U5. As a CurrencyPal bank teller, I want to be able to schedule automatic conversions for customers based on the exchange rates.
+U6. As a CurrencyPal bank teller, I want to send myself an alert when currencies reach a certain rate.
+U7. As a CurrencyPal bank teller, I want to be able to help customers transfer money to each other, in a designated currency.
 
 ## 4. Project Scope
 
@@ -38,18 +34,18 @@ U8. As a CurrencyPal customer, I want to send myself an alert when currencies re
 ### 4.1. In Scope
 
 * Getting the most current currency exchange rates
-* View the history of a currency's exchange rate
 * Be able to exchange currency and update personal balance
+* View transaction history by customerId
 * View transaction history by currency
-* View transaction history by user
-* View all transaction history
+* View the history of a currency's exchange rate
+
 
 ### 4.2. Out of Scope
 
-* The ability to send and request money
-* The ability to let users create individual accounts
-* The ability to send alerts to users
 * Using a scheduler to update the exchange rate cache
+* Using a scheduler to do automatic conversions based on exchange rate
+* The ability to send and request money from customer to customer
+* The ability to send alerts to customers based on the current exchange rate
 
 # 5. Proposed Architecture Overview
 This initial iteration will provide the minimum lovable product (MLP) including the ability to view currency exchange rates, execute exchanges, and viewing transaction history through various filters.
@@ -72,7 +68,7 @@ We will be using tables in DynamoDB to store all of our transaction history and 
 // CurrencyModel
 
 double currentRate;
-Currencies currency;
+CurrencyAbrv currencyAbrv;
 CountryName countryName;
 int ranking;
 
@@ -82,7 +78,16 @@ String transactionId;
 Currency currency;
 Customer customer;
 double amountToConvert;
+double convertedAmount;
+double conversionRate;
 boolean isShown;
+
+// CustomerModel
+
+String customerId;
+String Name;
+String DOB;
+Map<Currency, double> balance;
 ```
 
 
@@ -92,22 +97,21 @@ boolean isShown;
     * If the given currency is not found, will throw a
       `CurrencyNotFoundException`
 
-We don't require anything, we are using https://api.freecurrencyapi.com/v1/latest to populate our database of currencies and respective excahnge rates.
-
 ## 6.3. Update Currency Endpoint
 * Accepts `PUT` requests to `/currency/:currency`
-* Accepts data to update a Currency, including the updated double currentRate, Currency enum, CountryName enum, and int ranking
+* Accepts data to update a Currency, including the updated double currentRate and int ranking.
   * if the currency name is not found, will throw a `CurrencyNotFoundException`
+  
 ## 6.4. Get Transaction Endpoint
 * Accepts `GET` requests to `/transaction/:transactionId`
 * Accepts a transactionId and returns the corresponding Transaction
    * if the transactionId is not found return `TransactionNotFoundException`
 
-## 6.3. Create Transaction Endpoint
-* Accepts a `POST` request to `/transaction/:transactionId`
+## 6.5. Create Transaction Endpoint
+* Accepts a `POST` request to `/transaction/`
 * Accepts the data to create a new transaction with a provided Currency, CustomerId, AmountToConvert, and IsShown.  Returns a new transaction including a unique transactionId generated by CurrencyPal.
 
-## 6.3. Update Transaction Endpoint
+## 6.6. Update Transaction Endpoint
 * Accepts a `PUT` request to `/transaction/:transactionId`
 * Accepts data to update a Transaction, inlcuding the updated isShown and the transactionId.
    * if the transactionId is not found return `TransactionNotFoundException`
@@ -118,7 +122,7 @@ We don't require anything, we are using https://api.freecurrencyapi.com/v1/lates
 ## 7.1 Currencies 
 ```
 currencyAbrv // partitionKey, string
-currentRate //number
+currentRate // number
 countryName // string
 ranking // number
 ```
@@ -135,10 +139,18 @@ isShown // boolean
 ## 7.3 Transactions GSI
 ```
 transactionId // string
-currency // string partitionKey
-customer // string rangeKey
+currency // partitionKey, string
+customer // rangeKey, string
 amountToConvert // number
 isShown // boolean
+```
+
+## 7.4 Customers
+```
+customerId // partitionKey, string
+name // string
+dob // string
+Map<Currency, double> balance // ss
 ```
 # 8. Pages
 
