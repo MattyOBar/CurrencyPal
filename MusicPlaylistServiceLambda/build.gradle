@@ -1,6 +1,7 @@
 plugins {
     id "java"
     id "checkstyle"
+    //id 'jacoco'
     id 'com.adarshr.test-logger' version '3.2.0'
 }
 
@@ -82,3 +83,20 @@ checkstyle {
     sourceSets = [sourceSets.main]
 }
 
+// If we are running the task 'staticchecks', do not ignore failures, otherwise ignore
+//checkstyleMain.doFirst {
+//    //ignoreFailures = !gradle.taskGraph.allTasks.any({ it.name ==~ /.*staticchecks/ })
+//    ignoreFailures = true
+//}
+
+//check.dependsOn jacocoTestCoverageVerification
+//jacocoTestCoverageVerification {
+//    violationRules {
+//        rule {
+//            limit {
+//                //minimum = 0.8
+//                minimum = 0.0
+//            }
+//        }
+//    }
+//}

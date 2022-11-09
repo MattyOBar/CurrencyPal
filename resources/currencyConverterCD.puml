@@ -5,7 +5,11 @@ TransactionDAO -- CreateTransactionActivity
 TransactionDAO -- UpdateTransactionActivity
 TransactionDAO -- GetTransactionActivity
 Currency -- CurrencyDAO
-Transaction -- Customer
+Transaction -- customerDAO
+Customer -- customerDAO
+customerDAO -- getCustomerActivity
+customerDAO -- createCustomerActivity
+customerDAO -- updateCustomerActivity
 Transaction -- CurrencyDAO
 CurrencyDAO -- getCurrencyActivity
 CurrencyDAO -- updateCurrencyActivity
@@ -68,6 +72,8 @@ String transactionId
 Currency currency
 Customer customer
 double amountToConvert
+double amountConverted
+double conversionRate
 boolean isShown
 }
 class UpdateTransactionActivity {
@@ -76,9 +82,19 @@ class CreateTransactionActivity {
 }
 class GetTransactionActivity {
 }
+
+class customerDAO {
+DynamoDBMapper mapper
+MetricsPublisher metrics
+getCustomerActivity() : Customer
+updateCustomerActivity() : Customer
+createCustomerActivity() : Customer
+}
+
 class Customer {
 String customerId;
 String name;
 String DOB;
+Map<Currency, double> balance
 }
 @enduml
