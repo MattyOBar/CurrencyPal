@@ -18,15 +18,15 @@ Our company needs a tool to be able to quickly send or receive various currencie
 
 U1. As a CurrencyPal bank teller, I want to quickly and efficiently find exchange rates when I know the set amount I would like to exchange.
 
-U2. As a CurrencyPal bank teller, I want to be able to create a transaction to convert a specific amount of money from one currency to another.
+U2. As a CurrencyPal bank teller, I want to be able to create a transaction to convert a specific amount of money from one currency to another for a specific user.
 
 U3. As a CurrencyPal bank teller, I want to look up transaction history by customerID.
 
 U4. As a CurrencyPal bank teller, I want to view the transaction history by currency.
 
-U5. As a CurrencyPal bank teller, I want to be able to schedule automatic conversions for customers based on the exchange rates.
-U6. As a CurrencyPal bank teller, I want to send myself an alert when currencies reach a certain rate.
-U7. As a CurrencyPal bank teller, I want to be able to help customers transfer money to each other, in a designated currency.
+U5. As a CurrencyPal bank teller, I want to be able to schedule automatic transaction for customers based on a specific exchange.
+
+U6. As a CurrencyPal bank teller, I want to be able to help customers transfer money to each other, in a designated currency.
 
 ## 4. Project Scope
 
