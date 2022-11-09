@@ -6,7 +6,7 @@
 
 ## 1. Problem Statement
 
-Our company needs a tool to be able to quickly send or recieve various currencies.
+Our company needs a tool to be able to quickly send or receive various currencies.  This tool will be used by our bank tellers to help facilitate transactions for our customers.
 
 ## 2. Top Questions to Resolve in Review
 
@@ -16,21 +16,17 @@ Our company needs a tool to be able to quickly send or recieve various currencie
 
 ## 3. Use Cases
 
-U1. As a CurrencyPal customer I want to quickly and effieciently find exchange rates when I know the set amount I would like to exchange
+U1. As a CurrencyPal bank teller, I want to quickly and efficiently find exchange rates when I know the set amount I would like to exchange.
 
-U2. As a CurrencyPal customer, I want to view all transaction history
+U2. As a CurrencyPal bank teller, I want to be able to create a transaction to convert a specific amount of money from one currency to another for a specific user.
 
-U3. As a CurrencyPal customer, I want to view the history of each currency to predict trends
+U3. As a CurrencyPal bank teller, I want to look up transaction history by customerID.
 
-U4. As a CurrencyPal customer, I want to look up transaction history by name/customerID.
+U4. As a CurrencyPal bank teller, I want to view the transaction history by currency.
 
-U5. As a CurrencyPal customer, I want to be able to create a transaction, where I convert my money from one currency to another.
+U5. As a CurrencyPal bank teller, I want to be able to schedule automatic transaction for customers based on a specific exchange.
 
-U6. As a CurrencyPal customer, I want to be able to send other users money in whatever currency I choose to convert it too.
-
-U7. As a CurrencyPal customer, customer, I want to view the transaction history by currency.
-
-U8. As a CurrencyPal customer, I want to send myself an alert when currencies reach a certain rate.
+U6. As a CurrencyPal bank teller, I want to be able to help customers transfer money to each other, in a designated currency.
 
 ## 4. Project Scope
 
@@ -38,22 +34,23 @@ U8. As a CurrencyPal customer, I want to send myself an alert when currencies re
 ### 4.1. In Scope
 
 * Getting the most current currency exchange rates
-* View the history of a currency's exchange rate
 * Be able to exchange currency and update personal balance
+* View transaction history by customerId
 * View transaction history by currency
-* View transaction history by user
-* View all transaction history
+* View the history of a currency's exchange rate
+
 
 ### 4.2. Out of Scope
 
-* The ability to send and request money
-* The ability to let users create individual accounts
-* The ability to send alerts to users
+* Using a scheduler to update the exchange rate cache
+* Using a scheduler to do automatic conversions based on exchange rate
+* The ability to send and request money from customer to customer
+* The ability to send alerts to customers based on the current exchange rate
 
 # 5. Proposed Architecture Overview
 This initial iteration will provide the minimum lovable product (MLP) including the ability to view currency exchange rates, execute exchanges, and viewing transaction history through various filters.
 
-We will use API Gateway and Lambda to create *INSERT NUMBER HERE* endpoints (*INSERT ENDPOINTS HERE*) that will handle the creation, updating and retrieval of our transactions and exchange rates.
+We will use API Gateway and Lambda to create 5 endpoints (GetCurrency, UpdateCurrency, GetTransaction, UpdateTransaction, CreateTransaction) that will handle the creation, updating and retrieval of our transactions and exchange rates.
 
 We will retrieve the initial exchange rates from [freecurrencyapi](https://freecurrencyapi.com/) and store those in a table in DynamoDB.  We will then reference that table whenever we do our conversions.  We will have a button on our website for our users to use to update the rates to their most current state.  The button will use our DynamoDB table if it has been less then 12 hours otherwise it will use our API endpoints to update the exchange rates (Updating to an automated scheduler is currently out of scope).
 
@@ -66,22 +63,32 @@ We will be using tables in DynamoDB to store all of our transaction history and 
 
 ## 6.1. Public Models
 
-_Define the data models your service will expose in its responses via your *`-Model`* package. These will be equivalent to the *`PlaylistModel`* and *`SongModel`* from the Unit 3 project._
+
 ```
 // CurrencyModel
 
 double currentRate;
-Currencies currency;
+CurrencyAbrv currencyAbrv;
 CountryName countryName;
 int ranking;
 
 // TransactionModel
 
 String transactionId;
-Currency currency;
+Currency currencyTo;
+Currency currencyFrom;
 Customer customer;
 double amountToConvert;
+double convertedAmount;
+double conversionRate;
 boolean isShown;
+
+// CustomerModel
+
+String customerId;
+String Name;
+String DOB;
+Map<Currency, double> balance;
 ```
 
 
@@ -91,33 +98,47 @@ boolean isShown;
     * If the given currency is not found, will throw a
       `CurrencyNotFoundException`
 
-We don't require anything, we are using https://api.freecurrencyapi.com/v1/latest to populate our database of currencies and respective excahnge rates.
-
 ## 6.3. Update Currency Endpoint
 * Accepts `PUT` requests to `/currency/:currency`
-* Accepts data to update a Currency, including the updated double currentRate, Currency enum, CountryName enum, and int ranking
+* Accepts data to update a Currency, including the updated double currentRate and int ranking.
   * if the currency name is not found, will throw a `CurrencyNotFoundException`
+  
 ## 6.4. Get Transaction Endpoint
 * Accepts `GET` requests to `/transaction/:transactionId`
 * Accepts a transactionId and returns the corresponding Transaction
    * if the transactionId is not found return `TransactionNotFoundException`
 
-## 6.3. Create Transaction Endpoint
-* Accepts a `POST` request to `/transaction/:transactionId`
-* Accepts the data to create a new transaction with a provided Currency, CustomerId, AmountToConvert, and IsShown.  Returns a new transaction including a unique transactionId generated by CurrencyPal.
+## 6.5. Create Transaction Endpoint
+* Accepts a `POST` request to `/transaction/`
+* Accepts the data to create a new transaction with a provided Currency, CustomerId, AmountToConvert, AmountConverted, ConversionRate, and IsShown.  Returns a new transaction including a unique transactionId generated by CurrencyPal.
+  * if transaction could not be created return `TransactionNotFoundException` 
 
-## 6.3. Update Transaction Endpoint
+## 6.6. Update Transaction Endpoint
 * Accepts a `PUT` request to `/transaction/:transactionId`
-* Accepts data to update a Transaction, inlcuding the updated isShown, transactionId, Currency, Customer, and amountToConvert.
+* Accepts data to update a Transaction, including the updated isShown and the transactionId.
    * if the transactionId is not found return `TransactionNotFoundException`
 
+## 6.7. Get Customer Endpoint
+* Accepts a `GET` request to `/customer/:customerId`
+* Accepts a customerId and returns the corresponding Customer
+  * if the customerID is not found return `CustomerNotFoundException`
+  
+## 6.8. Create Customer Endpoint
+* Accepts a `POST` request to `/customer/`
+* Accepts data to create a new customer with a provided Name, DOB, and Balance.  Returns a customerId generated by CurrencyPal.
+    * if the customer is not created return `CustomerNotValidException`
+  
+## 6.9. Update Customer Endpoint
+* Accepts a `PUT` request to `/customer/:customerId`
+* Accepts data to update a customer, including the updated balance.
+    * if the customerId is not found return `CustomerNotFoundException`
 
 # 7. Tables
 
 ## 7.1 Currencies 
 ```
 currencyAbrv // partitionKey, string
-currentRate //number
+currentRate // number
 countryName // string
 ranking // number
 ```
@@ -125,7 +146,8 @@ ranking // number
 ## 7.2 Transactions
 ```
 transactionId // partitionKey, string
-currency // string
+currencyTo // string
+currencyFrom // string
 customer // string
 amountToConvert // number
 isShown // boolean
@@ -134,10 +156,19 @@ isShown // boolean
 ## 7.3 Transactions GSI
 ```
 transactionId // string
-currency // string partitionKey
-customer // string rangeKey
+currencyTo // partitionKey, string
+currencyFrom // string
+customer // rangeKey, string
 amountToConvert // number
 isShown // boolean
+```
+
+## 7.4 Customers
+```
+customerId // partitionKey, string
+name // string
+dob // string
+Map<Currency, double> balance // ss
 ```
 # 8. Pages
 
