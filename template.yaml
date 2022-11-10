@@ -259,17 +259,24 @@ Resources:
 
   #-----------------------------------------------------------------
 
-  PlaylistsTable:
+  CurrencyTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      TableName: "Currency"
       AttributeDefinitions:
-        - AttributeName: "id"
+        - AttributeName: "currencyAbrv"
           AttributeType: "S"
+        - AttributeName: "currentRate"
+          AttributeType: "N"
+        - AttributeName: "countryName"
+          AttributeType: "S"
+        - AttributeName: "ranking"
+          AttributeType: "N"
       KeySchema:
-        - AttributeName: "id"
+        - AttributeName: "currencyAbrv"
           KeyType: "HASH"
       BillingMode: "PAY_PER_REQUEST"
-      TableName: "playlists"
+
 
   AlbumTracksTable:
     Type: AWS::DynamoDB::Table
