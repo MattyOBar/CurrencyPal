@@ -1,7 +1,7 @@
-package com.nashss.se.musicplaylistservice.lambda;
+package com.nashss.se.currencypalservice.lambda;
 
-import com.nashss.se.musicplaylistservice.dependency.DaggerServiceComponent;
-import com.nashss.se.musicplaylistservice.dependency.ServiceComponent;
+import com.nashss.se.currencypalservice.dependency.DaggerServiceComponent;
+import com.nashss.se.currencypalservice.dependency.ServiceComponent;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

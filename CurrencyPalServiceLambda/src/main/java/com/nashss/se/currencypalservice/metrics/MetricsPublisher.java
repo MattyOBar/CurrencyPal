@@ -1,4 +1,4 @@
-package com.nashss.se.musicplaylistservice.metrics;
+package com.nashss.se.currencypalservice.metrics;
 
 import com.amazonaws.services.cloudwatch.AmazonCloudWatch;
 import com.amazonaws.services.cloudwatch.model.Dimension;

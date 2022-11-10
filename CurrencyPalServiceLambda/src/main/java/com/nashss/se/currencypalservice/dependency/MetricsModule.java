@@ -1,4 +1,4 @@
-package com.nashss.se.musicplaylistservice.dependency;
+package com.nashss.se.currencypalservice.dependency;
 
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.cloudwatch.AmazonCloudWatch;

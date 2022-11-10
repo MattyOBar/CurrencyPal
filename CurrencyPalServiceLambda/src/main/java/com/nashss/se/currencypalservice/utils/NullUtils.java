@@ -1,4 +1,4 @@
-package com.nashss.se.musicplaylistservice.utils;
+package com.nashss.se.currencypalservice.utils;
 
 import java.util.function.Supplier;
 

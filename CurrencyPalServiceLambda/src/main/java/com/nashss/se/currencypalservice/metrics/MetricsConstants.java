@@ -1,4 +1,4 @@
-package com.nashss.se.musicplaylistservice.metrics;
+package com.nashss.se.currencypalservice.metrics;
 
 /**
  * Constant values for use with metrics.

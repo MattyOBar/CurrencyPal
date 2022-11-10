@@ -1,4 +1,4 @@
-package com.nashss.se.musicplaylistservice.lambda;
+package com.nashss.se.currencypalservice.lambda;
 
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;

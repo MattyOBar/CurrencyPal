@@ -1,4 +1,4 @@
-package com.nashss.se.musicplaylistservice.dependency;
+package com.nashss.se.currencypalservice.dependency;
 
 import com.nashss.se.aws.dynamodb.DynamoDbClientProvider;
 
