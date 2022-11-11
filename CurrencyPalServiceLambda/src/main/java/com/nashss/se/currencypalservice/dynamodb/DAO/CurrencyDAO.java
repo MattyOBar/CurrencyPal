@@ -6,11 +6,13 @@ import com.nashss.se.currencypalservice.exceptions.CurrencyNotFoundException;
 import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
+import javax.inject.Singleton;
+
 /**
  * Accesses data for our currency objects
  */
 
-
+@Singleton
 public class CurrencyDAO {
     private final DynamoDBMapper dynamoDBMapper;
     private final MetricsPublisher metricsPublisher;
