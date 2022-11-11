@@ -12,4 +12,6 @@ public class MetricsConstants {
     public static final String SERVICE = "Service";
     public static final String SERVICE_NAME = "MusicPlaylistService";
     public static final String NAMESPACE_NAME = "U3/MusicPlaylistService";
+    public static final String GETCUSTOMER_CUSTOMERNOTFOUND_COUNT = "GetCustomer.CustomerNotFound.Count";
+    public static final String UPDATECUSTOMER_CUSTOMERNOTFOUND_COUNT = "UpdateCustomer.CustomerNotFound.Count";
 }

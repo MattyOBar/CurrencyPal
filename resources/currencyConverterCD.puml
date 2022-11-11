@@ -94,7 +94,7 @@ createCustomerActivity() : Customer
 class Customer {
 String customerId;
 String name;
-String DOB;
+String dateOfBirth;
 Map<Currency, double> balance
 }
 @enduml
