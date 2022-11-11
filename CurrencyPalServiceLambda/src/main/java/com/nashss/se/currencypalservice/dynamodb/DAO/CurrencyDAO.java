@@ -30,6 +30,11 @@ public class CurrencyDAO {
         this.metricsPublisher = metricsPublisher;
     }
 
+    /**
+     * Makes a DynamoDB call to retrieve the specificied Currency
+     * @param currencyAbrv the parameter that indicates the specified Currency
+     * @return the currency Object retrieved from DynamoDB
+     */
     public Currency getCurrency(CurrencyAbrv currencyAbrv) {
         Currency currency = this.dynamoDBMapper.load(Currency.class, currencyAbrv);
         if (currency == null) {
@@ -40,6 +45,12 @@ public class CurrencyDAO {
         return currency;
     }
 
+    /**
+     * Makes a DynamoDB call to retrieve and update a specified Currency.
+     * @param currencyAbrv the parameter used to specify the Currency to be updated
+     * @param currentRate the parameter used to specify the currentRate to be updated in the Currency object
+     * @return the new updated currency object
+     */
     public Currency updateCurrency(CurrencyAbrv currencyAbrv, double currentRate) {
         Currency currency = this.dynamoDBMapper.load(Currency.class, currencyAbrv);
         if (Objects.isNull(currency)) {
