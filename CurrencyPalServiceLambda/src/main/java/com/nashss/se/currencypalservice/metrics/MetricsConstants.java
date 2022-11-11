@@ -4,6 +4,9 @@ package com.nashss.se.currencypalservice.metrics;
  * Constant values for use with metrics.
  */
 public class MetricsConstants {
+    public static final String GETCURRENCY_CURRENCYNOTFOUND_COUNT = "GetCurrency.CurrencyNotFoundException.Count";
+
+
     public static final String GETPLAYLIST_PLAYLISTNOTFOUND_COUNT = "GetPlaylist.PlaylistNotFoundException.Count";
     public static final String UPDATEPLAYLIST_INVALIDATTRIBUTEVALUE_COUNT =
         "UpdatePlaylist.InvalidAttributeValueException.Count";
