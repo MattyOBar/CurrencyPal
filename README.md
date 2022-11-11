@@ -40,7 +40,7 @@ Your team has been provided with a website, hosted by [CloudFront](https://aws.a
 
 Unlike our unit projects in the past, this project will have two code bases.
 
-[One code base](./MusicPlaylistServiceLambda) will be for your Lambda service code, similar to what we’ve seen previously. This will contain code that designs and runs your service APIs, as well as packages to interact with and test your service.
+[One code base](./CurrencyPalServiceLambda) will be for your Lambda service code, similar to what we’ve seen previously. This will contain code that designs and runs your service APIs, as well as packages to interact with and test your service.
 
 The [second code base](./web) will contain code for your website:
 
