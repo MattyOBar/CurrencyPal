@@ -21,6 +21,26 @@
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 4px 20px;
+
+}
+.tab-box {
+    color-scheme: dark !important;
+    text-size-adjust: 100%;
+    --darkreader-neutral-background: #131516;
+    --darkreader-neutral-text: #d8d4cf;
+    --darkreader-selection-background: #004daa;
+    --darkreader-selection-text: #e8e6e3;
+    color: #e8e6e3;
+    pointer-events: auto;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    border-color: initial;
+    display: flex;
+    min-height: 56px;
 }
 
 button {
