@@ -39,7 +39,9 @@ public class CustomerDAO {
             metricsPublisher.addCount(MetricsConstants.UPDATECUSTOMER_CUSTOMERNOTFOUND_COUNT, 1);
             throw new CustomerNotFound("Could not find customer with id:" + customerId);
         } else {
-            customer.setCustomerId(name, dateOfBirth);
+            customer.setCustomerId(customerId);
+            customer.setCustomerId(name);
+            customer.setCustomerId(dateOfBirth);
             this.dynamoDBMapper.save(customer);
         }
         metricsPublisher.addCount(MetricsConstants.UPDATECUSTOMER_CUSTOMERNOTFOUND_COUNT, 0);
