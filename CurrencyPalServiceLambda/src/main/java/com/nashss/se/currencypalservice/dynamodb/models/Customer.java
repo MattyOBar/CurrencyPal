@@ -9,6 +9,15 @@ public class Customer {
     String name;
     String dateOfBirth;
 
+    public Customer() {
+    }
+
+    public Customer(String customerId, String name, String dateOfBirth) {
+        this.customerId = customerId;
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
+    }
+
     @DynamoDBAttribute(attributeName = "customerId")
     public String getCustomerId() {
         return customerId;
