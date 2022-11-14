@@ -45,6 +45,15 @@ public class Currency {
         this.countryName = countryName;
     }
 
+    @DynamoDBAttribute(attributeName = "countrySymbol")
+    public CurrencySymbol getCurrencySymbol() {
+        return currencySymbol;
+    }
+
+    public void setCurrencySymbol(CurrencySymbol currencySymbol) {
+        this.currencySymbol = currencySymbol;
+    }
+
     @DynamoDBAttribute(attributeName = "ranking")
     public int getRanking() {
         return ranking;
@@ -66,12 +75,13 @@ public class Currency {
         return currencyAbrv.equals(that.currencyAbrv) &&
                 Objects.equals(currentRate, that.currentRate) &&
                 Objects.equals(countryName, that.countryName) &&
+                Objects.equals(currencySymbol, that.currencySymbol) &&
                 Objects.equals(ranking, that.ranking);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currentRate, currencyAbrv, countryName, ranking);
+        return Objects.hash(currentRate, currencyAbrv, countryName, currencySymbol, ranking);
     }
 
     @Override
@@ -80,6 +90,7 @@ public class Currency {
                 "currentRate='" + currentRate + '\'' +
                 ", currencyAbrv=" + currencyAbrv +
                 ", countryName='" + countryName + '\'' +
+                ", currencySymbol='" + currencySymbol + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';
     }
