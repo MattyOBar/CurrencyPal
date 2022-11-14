@@ -1,7 +1,6 @@
 package com.nashss.se.currencypalservice.dynamodb.DAO;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.nashss.se.currencypalservice.dynamodb.models.CountryName;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
 import com.nashss.se.currencypalservice.dynamodb.models.CurrencyAbrv;
 import com.nashss.se.currencypalservice.exceptions.CurrencyNotFoundException;
@@ -11,14 +10,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 
-import static com.nashss.se.currencypalservice.dynamodb.models.CountryName.UNITEDSTATESOFAMERICA;
+import static com.nashss.se.currencypalservice.dynamodb.models.CurrencyNames.US_DOLLAR;
 import static com.nashss.se.currencypalservice.dynamodb.models.CurrencyAbrv.USD;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 class CurrencyDAOTest {
@@ -65,7 +63,7 @@ class CurrencyDAOTest {
         Currency currency = new Currency();
         currency.setCurrentRate(2.5);
         currency.setCurrencyAbrv(USD);
-        currency.setCountryName(UNITEDSTATESOFAMERICA);
+        currency.setCountryName(US_DOLLAR);
         currency.setRanking(1);
 
         CurrencyAbrv currencyAbrv = USD;

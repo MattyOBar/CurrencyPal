@@ -13,7 +13,9 @@ import java.util.Objects;
 public class Currency {
     private double currentRate;
     CurrencyAbrv currencyAbrv;
-    CountryName countryName;
+    CurrencyNames countryName;
+
+    CurrencySymbol currencySymbol;
     int ranking;
 
     @DynamoDBAttribute(attributeName = "currentRate")
@@ -35,11 +37,11 @@ public class Currency {
     }
 
     @DynamoDBAttribute(attributeName = "countryName")
-    public CountryName getCountryName() {
+    public CurrencyNames getCountryName() {
         return countryName;
     }
 
-    public void setCountryName(CountryName countryName) {
+    public void setCountryName(CurrencyNames countryName) {
         this.countryName = countryName;
     }
 
