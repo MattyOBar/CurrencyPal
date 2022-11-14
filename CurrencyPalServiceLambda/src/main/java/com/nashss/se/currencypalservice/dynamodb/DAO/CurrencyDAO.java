@@ -57,7 +57,7 @@ public class CurrencyDAO {
             metricsPublisher.addCount(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT, 1);
             throw new CurrencyNotFoundException("Couldn't find currency: " + currencyAbrv);
         } else {
-            currency.setCurrentRate(currentRate);
+            currency = new Currency(currentRate, currencyAbrv, currency.getCurrencyName(), currency.getCurrencySymbol(), currency.getRanking());
             this.dynamoDBMapper.save(currency);
         }
         metricsPublisher.addCount(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT, 0);

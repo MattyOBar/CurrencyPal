@@ -1,6 +1,6 @@
 package com.nashss.se.currencypalservice.dynamodb.models;
 
-public enum CurrencyNames {
+public enum CurrencyName {
     US_DOLLAR,
     EURO,
     JAPANESE_YEN,

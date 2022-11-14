@@ -13,18 +13,22 @@ import java.util.Objects;
 public class Currency {
     private double currentRate;
     CurrencyAbrv currencyAbrv;
-    CurrencyNames countryName;
+    CurrencyName currencyName;
 
     CurrencySymbol currencySymbol;
     int ranking;
 
+    public Currency(double currentRate, CurrencyAbrv currencyAbrv, CurrencyName currencyName, CurrencySymbol currencySymbol, int ranking) {
+        this.currentRate = currentRate;
+        this.currencyAbrv = currencyAbrv;
+        this.currencyName = currencyName;
+        this.currencySymbol = currencySymbol;
+        this.ranking = ranking;
+    }
+
     @DynamoDBAttribute(attributeName = "currentRate")
     public double getCurrentRate() {
         return currentRate;
-    }
-
-    public void setCurrentRate(double currentRate) {
-        this.currentRate = currentRate;
     }
 
     @DynamoDBHashKey(attributeName = "currencyAbrv")
@@ -32,27 +36,20 @@ public class Currency {
         return currencyAbrv;
     }
 
-    public void setCurrencyAbrv(CurrencyAbrv currencyAbrv) {
-        this.currencyAbrv = currencyAbrv;
+    @DynamoDBAttribute(attributeName = "currencyName")
+    public CurrencyName getCurrencyName() {
+        return currencyName;
     }
 
-    @DynamoDBAttribute(attributeName = "countryName")
-    public CurrencyNames getCountryName() {
-        return countryName;
+    @DynamoDBAttribute(attributeName = "currencySymbol")
+    public CurrencySymbol getCurrencySymbol() {
+        return currencySymbol;
     }
-
-    public void setCountryName(CurrencyNames countryName) {
-        this.countryName = countryName;
-    }
-
     @DynamoDBAttribute(attributeName = "ranking")
     public int getRanking() {
         return ranking;
     }
 
-    public void setRanking(int ranking) {
-        this.ranking = ranking;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -65,13 +62,14 @@ public class Currency {
         Currency that = (Currency) o;
         return currencyAbrv.equals(that.currencyAbrv) &&
                 Objects.equals(currentRate, that.currentRate) &&
-                Objects.equals(countryName, that.countryName) &&
+                Objects.equals(currencyName, that.currencyName) &&
+                Objects.equals(currencySymbol, that.currencySymbol) &&
                 Objects.equals(ranking, that.ranking);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currentRate, currencyAbrv, countryName, ranking);
+        return Objects.hash(currentRate, currencyAbrv, currencyName, currencySymbol, ranking);
     }
 
     @Override
@@ -79,7 +77,8 @@ public class Currency {
         return "Currency{" +
                 "currentRate='" + currentRate + '\'' +
                 ", currencyAbrv=" + currencyAbrv +
-                ", countryName='" + countryName + '\'' +
+                ", countryName='" + currencyName + '\'' +
+                ", currencySymbol='" + currencySymbol + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';
     }
