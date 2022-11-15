@@ -15,7 +15,7 @@ public class CurrencyNotFoundException extends RuntimeException {
     }
 
     /**
-     * Exception with a message, but no cause
+     * Exception with a message, but no cause.
      * @param message a descriptive message for this exception.
      */
 

@@ -3,7 +3,7 @@ package com.nashss.se.currencypalservice.dynamodb.models;
 public enum CurrencyType {
     US_DOLLAR("USD", "United States Dollars", "$"),
     SWISS_FRANC("CHF", "Swiss Franc", "CHF"),
-    EURO("EUR", "Euro","€"),
+    EURO("EUR", "Euro", "€"),
     JAPANESE_YEN("JPY", "Japanese Yen", "¥"),
     BULGARIAN_LEV("BGN", "Bulgarian Lev", "BGN"),
     CZECH_REPUBLIC_KORUNA("CZK", "Czech Republic Koruna", "Kč"),
@@ -16,7 +16,13 @@ public enum CurrencyType {
     private String currencyName;
     private String currencySymbol;
 
-     CurrencyType(String currencyAbrv, String currencyName, String currencySymbol) {
+    /**
+     * This is the enum that contains all the constants for each Currency.
+     * @param currencyAbrv the abbreviation for the Currency
+     * @param currencyName the full Currency name
+     * @param currencySymbol the Symbol for each Currency
+     */
+    CurrencyType(String currencyAbrv, String currencyName, String currencySymbol) {
         this.currencyAbrv = currencyAbrv;
         this.currencyName = currencyName;
         this.currencySymbol = currencySymbol;

@@ -1,17 +1,19 @@
 package com.nashss.se.currencypalservice.dynamodb.DAO;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
 import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 import com.nashss.se.currencypalservice.exceptions.CurrencyNotFoundException;
 import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
-import javax.inject.Singleton;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+
 import java.util.Objects;
 
+import javax.inject.Singleton;
+
 /**
- * Accesses data for our currency objects
+ * Accesses data for our currency objects.
  */
 
 @Singleton
@@ -31,7 +33,7 @@ public class CurrencyDAO {
     }
 
     /**
-     * Makes a DynamoDB call to retrieve the specificied Currency
+     * Makes a DynamoDB call to retrieve the specificied Currency.
      * @param currencyType the parameter that indicates the specified Currency
      * @return the currency Object retrieved from DynamoDB
      */

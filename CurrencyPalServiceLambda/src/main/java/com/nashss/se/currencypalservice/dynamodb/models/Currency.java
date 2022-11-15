@@ -11,12 +11,12 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Currency")
 public class Currency {
     private double currentRate;
-    CurrencyType currencyType;
-    int ranking;
+    private CurrencyType currencyType;
+    private int ranking;
 
     /**
-     * This constructs a Currency object
-     * @param currentRate The current rate used for currency conversion
+     * This constructs a Currency object.
+     * @param currentRate The current rate used for currency conversion.
      * @param currencyType The enum containing the currencyAbrv, currencyName, and currencySymbol
      * @param ranking the ranking of popularity of the use of the currency
      */
