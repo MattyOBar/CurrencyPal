@@ -99,8 +99,9 @@ Map<Currency, double> balance;
     * If the given currency is not found, will throw a
       `CurrencyNotFoundException`
 
-## 6.3. Update Currency Endpoint
-* Accepts `PUT` requests to `/currency/:currency`
+## 6.3. Update all Currency Endpoint
+* Accepts `PUT` requests to `/currency/`
+* GET request to freecurrency API and storing data in dynamoDB
 * Accepts data to update a Currency, including the updated double currentRate and int ranking.
   * if the currency name is not found, will throw a `CurrencyNotFoundException`
   
