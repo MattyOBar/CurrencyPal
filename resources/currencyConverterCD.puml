@@ -74,6 +74,7 @@ Customer customer
 double amountToConvert
 double amountConverted
 double conversionRate
+ZoneDateTime transactionDateTime
 boolean isShown
 }
 class UpdateTransactionActivity {
