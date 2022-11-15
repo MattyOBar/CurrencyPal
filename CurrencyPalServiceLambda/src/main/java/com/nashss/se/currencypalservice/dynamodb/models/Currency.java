@@ -1,7 +1,6 @@
 package com.nashss.se.currencypalservice.dynamodb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import java.util.Objects;
@@ -15,6 +14,12 @@ public class Currency {
     CurrencyType currencyType;
     int ranking;
 
+    /**
+     * This constructs a Currency object
+     * @param currentRate The current rate used for currency conversion
+     * @param currencyType The enum containing the currencyAbrv, currencyName, and currencySymbol
+     * @param ranking the ranking of popularity of the use of the currency
+     */
     public Currency(double currentRate, CurrencyType currencyType, int ranking) {
         this.currentRate = currentRate;
         this.currencyType = currencyType;

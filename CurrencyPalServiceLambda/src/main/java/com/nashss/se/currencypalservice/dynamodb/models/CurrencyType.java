@@ -16,7 +16,7 @@ public enum CurrencyType {
     private String currencyName;
     private String currencySymbol;
 
-    private CurrencyType(String currencyAbrv, String currencyName, String currencySymbol) {
+     CurrencyType(String currencyAbrv, String currencyName, String currencySymbol) {
         this.currencyAbrv = currencyAbrv;
         this.currencyName = currencyName;
         this.currencySymbol = currencySymbol;
