@@ -1,17 +1,19 @@
 package com.nashss.se.currencypalservice.dynamodb.DAO;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
 import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 import com.nashss.se.currencypalservice.exceptions.CurrencyNotFoundException;
 import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
-import javax.inject.Singleton;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+
 import java.util.Objects;
 
+import javax.inject.Singleton;
+
 /**
- * Accesses data for our currency objects
+ * Accesses data for our currency objects.
  */
 
 @Singleton
@@ -31,8 +33,8 @@ public class CurrencyDAO {
     }
 
     /**
-     * Makes a DynamoDB call to retrieve the specificied Currency
-     * @param currencyAbrv the parameter that indicates the specified Currency
+     * Makes a DynamoDB call to retrieve the specificied Currency.
+     * @param currencyType the parameter that indicates the specified Currency
      * @return the currency Object retrieved from DynamoDB
      */
     public Currency getCurrency(CurrencyType currencyType) {
@@ -47,7 +49,7 @@ public class CurrencyDAO {
 
     /**
      * Makes a DynamoDB call to retrieve and update a specified Currency.
-     * @param currencyAbrv the parameter used to specify the Currency to be updated
+     * @param currencyType the parameter used to specify the Currency to be updated
      * @param currentRate the parameter used to specify the currentRate to be updated in the Currency object
      * @return the new updated currency object
      */
