@@ -2,7 +2,6 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
   CurrencyPal Service
-
 Parameters:
   S3Bucket:
     Type: String
@@ -260,6 +259,7 @@ Resources:
 #  #-----------------------------------------------------------------
 
   CurrencyTable:
+
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: "Currency"
@@ -268,7 +268,9 @@ Resources:
           AttributeType: "S"
         - AttributeName: "currentRate"
           AttributeType: "N"
-        - AttributeName: "countryName"
+        - AttributeName: "currencyName"
+          AttributeType: "S"
+        - AttributeName: "currencySymbol"
           AttributeType: "S"
         - AttributeName: "ranking"
           AttributeType: "N"

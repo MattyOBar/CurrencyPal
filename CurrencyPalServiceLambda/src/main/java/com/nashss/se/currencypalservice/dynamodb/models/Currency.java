@@ -12,44 +12,27 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Currency")
 public class Currency {
     private double currentRate;
-    CurrencyAbrv currencyAbrv;
-    CountryName countryName;
+    CurrencyType currencyType;
     int ranking;
+
+    public Currency(double currentRate, CurrencyType currencyType, int ranking) {
+        this.currentRate = currentRate;
+        this.currencyType = currencyType;
+        this.ranking = ranking;
+    }
 
     @DynamoDBAttribute(attributeName = "currentRate")
     public double getCurrentRate() {
         return currentRate;
     }
 
-    public void setCurrentRate(double currentRate) {
-        this.currentRate = currentRate;
+    @DynamoDBAttribute(attributeName = "currencyType")
+    public CurrencyType getCurrencyType() {
+        return currencyType;
     }
-
-    @DynamoDBHashKey(attributeName = "currencyAbrv")
-    public CurrencyAbrv getCurrencyAbrv() {
-        return currencyAbrv;
-    }
-
-    public void setCurrencyAbrv(CurrencyAbrv currencyAbrv) {
-        this.currencyAbrv = currencyAbrv;
-    }
-
-    @DynamoDBAttribute(attributeName = "countryName")
-    public CountryName getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(CountryName countryName) {
-        this.countryName = countryName;
-    }
-
     @DynamoDBAttribute(attributeName = "ranking")
     public int getRanking() {
         return ranking;
-    }
-
-    public void setRanking(int ranking) {
-        this.ranking = ranking;
     }
 
     @Override
@@ -61,23 +44,21 @@ public class Currency {
             return false;
         }
         Currency that = (Currency) o;
-        return currencyAbrv.equals(that.currencyAbrv) &&
+        return currencyType.equals(that.currencyType) &&
                 Objects.equals(currentRate, that.currentRate) &&
-                Objects.equals(countryName, that.countryName) &&
                 Objects.equals(ranking, that.ranking);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currentRate, currencyAbrv, countryName, ranking);
+        return Objects.hash(currentRate, currencyType, ranking);
     }
 
     @Override
     public String toString() {
         return "Currency{" +
                 "currentRate='" + currentRate + '\'' +
-                ", currencyAbrv=" + currencyAbrv +
-                ", countryName='" + countryName + '\'' +
+                ", countryName='" + currencyType + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';
     }
