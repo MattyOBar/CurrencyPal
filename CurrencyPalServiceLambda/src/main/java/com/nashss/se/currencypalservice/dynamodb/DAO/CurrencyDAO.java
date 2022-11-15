@@ -32,7 +32,7 @@ public class CurrencyDAO {
 
     /**
      * Makes a DynamoDB call to retrieve the specificied Currency
-     * @param currencyAbrv the parameter that indicates the specified Currency
+     * @param currencyType the parameter that indicates the specified Currency
      * @return the currency Object retrieved from DynamoDB
      */
     public Currency getCurrency(CurrencyType currencyType) {
@@ -47,7 +47,7 @@ public class CurrencyDAO {
 
     /**
      * Makes a DynamoDB call to retrieve and update a specified Currency.
-     * @param currencyAbrv the parameter used to specify the Currency to be updated
+     * @param currencyType the parameter used to specify the Currency to be updated
      * @param currentRate the parameter used to specify the currentRate to be updated in the Currency object
      * @return the new updated currency object
      */
