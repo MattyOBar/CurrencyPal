@@ -259,22 +259,17 @@ Resources:
 #  #-----------------------------------------------------------------
 
   CurrencyTable:
-
     Type: AWS::DynamoDB::Table
     Properties:
       TableName: "Currency"
-      AttributeDefinitions:
-        - AttributeName: "currencyAbrv"
-          AttributeType: "S"
-        - AttributeName: "currentRate"
-          AttributeType: "N"
-        - AttributeName: "currencyName"
-          AttributeType: "S"
-        - AttributeName: "currencySymbol"
-          AttributeType: "S"
-        - AttributeName: "ranking"
-          AttributeType: "N"
       KeySchema:
-        - AttributeName: "currencyAbrv"
+        - AttributeName: "currencyType"
           KeyType: "HASH"
+      AttributeDefinitions:
+        - AttributeName: "currencyType"
+          AttributeType: "S"
+#        - AttributeName: "currentRate"
+#          AttributeType: "N"
+#        - AttributeName: "ranking"
+#          AttributeType: "N"
       BillingMode: "PAY_PER_REQUEST"
