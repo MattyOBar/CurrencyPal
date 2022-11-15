@@ -12,6 +12,10 @@ public class GetCurrencyRequest {
         return currencyType;
     }
 
+    /**
+     * Convert the GetCurrencyRequest to a string.
+     * @return returns the GetCurrencyRequest as a string
+     */
     public String toString() {
         return "GetCurrencyRequest{" +
                 "currencyType ='" + currencyType + '\'' +

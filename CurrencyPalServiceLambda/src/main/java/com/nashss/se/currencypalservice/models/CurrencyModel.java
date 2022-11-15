@@ -1,4 +1,5 @@
 package com.nashss.se.currencypalservice.models;
+
 import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 
 import java.util.Objects;

@@ -7,6 +7,7 @@ import com.nashss.se.currencypalservice.dynamodb.DAO.CurrencyDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
 import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 import com.nashss.se.currencypalservice.models.CurrencyModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
