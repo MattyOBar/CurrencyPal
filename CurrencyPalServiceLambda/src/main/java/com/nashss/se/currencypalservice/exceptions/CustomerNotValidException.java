@@ -1,18 +1,16 @@
 package com.nashss.se.currencypalservice.exceptions;
 
 /**
- * Exception to throw when a given currencyAbrv is not found in the database.
+ * Exception to throw when a given Customer is not valid.
  */
+public class CustomerNotValidException extends RuntimeException {
 
-public class CurrencyNotFoundException extends RuntimeException {
-
-    private static final long serialVersionUID = 8345366662395391224L;
+    private static final long serialVersionUID = -3378356824843884107L;
 
     /**
      * Exception with no message or cause.
      */
-
-    public CurrencyNotFoundException() {
+    public CustomerNotValidException() {
         super();
     }
 
@@ -20,8 +18,7 @@ public class CurrencyNotFoundException extends RuntimeException {
      * Exception with a message, but no cause
      * @param message a descriptive message for this exception.
      */
-
-    public CurrencyNotFoundException(String message) {
+    public CustomerNotValidException(String message) {
         super(message);
     }
 
@@ -29,7 +26,7 @@ public class CurrencyNotFoundException extends RuntimeException {
      * Exception with no message, but with a cause.
      * @param cause The original throwable resulting in this exception.
      */
-    public CurrencyNotFoundException(Throwable cause) {
+    public CustomerNotValidException(Throwable cause) {
         super(cause);
     }
 
@@ -38,7 +35,9 @@ public class CurrencyNotFoundException extends RuntimeException {
      * @param message A descriptive message for this exception.
      * @param cause The original throwable resulting in this exception.
      */
-    public CurrencyNotFoundException(String message, Throwable cause) {
+    public CustomerNotValidException(String message, Throwable cause) {
         super(message, cause);
     }
+
+
 }
