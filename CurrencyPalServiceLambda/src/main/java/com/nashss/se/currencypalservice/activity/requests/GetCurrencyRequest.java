@@ -1,20 +1,20 @@
 package com.nashss.se.currencypalservice.activity.requests;
 
-import com.nashss.se.currencypalservice.activity.results.GetCurrencyResult;
-import com.nashss.se.currencypalservice.dynamodb.models.CurrencyAbrv;
-import com.nashss.se.currencypalservice.models.CurrencyModel;
-import org.apache.commons.lang3.builder.Builder;
+import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 
 public class GetCurrencyRequest {
-    private final CurrencyAbrv currencyAbrv;
+    private final CurrencyType currencyType;
 
-    private GetCurrencyRequest(CurrencyAbrv currencyAbrv) {
-        this.currencyAbrv = currencyAbrv;
+    private GetCurrencyRequest(CurrencyType currencyType) {
+        this.currencyType = currencyType;
+    }
+    public CurrencyType getCurrencyType() {
+        return currencyType;
     }
 
     public String toString() {
         return "GetCurrencyRequest{" +
-                "currencyAbrv ='" + currencyAbrv + '\'' +
+                "currencyType ='" + currencyType + '\'' +
                 '}';
     }
 
@@ -24,15 +24,15 @@ public class GetCurrencyRequest {
     }
 
     public static class Builder {
-        private CurrencyAbrv currencyAbrv;
+        private CurrencyType currencyType;
 
-        public Builder withCurrencyAbrv(CurrencyAbrv currencyAbrv) {
-            this.currencyAbrv = currencyAbrv;
+        public Builder withCurrencyType(CurrencyType currencyType) {
+            this.currencyType = currencyType;
             return this;
         }
 
         public GetCurrencyRequest build() {
-            return new GetCurrencyRequest(currencyAbrv);
+            return new GetCurrencyRequest(currencyType);
         }
     }
 

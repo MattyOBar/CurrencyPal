@@ -1,23 +1,22 @@
 package com.nashss.se.currencypalservice.activity.results;
 
 import com.nashss.se.currencypalservice.models.CurrencyModel;
-import org.apache.commons.lang3.builder.Builder;
 
 public class GetCurrencyResult {
-    private final CurrencyModel currency;
+    private final CurrencyModel currencyModel;
 
-    private GetCurrencyResult(CurrencyModel currency) {
-        this.currency = currency;
+    private GetCurrencyResult(CurrencyModel currencyModel) {
+        this.currencyModel = currencyModel;
     }
 
-    public CurrencyModel getCurrency() {
-        return currency;
+    public CurrencyModel getCurrencyModel() {
+        return currencyModel;
     }
 
     @Override
     public String toString() {
         return "GetCurrencyResult{" +
-                "currency=" + currency +
+                "currencyModel=" + currencyModel +
                 '}';
     }
 
@@ -28,15 +27,15 @@ public class GetCurrencyResult {
     }
 
     public static class Builder {
-        private CurrencyModel currency;
+        private CurrencyModel currencyModel;
 
-        public Builder withCurrency(CurrencyModel currency) {
-            this.currency = currency;
+        public Builder withCurrency(CurrencyModel currencyModel) {
+            this.currencyModel = currencyModel;
             return this;
         }
 
         public GetCurrencyResult build() {
-            return new GetCurrencyResult(currency);
+            return new GetCurrencyResult(currencyModel);
         }
     }
 

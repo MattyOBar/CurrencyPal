@@ -12,7 +12,7 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Currency")
 public class Currency {
     private double currentRate;
-    CurrencyType currencyType;
+    private CurrencyType currencyType;
     int ranking;
 
     public Currency(double currentRate, CurrencyType currencyType, int ranking) {
