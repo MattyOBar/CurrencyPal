@@ -57,7 +57,7 @@ export default class MusicPlaylistClient extends BindingClass {
      */
     async getCurrency(currencyType, errorCallback) {
         try {
-            const response = await this.client.get(`playlists/${currencyType}`);
+            const response = await this.client.get(`currency/${currencyType}`);
             return response.data.currency;
         } catch (error) {
             this.handleError(error, errorCallback)
