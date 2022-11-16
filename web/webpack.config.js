@@ -27,8 +27,8 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
+    createIndex: path.resolve(__dirname, 'src', 'pages', 'createIndex.js'),
+    viewIndex: path.resolve(__dirname, 'src', 'pages', 'viewIndex.js'),
     test: path.resolve(__dirname, 'src', 'pages', 'test.js'),
   },
   output: {

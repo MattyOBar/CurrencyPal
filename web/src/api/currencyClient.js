@@ -50,71 +50,115 @@ export default class MusicPlaylistClient extends BindingClass {
     }
 
     /**
-     * Gets the playlist for the given ID.
-     * @param id Unique identifier for a playlist
+     * Gets the currency for the given currencyType Abbrv.
+     * @param currencyType given a currencyType
      * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The playlist's metadata.
+     * @returns The currency's metadata.
      */
-    async getPlaylist(id, errorCallback) {
+    async getCurrency(currencyType, errorCallback) {
         try {
-            const response = await this.client.get(`playlists/${id}`);
-            return response.data.playlist;
+            const response = await this.client.get(`playlists/${currencyType}`);
+            return response.data.currency;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+   //call to api
+    async updateAllCurrency(errorCallback) {
+        try {
+            const response = await this.client.put(`currency`, {
+                currentRate: currentRate,
+                ranking: ranking,
+            });
+            return response.data.currency;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+    /**
+         * Get the songs on a given playlist by the playlist's identifier.
+         * @param id Unique identifier for a playlist
+         * @param errorCallback (Optional) A function to execute if the call fails.
+         * @returns The list of songs on a playlist.
+         */
+    async getTransaction(transactionId, errorCallback) {
+        try {
+            const response = await this.client.get(`transaction/${transactionId}`);
+            return response.data.transaction;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
+     /**
+         * Create a new transaction.
+         * @param name The name of the playlist to create.
+         * @param customerId The user who is the owner of the playlist.
+         * @param tags Metadata tags to associate with a playlist.
+         * @param errorCallback (Optional) A function to execute if the call fails.
+         * @returns The playlist that has been created.
+         */
+    async createTransaction(currency, customerId, amountToConvert, amountConverted, conversionRate, isShown, transactionDateTime , errorCallback) {
+        try {
+            const response = await this.client.post(`transaction`, {
+                currency: currency,
+                customerId: customerId,
+                amountToConvert: amountToConvert,
+                amountConverted: amountConverted,
+                conversionRate: conversionRate,
+                isShown: isShown,
+                transactionDateTime: transactionDateTime,
+            });
+            return response.data.transaction;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    async updateTransaction(errorCallback) {
+        try {
+            const response = await this.client.put(`transaction/${transactionId}`, {
+                isShown: isShown,
+            });
+            return response.data.transaction;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
     /**
      * Get the songs on a given playlist by the playlist's identifier.
      * @param id Unique identifier for a playlist
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The list of songs on a playlist.
      */
-    async getPlaylistSongs(id, errorCallback) {
+    async getCustomer(customerId, errorCallback) {
         try {
-            const response = await this.client.get(`playlists/${id}/songs`);
-            return response.data.songList;
+            const response = await this.client.get(`customer/${customerId}`);
+            return response.data.customer;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
-    /**
-     * Create a new playlist.
-     * @param name The name of the playlist to create.
-     * @param customerId The user who is the owner of the playlist.
-     * @param tags Metadata tags to associate with a playlist.
-     * @param errorCallback (Optional) A function to execute if the call fails.
-     * @returns The playlist that has been created.
-     */
-    async createPlaylist(name, customerId, tags, errorCallback) {
+    async createCustomer(name, dob, balance, errorCallback) {
         try {
-            const response = await this.client.post(`playlists`, {
+            const response = await this.client.post(`customer`, {
                 name: name,
-                customerId: customerId,
-                tags: tags
+                dob: dob,
+                balance: balance,
             });
-            return response.data.playlist;
+            return response.data.customer;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
-    /**
-     * Add a song to a playlist.
-     * @param id The id of the playlist to add a song to.
-     * @param asin The asin that uniquely identifies the album.
-     * @param trackNumber The track number of the song on the album.
-     * @returns The list of songs on a playlist.
-     */
-    async addSongToPlaylist(id, asin, trackNumber, errorCallback) {
+    async createCustomer(customerId, errorCallback) {
         try {
-            const response = await this.client.post(`playlists/${id}/songs`, {
-                id: id, 
-                asin: asin,
-                trackNumber: trackNumber
+            const response = await this.client.put(`customer/${customerId}`, {
+                balance: balance,
             });
-            return response.data.songList;
+            return response.data.customer;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
