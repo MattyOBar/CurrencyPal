@@ -9,13 +9,10 @@ public class MetricsConstants {
     public static final String UPDATECURRENCY_CURRENCYNOTFOUND_COUNT = "UpdateCurrency.CurrencyNotFoundException.Count";
 
 
-    public static final String GETPLAYLIST_PLAYLISTNOTFOUND_COUNT = "GetPlaylist.PlaylistNotFoundException.Count";
-    public static final String UPDATEPLAYLIST_INVALIDATTRIBUTEVALUE_COUNT =
-        "UpdatePlaylist.InvalidAttributeValueException.Count";
-    public static final String UPDATEPLAYLIST_INVALIDATTRIBUTECHANGE_COUNT =
-        "UpdatePlaylist.InvalidAttributeChangeException.Count";
     public static final String SERVICE = "Service";
     public static final String SERVICE_NAME = "CurrencyPal";
     public static final String NAMESPACE_NAME = "CurrencyPal";
 
+    public static final String GETCUSTOMER_CUSTOMERNOTFOUND_COUNT = "GetCustomer_CustomerNotFoundException_Count";
+    public static final String UPDATECUSTOMER_CUSTOMERNOTFOUND_COUNT = "UpdateCustomer_CustomerNotFoundException_Count";
 }

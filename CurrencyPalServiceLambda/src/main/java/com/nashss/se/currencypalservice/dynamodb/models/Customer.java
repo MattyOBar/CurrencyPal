@@ -9,9 +9,18 @@ public class Customer {
     String name;
     String dateOfBirth;
 
+    /**
+     * Constructor of customer.
+     */
     public Customer() {
     }
 
+    /**
+     * This constructs a Customer object.
+     * @param customerId A unique ID given to a customer.
+     * @param name Customer name attached to the customerId
+     * @param dateOfBirth Date of birth of the customer
+     */
     public Customer(String customerId, String name, String dateOfBirth) {
         this.customerId = customerId;
         this.name = name;

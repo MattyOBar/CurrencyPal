@@ -9,6 +9,12 @@ public class CustomerModel {
     private final String name;
     private final String dateOfBirth;
 
+    /**
+     * This constructs a Customer object.
+     * @param customerId A unique ID given to a customer.
+     * @param name Customer name attached to the customerId
+     * @param dateOfBirth Date of birth of the customer
+     */
     public CustomerModel(String customerId, String name, String dateOfBirth) {
         this.customerId = customerId;
         this.name = name;
@@ -29,10 +35,15 @@ public class CustomerModel {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         CustomerModel that = (CustomerModel) o;
-        return Objects.equals(customerId, that.customerId) && Objects.equals(name, that.name) && Objects.equals(dateOfBirth, that.dateOfBirth);
+        return Objects.equals(customerId, that.customerId) &&
+                Objects.equals(name, that.name) && Objects.equals(dateOfBirth, that.dateOfBirth);
     }
 
 
@@ -41,6 +52,7 @@ public class CustomerModel {
         return Objects.hash(customerId, name, dateOfBirth);
     }
 
+    //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
     }
