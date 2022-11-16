@@ -63,7 +63,7 @@ export default class MusicPlaylistClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
-   //call to api
+   //call to api needs work
     async updateAllCurrency(errorCallback) {
         try {
             const response = await this.client.put(`currency`, {
@@ -76,11 +76,12 @@ export default class MusicPlaylistClient extends BindingClass {
         }
     }
     /**
-         * Get the songs on a given playlist by the playlist's identifier.
-         * @param id Unique identifier for a playlist
-         * @param errorCallback (Optional) A function to execute if the call fails.
-         * @returns The list of songs on a playlist.
-         */
+     * Gets the transaction for the given transaction ID.
+     * @param transactionId given a unique transactionID
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns The transaction's metadata.
+     *
+     **/
     async getTransaction(transactionId, errorCallback) {
         try {
             const response = await this.client.get(`transaction/${transactionId}`);
@@ -92,11 +93,14 @@ export default class MusicPlaylistClient extends BindingClass {
 
      /**
          * Create a new transaction.
-         * @param name The name of the playlist to create.
-         * @param customerId The user who is the owner of the playlist.
-         * @param tags Metadata tags to associate with a playlist.
+         * @param currency The currency of the transaction to create.
+         * @param customerId The user who is the owner of the transaction.
+         * @param amountToConvert amount to convert.
+         * @param amountConverted amount after convert.
+         * @param conversionRate rate for the currency chosen.
+         * @param isShown keeps track of transactions shown on front end.
          * @param errorCallback (Optional) A function to execute if the call fails.
-         * @returns The playlist that has been created.
+         * @returns The transaction that has been created.
          */
     async createTransaction(currency, customerId, amountToConvert, amountConverted, conversionRate, isShown, transactionDateTime , errorCallback) {
         try {
@@ -115,6 +119,11 @@ export default class MusicPlaylistClient extends BindingClass {
         }
     }
 
+    /**
+         * update the transactions is shown for viewing purposes
+         * @param errorCallback (Optional) A function to execute if the call fails.
+         * @returns The list of songs on a playlist.
+         */
     async updateTransaction(errorCallback) {
         try {
             const response = await this.client.put(`transaction/${transactionId}`, {
@@ -126,8 +135,8 @@ export default class MusicPlaylistClient extends BindingClass {
         }
     }
     /**
-     * Get the songs on a given playlist by the playlist's identifier.
-     * @param id Unique identifier for a playlist
+     * Get the customer to show their information
+     * @param customerId Unique identifier for a customer
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The list of songs on a playlist.
      */
@@ -152,8 +161,13 @@ export default class MusicPlaylistClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
-
-    async createCustomer(customerId, errorCallback) {
+     /**
+     * update the customer balance
+     * @param balance current balance will be updated
+     * @param errorCallback (Optional) A function to execute if the call fails.
+     * @returns customer data
+     */
+    async updateCustomer(errorCallback) {
         try {
             const response = await this.client.put(`customer/${customerId}`, {
                 balance: balance,
