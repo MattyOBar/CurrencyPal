@@ -261,7 +261,7 @@ Resources:
   CurrencyTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: "Currency"
+      TableName: "Currencies"
       KeySchema:
         - AttributeName: "currencyType"
           KeyType: "HASH"

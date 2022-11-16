@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * Represents a Currency in the Currency table.
  */
-@DynamoDBTable(tableName = "Currency")
+@DynamoDBTable(tableName = "Currencies")
 public class Currency {
     private double currentRate;
     private CurrencyType currencyType;
