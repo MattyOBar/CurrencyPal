@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  Music Playlist Service
+  CurrencyPal Service
 Parameters:
   S3Bucket:
     Type: String
@@ -30,7 +30,7 @@ Globals:
       AllowOrigin: "'*'"
 
 Resources:
-
+#
 #  CloudFrontOriginAccessIdentity:
 #    Type: 'AWS::CloudFront::CloudFrontOriginAccessIdentity'
 #    Condition: DeployCloudFront
@@ -255,33 +255,26 @@ Resources:
 #          Properties:
 #            Path: /playlists/{id}/songs
 #            Method: post
+#
+#  #-----------------------------------------------------------------
 
-  #-----------------------------------------------------------------
+  CurrencyTable:
 
-  PlaylistsTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      TableName: "Currency"
       AttributeDefinitions:
-        - AttributeName: "id"
+        - AttributeName: "currencyAbrv"
           AttributeType: "S"
-      KeySchema:
-        - AttributeName: "id"
-          KeyType: "HASH"
-      BillingMode: "PAY_PER_REQUEST"
-      TableName: "playlists"
-
-  AlbumTracksTable:
-    Type: AWS::DynamoDB::Table
-    Properties:
-      AttributeDefinitions:
-        - AttributeName: "asin"
+        - AttributeName: "currentRate"
+          AttributeType: "N"
+        - AttributeName: "currencyName"
           AttributeType: "S"
-        - AttributeName: "track_number"
+        - AttributeName: "currencySymbol"
+          AttributeType: "S"
+        - AttributeName: "ranking"
           AttributeType: "N"
       KeySchema:
-        - AttributeName: "asin"
+        - AttributeName: "currencyAbrv"
           KeyType: "HASH"
-        - AttributeName: "track_number"
-          KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
-      TableName: "album_tracks"
