@@ -9,7 +9,7 @@ import BindingClass from "../util/bindingClass";
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
  * https://javascript.info/mixins
   */
-export default class MusicPlaylistClient extends BindingClass {
+export default class currencyClient extends BindingClass {
 
     constructor(props = {}){
         super();
