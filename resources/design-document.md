@@ -135,6 +135,9 @@ Map<Currency, double> balance;
 * Accepts data to update a customer, including the updated balance.
     * if the customerId is not found return `CustomerNotFoundException`
 
+## 7.0. Get CurrencyType Endpoint
+* Accepts a `GET` request to `/currencyType`
+
 # 7. Tables
 
 ## 7.1 Currencies 
