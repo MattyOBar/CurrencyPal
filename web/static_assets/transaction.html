@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/transactionStyle.css">
+</head>
+<body>
+<div>
+    <div class="transaction-page-container">
+        <header data-thq="thq-navbar" class="transaction-page-navbar-interactive">
+            <img
+                    src="images/currencyPalLogo.PNG"
+                    alt="image"
+                    class="transaction-page-image"
+            />
+            <div
+                    data-thq="thq-navbar-nav"
+                    data-role="Nav"
+                    class="transaction-page-desktop-menu"
+            >
+                <nav
+                        data-thq="thq-navbar-nav-links"
+                        data-role="Nav"
+                        class="transaction-page-nav"
+                >
+                    <span class="transaction-page-text">Customers</span>
+                    <span class="transaction-page-text01">Transactions</span>
+                </nav>
+            </div>
+        </header>
+        <div data-thq="thq-dropdown" class="transaction-page-dropdown list-item">
+            <div
+                    data-thq="thq-dropdown-toggle"
+                    class="transaction-page-dropdown-toggle"
+            >
+                <svg
+                        viewBox="0 0 1024 1024"
+                        id="transactionFilterMenuIcon"
+                        class="transaction-page-icon"
+                >
+                    <path d="M426 726v-428l214 214z"></path>
+                </svg>
+                <div
+                        data-thq="thq-dropdown-arrow"
+                        class="transaction-page-dropdown-arrow"
+                ></div>
+                <span id="transactionFilterMenu" class="transaction-page-text02">
+          <span>Filter Search</span>
+          <br />
+          <br />
+        </span>
+            </div>
+            <ul data-thq="thq-dropdown-list" class="transaction-page-dropdown-list">
+                <li
+                        data-thq="thq-dropdown"
+                        class="transaction-page-dropdown1 list-item"
+                >
+                    <div
+                            data-thq="thq-dropdown-toggle"
+                            class="transaction-page-dropdown-toggle1"
+                    >
+                        <span class="transaction-page-text06">Sub-menu Item</span>
+                    </div>
+                </li>
+                <li
+                        data-thq="thq-dropdown"
+                        class="transaction-page-dropdown2 list-item"
+                >
+                    <div
+                            data-thq="thq-dropdown-toggle"
+                            class="transaction-page-dropdown-toggle2"
+                    >
+                        <span class="transaction-page-text07">Sub-menu Item</span>
+                    </div>
+                </li>
+                <li
+                        data-thq="thq-dropdown"
+                        class="transaction-page-dropdown3 list-item"
+                >
+                    <div
+                            data-thq="thq-dropdown-toggle"
+                            class="transaction-page-dropdown-toggle3"
+                    >
+                        <span class="transaction-page-text08">Sub-menu Item</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <input
+                type="text"
+                placeholder="Search"
+                id="transactionSearchBar"
+                class="transaction-page-input input"
+        />
+        <div class="transaction-page-container01">
+            <div class="transaction-page-container02">
+                <div id="CustomerName" class="transaction-page-container03">
+                    <span class="transaction-page-text09">Customer Name</span>
+                </div>
+                <div id="TransactiionID" class="transaction-page-container04">
+          <span>
+            <span>Transaction ID</span>
+            <br />
+          </span>
+                </div>
+                <div id="CurrencyConvertedFrom" class="transaction-page-container05">
+                    <span>Start Currency</span>
+                </div>
+                <div id="CurrenyConvertedTo" class="transaction-page-container06">
+                    <span>Converted Currency</span>
+                </div>
+                <div id="ExchangeRate" class="transaction-page-container07">
+          <span>
+            <span>Exchange</span>
+            <br />
+            <span>Rate</span>
+            <br />
+            <br />
+          </span>
+                </div>
+                <div id="AmountBeforeConversion" class="transaction-page-container08">
+                    <span>Amount Before Conversion</span>
+                </div>
+                <div class="transaction-page-container09">
+          <span id="AmountAfterConversion" class="transaction-page-text22">
+            <span>Amount After</span>
+            <br />
+            <span>Conversion</span>
+            <br />
+            <br />
+          </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
