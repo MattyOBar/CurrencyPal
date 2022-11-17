@@ -74,6 +74,7 @@ Customer customer
 double amountToConvert
 double amountConverted
 double conversionRate
+ZoneDateTime transactionDateTime
 boolean isShown
 }
 class UpdateTransactionActivity {
@@ -94,7 +95,7 @@ createCustomerActivity() : Customer
 class Customer {
 String customerId;
 String name;
-String DOB;
+String dateOfBirth;
 Map<Currency, double> balance
 }
 @enduml
