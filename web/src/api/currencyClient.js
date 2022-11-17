@@ -13,7 +13,7 @@ export default class currencyClient extends BindingClass {
 
     constructor(props = {}){
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'getPlaylist', 'getPlaylistSongs', 'createPlaylist'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'updateAllCurrency', 'getCurrency', 'getTransaction', 'createTransaction', 'updateTransaction', 'getCustomer', 'createCustomer', 'updateCustomer'];
         this.bindClassMethods(methodsToBind, this);
         this.props = props;
 
