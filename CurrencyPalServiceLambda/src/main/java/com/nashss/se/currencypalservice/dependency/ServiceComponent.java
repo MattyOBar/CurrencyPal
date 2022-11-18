@@ -2,6 +2,7 @@ package com.nashss.se.currencypalservice.dependency;
 
 import com.nashss.se.currencypalservice.activity.CreateCustomerActivity;
 
+import com.nashss.se.currencypalservice.activity.GetCurrencyActivity;
 import com.nashss.se.currencypalservice.activity.GetCustomerActivity;
 import com.nashss.se.currencypalservice.activity.UpdateCustomerActivity;
 
