@@ -3,7 +3,7 @@ package com.nashss.se.currencypalservice.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-@JsonDeserialize
+@JsonDeserialize(builder = CreateCustomerRequest.Builder.class)
 public class CreateCustomerRequest {
     private final String customerId;
     private final String name;
