@@ -1,6 +1,5 @@
 package com.nashss.se.currencypalservice.activity.results;
 
-import com.nashss.se.currencypalservice.dynamodb.models.Customer;
 import com.nashss.se.currencypalservice.models.CustomerModel;
 
 public class CreateCustomerResult {
@@ -14,6 +13,10 @@ public class CreateCustomerResult {
         return customer;
     }
 
+    /**
+     * toString method.
+     * @return customer.
+     */
     public String toString() {
         return "CreateCustomerResult" +
                 "customer: " + customer;
