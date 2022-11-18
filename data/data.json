@@ -111,6 +111,100 @@
       }
     }
   ],
+  "Currencies": [
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": ".943"},
+          "currencyType": {"S": "CHF, Swiss Franc, CHF"},
+          "ranking": { "S":  "2"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "1.0"},
+          "currencyType": {"S": "USD, US Dollar, $"},
+          "ranking": { "S":  "1"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "0.965"},
+          "currencyType": {"S": "Eur, Euro, €"},
+          "ranking": { "S":  "3"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "138.884"},
+          "currencyType": {"S": "JPY, Japanese Yen, ¥"},
+          "ranking": { "S":  "4"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "1.890"},
+          "currencyType": {"S": "BGN, Bulgarian Lev, BGN"},
+          "ranking": { "S":  "5"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "23.512"},
+          "currencyType": {"S": "CZK, Czech Republic Koruna, Kč"},
+          "ranking": { "S":  "6"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "7.180"},
+          "currencyType": {"S": "DKK, Dannish Krone, Dkr"},
+          "ranking": { "S":  "7"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "0.841"},
+          "currencyType": {"S": "GBP, British Pound Sterling, £"},
+          "ranking": { "S":  "8"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "397.984"},
+          "currencyType": {"S": "HUF, Hungarian Forint, Ft"},
+          "ranking": { "S":  "9"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "currentRate": {"N": "4.576"},
+          "currencyType": {"S": "PLN, Polish Zloty, zł"},
+          "ranking": { "S":  "10"}
+        }
+      }
+    }
+  ],
+
+
   "playlists": [
     {
       "PutRequest": {
