@@ -16,7 +16,7 @@ public class GetCustomerRequest {
     }
 
     /**
-     * toString method that.
+     * toString method that converts your class to a string
      * @return customerId.
      */
     public String toString() {

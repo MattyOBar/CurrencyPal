@@ -34,7 +34,7 @@ public class CreateCustomerRequest {
     }
 
     /**
-     * toString method that.
+     * toString method that converts a class to a string.
      * @return customerId , name, and date of birth
      */
     @Override
