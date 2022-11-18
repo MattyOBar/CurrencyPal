@@ -1,6 +1,7 @@
 package com.nashss.se.currencypalservice.dynamodb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
 import java.util.Objects;
@@ -8,7 +9,7 @@ import java.util.Objects;
 /**
  * Represents a Currency in the Currency table.
  */
-@DynamoDBTable(tableName = "Currency")
+@DynamoDBTable(tableName = "Currencies")
 public class Currency {
     private double currentRate;
     private CurrencyType currencyType;
@@ -31,7 +32,7 @@ public class Currency {
         return currentRate;
     }
 
-    @DynamoDBAttribute(attributeName = "currencyType")
+    @DynamoDBHashKey(attributeName = "currencyType")
     public CurrencyType getCurrencyType() {
         return currencyType;
     }
@@ -56,14 +57,14 @@ public class Currency {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currentRate, currencyType, ranking);
+        return Objects.hash(currencyType,currentRate, ranking);
     }
 
     @Override
     public String toString() {
         return "Currency{" +
                 "currentRate='" + currentRate + '\'' +
-                ", countryName='" + currencyType + '\'' +
+                ", currencyType='" + currencyType + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';
     }
