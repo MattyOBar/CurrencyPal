@@ -3,7 +3,10 @@ package com.nashss.se.currencypalservice.activity.requests;
 public class GetCustomerRequest {
     private final String customerId;
 
-
+    /**
+     * This constructs a customer object.
+     * @param customerId A unique ID given to a customer.
+     */
     public GetCustomerRequest(String customerId) {
         this.customerId = customerId;
     }
@@ -12,6 +15,10 @@ public class GetCustomerRequest {
         return customerId;
     }
 
+    /**
+     * toString method that.
+     * @return customerId.
+     */
     public String toString() {
         return "GetCustomerRequest:" +
                 "customerId=" + customerId;
