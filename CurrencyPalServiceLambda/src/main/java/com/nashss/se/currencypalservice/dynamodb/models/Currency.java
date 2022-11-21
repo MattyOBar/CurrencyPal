@@ -12,7 +12,7 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Currencies")
 public class Currency {
     private double currentRate;
-    private String currencyType;
+    private CurrencyType currencyType;
     private int ranking;
 
     /**
@@ -21,7 +21,7 @@ public class Currency {
      * @param currencyType The enum containing the currencyAbrv, currencyName, and currencySymbol
      * @param ranking the ranking of popularity of the use of the currency
      */
-    public Currency(double currentRate, String currencyType, int ranking) {
+    public Currency(double currentRate, CurrencyType currencyType, int ranking) {
         this.currentRate = currentRate;
         this.currencyType = currencyType;
         this.ranking = ranking;
@@ -34,7 +34,7 @@ public class Currency {
 
     @DynamoDBHashKey(attributeName = "currencyType")
     public String getCurrencyType() {
-        return currencyType;
+        return currencyType.getCurrencyAbrv();
     }
     @DynamoDBAttribute(attributeName = "ranking")
     public int getRanking() {

@@ -29,15 +29,15 @@ class GetCurrencyActivityTest {
     public void handleRequest_savedCurrencyReturned_ReturnsCurrencyModelInResult() {
         //GIVEN
         double expectedRate = 1;
-        String expectedCurrencyType = CurrencyType.US_DOLLAR.getCurrencyAbrv();
+        CurrencyType expectedCurrencyType = CurrencyType.US_DOLLAR;
         int expectedRanking = 1;
 
         Currency currency = new Currency(expectedRate, expectedCurrencyType, expectedRanking);
 
-        when(currencyDAO.getCurrency(expectedCurrencyType)).thenReturn(currency);
+        when(currencyDAO.getCurrency(expectedCurrencyType.getCurrencyAbrv())).thenReturn(currency);
 
         GetCurrencyRequest request = GetCurrencyRequest.builder()
-                .withCurrencyType(expectedCurrencyType)
+                .withCurrencyType(expectedCurrencyType.getCurrencyAbrv())
                 .build();
 
         //WHEN
@@ -45,7 +45,7 @@ class GetCurrencyActivityTest {
 
         //THEN
         assertEquals(expectedRate, result.getCurrencyModel().getCurrentRate());
-        assertEquals(expectedCurrencyType, result.getCurrencyModel().getCurrencyType());
+        assertEquals(expectedCurrencyType.getCurrencyAbrv(), result.getCurrencyModel().getCurrencyType());
         assertEquals(expectedRanking, result.getCurrencyModel().getRanking());
 
 

@@ -42,7 +42,7 @@ public class CurrencyDAO {
         Currency currency = this.dynamoDBMapper.load(Currency.class, currencyType);
         if (currency == null) {
             metricsPublisher.addCount(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT, 1);
-            throw new CurrencyNotFoundException("Could not find the currency : " + currencyType);
+            throw new CurrencyNotFoundException("Could not find the currency: " + currencyType);
         }
         metricsPublisher.addCount(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT, 0);
         return currency;
@@ -54,8 +54,8 @@ public class CurrencyDAO {
      * @param currentRate the parameter used to specify the currentRate to be updated in the Currency object
      * @return the new updated currency object
      */
-    public Currency updateCurrency(String currencyType, double currentRate) {
-        Currency currency = this.dynamoDBMapper.load(Currency.class, currencyType);
+    public Currency updateCurrency(CurrencyType currencyType, double currentRate) {
+        Currency currency = this.dynamoDBMapper.load(Currency.class, currencyType.getCurrencyAbrv());
         if (Objects.isNull(currency)) {
             metricsPublisher.addCount(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT, 1);
             throw new CurrencyNotFoundException("Couldn't find currency: " + currencyType);
