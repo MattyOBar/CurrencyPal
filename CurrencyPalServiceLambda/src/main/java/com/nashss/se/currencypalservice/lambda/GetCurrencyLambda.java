@@ -15,7 +15,7 @@ public class GetCurrencyLambda
         return super.runActivity(
                 () -> input.fromPath(path ->
                         GetCurrencyRequest.builder()
-                                .withCurrencyType(CurrencyType.valueOf(path.get("currencyType")))
+                                .withCurrencyType(path.get("currencyType"))
                                 .build()),
                 (request, serviceComponent) ->
                         serviceComponent.provideGetCurrencyActivity().handleRequest(request)

@@ -3,12 +3,12 @@ package com.nashss.se.currencypalservice.activity.requests;
 import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 
 public class GetCurrencyRequest {
-    private final CurrencyType currencyType;
+    private final String currencyType;
 
-    private GetCurrencyRequest(CurrencyType currencyType) {
+    private GetCurrencyRequest(String currencyType) {
         this.currencyType = currencyType;
     }
-    public CurrencyType getCurrencyType() {
+    public String getCurrencyType() {
         return currencyType;
     }
 
@@ -28,9 +28,9 @@ public class GetCurrencyRequest {
     }
 
     public static class Builder {
-        private CurrencyType currencyType;
+        private String currencyType;
 
-        public Builder withCurrencyType(CurrencyType currencyType) {
+        public Builder withCurrencyType(String currencyType) {
             this.currencyType = currencyType;
             return this;
         }

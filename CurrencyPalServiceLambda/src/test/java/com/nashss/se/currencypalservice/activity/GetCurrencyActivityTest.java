@@ -29,7 +29,7 @@ class GetCurrencyActivityTest {
     public void handleRequest_savedCurrencyReturned_ReturnsCurrencyModelInResult() {
         //GIVEN
         double expectedRate = 1;
-        CurrencyType expectedCurrencyType = CurrencyType.US_DOLLAR;
+        String expectedCurrencyType = CurrencyType.US_DOLLAR.getCurrencyAbrv();
         int expectedRanking = 1;
 
         Currency currency = new Currency(expectedRate, expectedCurrencyType, expectedRanking);

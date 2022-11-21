@@ -19,7 +19,7 @@ public class ModelConverterTest {
     @Test
     void toCurrencyModel_convertsCurrency() {
         //GIVEN
-        Currency currency = new Currency(1, CurrencyType.US_DOLLAR, 1);
+        Currency currency = new Currency(1, CurrencyType.US_DOLLAR.getCurrencyAbrv(), 1);
 
         //WHEN
         CurrencyModel currencyModel = modelConverter.toCurrencyModel(currency);

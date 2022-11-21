@@ -1,122 +1,10 @@
 {
-  "album_tracks": [
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B019HKJTCI" },
-          "track_number": { "N": "6" },
-          "album_name": { "S": "Money" },
-          "song_title": { "S": "Dark Side of the Moon" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B00000000" },
-          "track_number": { "N": "1" },
-          "album_name": { "S": "NSS Smooth Jams" },
-          "song_title": { "S": "firstNameLast" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B00000000" },
-          "track_number": { "N": "2" },
-          "album_name": { "S": "NSS Smooth Jams" },
-          "song_title": { "S": "spiderman" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B00000000" },
-          "track_number": { "N": "3" },
-          "album_name": { "S": "NSS Smooth Jams" },
-          "song_title": { "S": "curveballs" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B00000000" },
-          "track_number": { "N": "4" },
-          "album_name": { "S": "NSS Smooth Jams" },
-          "song_title": { "S": "whereImFrom" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B00000000" },
-          "track_number": { "N": "5" },
-          "album_name": { "S": "NSS Smooth Jams" },
-          "song_title": { "S": "wahoo" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B07VSG6V59" },
-          "track_number": { "N": "2" },
-          "album_name": { "S": "All Mirrors" },
-          "song_title": { "S": "All Mirrors" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B07NJ3H27X" },
-          "track_number": { "N": "1" },
-          "album_name": { "S": "Cuz I Love You" },
-          "song_title": { "S": "Cuz I Love You" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B07NJ3H27X" },
-          "track_number": { "N": "7" },
-          "album_name": { "S": "Cuz I Love You" },
-          "song_title": { "S": "Tempo" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B004CAWKXE" },
-          "track_number": { "N": "2" },
-          "album_name": { "S": "Danger Days: The True Lives of the Fabulous Killjoys" },
-          "song_title": { "S": "Na Na Na (Na Na Na Na Na Na Na Na Na)" }
-        }
-      }
-    },
-    {
-      "PutRequest": {
-        "Item": {
-          "asin": { "S": "B000LP5FSG" },
-          "track_number": { "N": "2" },
-          "album_name": { "S": "WINCING THE NIGHT AWAY" },
-          "song_title": { "S": "Australia" }
-        }
-      }
-    }
-  ],
   "Currencies": [
     {
       "PutRequest": {
         "Item": {
           "currentRate": {"N": ".943"},
-          "currencyType": {"S": "CHF, Swiss Franc, CHF"},
+          "currencyType": {"S": "CHF"},
           "ranking": { "S":  "2"}
         }
       }
@@ -125,7 +13,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "1.0"},
-          "currencyType": {"S": "USD, US Dollar, $"},
+          "currencyType": {"S": "USD"},
           "ranking": { "S":  "1"}
         }
       }
@@ -134,7 +22,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "0.965"},
-          "currencyType": {"S": "Eur, Euro, €"},
+          "currencyType": {"S": "Eur"},
           "ranking": { "S":  "3"}
         }
       }
@@ -143,7 +31,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "138.884"},
-          "currencyType": {"S": "JPY, Japanese Yen, ¥"},
+          "currencyType": {"S": "JPY"},
           "ranking": { "S":  "4"}
         }
       }
@@ -152,7 +40,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "1.890"},
-          "currencyType": {"S": "BGN, Bulgarian Lev, BGN"},
+          "currencyType": {"S": "BGN"},
           "ranking": { "S":  "5"}
         }
       }
@@ -161,7 +49,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "23.512"},
-          "currencyType": {"S": "CZK, Czech Republic Koruna, Kč"},
+          "currencyType": {"S": "CZK"},
           "ranking": { "S":  "6"}
         }
       }
@@ -170,7 +58,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "7.180"},
-          "currencyType": {"S": "DKK, Dannish Krone, Dkr"},
+          "currencyType": {"S": "DKK"},
           "ranking": { "S":  "7"}
         }
       }
@@ -179,7 +67,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "0.841"},
-          "currencyType": {"S": "GBP, British Pound Sterling, £"},
+          "currencyType": {"S": "GBP"},
           "ranking": { "S":  "8"}
         }
       }
@@ -188,7 +76,7 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "397.984"},
-          "currencyType": {"S": "HUF, Hungarian Forint, Ft"},
+          "currencyType": {"S": "HUF"},
           "ranking": { "S":  "9"}
         }
       }
@@ -197,25 +85,8 @@
       "PutRequest": {
         "Item": {
           "currentRate": {"N": "4.576"},
-          "currencyType": {"S": "PLN, Polish Zloty, zł"},
+          "currencyType": {"S": "PLN"},
           "ranking": { "S":  "10"}
-        }
-      }
-    }
-  ],
-
-
-  "playlists": [
-    {
-      "PutRequest": {
-        "Item": {
-          "id": { "S": "O7SFa" },
-          "name": { "S": "NSS Songs" },
-          "songCount": { "N": "1" },
-          "songList": { "S": "[]" },
-          "customerId": { "S": "nunya-business" },
-          "tags": { "SS": [ "banjo", "triangle", "saw" ]
-          }
         }
       }
     }

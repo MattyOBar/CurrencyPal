@@ -27,7 +27,7 @@ class CurrencyDAOTest {
 
     private CurrencyDAO currencyDAO;
 
-    Currency testCurrency = new Currency(1, US_DOLLAR, 1);
+    Currency testCurrency = new Currency(1, US_DOLLAR.getCurrencyAbrv(), 1);
     @BeforeEach
     public void setup() {
         openMocks(this);
@@ -37,21 +37,21 @@ class CurrencyDAOTest {
     @Test
     public void getCurrency_withCurrencyAbrv_callsMapperWithParitionKey() {
         //GIVEN
-        when(dynamoDBMapper.load(Currency.class, US_DOLLAR)).thenReturn(testCurrency);
+        when(dynamoDBMapper.load(Currency.class, US_DOLLAR.getCurrencyAbrv())).thenReturn(testCurrency);
 
         //WHEN
-        Currency currency = currencyDAO.getCurrency(US_DOLLAR);
+        Currency currency = currencyDAO.getCurrency(US_DOLLAR.getCurrencyAbrv());
 
         //THEN
         assertNotNull(currency);
-        verify(dynamoDBMapper).load(Currency.class, US_DOLLAR);
+        verify(dynamoDBMapper).load(Currency.class, US_DOLLAR.getCurrencyAbrv());
         verify(metricsPublisher).addCount(eq(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT), anyDouble());
     }
 
     @Test
     public void getCurrency_currencyAbrvNotFound_ThrowsCurrencyNotFoundException() {
         //GIVEN
-        CurrencyType nonexistantCurrencyAbrv = null;
+        String nonexistantCurrencyAbrv = null;
         when(dynamoDBMapper.load(Currency.class, nonexistantCurrencyAbrv)).thenReturn(null);
 
         //WHEN + THEN
@@ -62,10 +62,10 @@ class CurrencyDAOTest {
     @Test
     public void updateCurrency_currencyRateIsUpdated_returnsTrue() {
         //GIVEN
-        when(dynamoDBMapper.load(Currency.class, US_DOLLAR)).thenReturn(testCurrency);
+        when(dynamoDBMapper.load(Currency.class, US_DOLLAR.getCurrencyAbrv())).thenReturn(testCurrency);
 
         //WHEN
-        testCurrency = currencyDAO.updateCurrency(US_DOLLAR, 5.0);
+        testCurrency = currencyDAO.updateCurrency(US_DOLLAR.getCurrencyAbrv(), 5.0);
 
         //THEN
         assertEquals(5.0, testCurrency.getCurrentRate());

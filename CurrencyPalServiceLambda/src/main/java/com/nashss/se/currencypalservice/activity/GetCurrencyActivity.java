@@ -40,7 +40,7 @@ public class GetCurrencyActivity {
      */
     public GetCurrencyResult handleRequest(final GetCurrencyRequest getCurrencyRequest) {
         log.info("Received GetCurrencyRequest {}", getCurrencyRequest);
-        CurrencyType currencyType = getCurrencyRequest.getCurrencyType();
+        String currencyType = getCurrencyRequest.getCurrencyType();
         Currency currency = currencyDAO.getCurrency(currencyType);
         CurrencyModel currencyModel = new ModelConverter().toCurrencyModel(currency);
         return GetCurrencyResult.builder()

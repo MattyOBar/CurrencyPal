@@ -6,10 +6,10 @@ import java.util.Objects;
 
 public class CurrencyModel {
     private final double currentRate;
-    private final CurrencyType currencyType;
+    private final String currencyType;
     private final int ranking;
 
-    private CurrencyModel(double currentRate, CurrencyType currencyType, int ranking) {
+    private CurrencyModel(double currentRate, String currencyType, int ranking) {
         this.currentRate = currentRate;
         this.currencyType = currencyType;
         this.ranking = ranking;
@@ -19,7 +19,7 @@ public class CurrencyModel {
         return currentRate;
     }
 
-    public CurrencyType getCurrencyType() {
+    public String getCurrencyType() {
         return currencyType;
     }
 
@@ -52,7 +52,7 @@ public class CurrencyModel {
     public static class Builder {
         private double currentRate;
 
-        private CurrencyType currencyType;
+        private String currencyType;
         private int ranking;
 
         public Builder withCurrentRate(double currentRate) {
@@ -60,7 +60,7 @@ public class CurrencyModel {
             return this;
         }
 
-        public Builder withCurrencyType(CurrencyType currencyType) {
+        public Builder withCurrencyType(String currencyType) {
             this.currencyType = currencyType;
             return this;
         }
