@@ -1,18 +1,18 @@
 import CurrencyClient from '../api/currencyClient';
-import Header from '../components/header';
+//import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
 
 /**
  * Logic needed for the view playlist page of the website.
  */
-class ViewPlaylist extends BindingClass {
+class ViewCurrency extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage'])
+        this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addRateToPage);
-        this.header = new Header(this.dataStore);
+//        this.header = new Header(this.dataStore);
     }
 
     /**
@@ -20,30 +20,35 @@ class ViewPlaylist extends BindingClass {
      */
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
-
+        this.dataStore.set('currency', document.getElementById('currency-usd').innerText);
+        console.log("client loaded");
     }
 
     /**
      * Add the header to the page and load the MusicPlaylistClient.
      */
     mount() {
-        this.header.addHeaderToPage();
-        this.header.loadData();
-        this.client = new currencyClient();
+//        this.header.addHeaderToPage();
+//        this.header.loadData();
+        this.client = new CurrencyClient();
         this.clientLoaded();
     }
 
-    addRateToPage() {
-        const currencies = this.dataStore.get('currency');
-        if(currency = null) {
+    async addRateToPage() {
+        const currency = this.dataStore.get('currency');
+        if(currency == null) {
             return;
         }
-        document.getElementById('currency-usd').innerText = currency.currencyAbrv;
+        console.log("currency" + currency);
+        const currencyRate = await this.client.getCurrency(currency);
+        console.log("currencyRate " + JSON.stringify(currencyRate));
 
-        let rateHtml = '';
-        let rate;
+        let rateHtml = ' ';
 
-        rateHtml+= '<p>' + rate + '</p>';
+        rateHtml+= '<p>ranking: ' + currencyRate.ranking + '</p>';
+        rateHtml+= '<p>abv: ' + currencyRate.currencyAbrv + '</p>';
+        rateHtml+= '<p>rate: ' + currencyRate.currentRate + '</p>';
+
         document.getElementById('display-rate').innerHTML = rateHtml;
 
         }
