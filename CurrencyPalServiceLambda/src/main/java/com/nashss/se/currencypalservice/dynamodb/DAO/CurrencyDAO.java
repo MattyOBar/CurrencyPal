@@ -56,7 +56,6 @@ public class CurrencyDAO {
         currency.setCurrentRate(currentRate);
         this.dynamoDBMapper.save(currency);
         return currency;
-
     }
 
 }

@@ -24,7 +24,6 @@ class CurrencyDAOTest {
 
     private CurrencyDAO currencyDAO;
 
-//    Currency testCurrency = new Currency(1, "USD", 1);
     @BeforeEach
     public void setup() {
         openMocks(this);
@@ -65,18 +64,25 @@ class CurrencyDAOTest {
         verify(metricsPublisher).addCount(eq(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT), anyDouble());
     }
 
-//    @Test
-//    public void updateCurrency_currencyRateIsUpdated_returnsTrue() {
-//        //GIVEN
-//        when(dynamoDBMapper.load(Currency.class, testCurrency)).thenReturn(testCurrency);
-//
-//        //WHEN
-////        testCurrency = currencyDAO.updateCurrency(testCurrency);
-////
-////        //THEN
-////        assertEquals(5.0, testCurrency.getCurrentRate());
-////        verify(dynamoDBMapper).save(testCurrency);
-////        verify(metricsPublisher).addCount(eq(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT), anyDouble());
+    @Test
+    public void updateCurrency_currencyRateIsUpdated_returnsTrue() {
+        //GIVEN
+        double expectedRate = 1;
+        String expectedCurrencyAbrv = "USD";
+        int expectedRanking = 1;
 
-//    }
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrentRate(expectedRate);
+        currency.setRanking(expectedRanking);
+
+        when(dynamoDBMapper.load(Currency.class, expectedCurrencyAbrv)).thenReturn(currency);
+
+        //WHEN
+        currency = currencyDAO.updateCurrency(currency, 5.0);
+
+        //THEN
+        assertEquals(5.0, currency.getCurrentRate());
+        verify(dynamoDBMapper).save(currency);
+    }
 }
