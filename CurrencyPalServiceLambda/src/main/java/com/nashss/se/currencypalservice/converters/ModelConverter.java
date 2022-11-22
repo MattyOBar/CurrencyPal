@@ -15,7 +15,7 @@ public class ModelConverter {
      */
     public CurrencyModel toCurrencyModel(Currency currency) {
         return CurrencyModel.builder()
-                .withCurrencyType(currency.getCurrencyType())
+                .withCurrencyAbrv(currency.getCurrencyAbrv())
                 .withCurrentRate(currency.getCurrentRate())
                 .withRating(currency.getRanking())
                 .build();

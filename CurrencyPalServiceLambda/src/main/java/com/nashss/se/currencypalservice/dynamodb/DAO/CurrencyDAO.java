@@ -1,14 +1,12 @@
 package com.nashss.se.currencypalservice.dynamodb.DAO;
 
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
-import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 import com.nashss.se.currencypalservice.exceptions.CurrencyNotFoundException;
 import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
-import java.util.Objects;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -35,14 +33,14 @@ public class CurrencyDAO {
 
     /**
      * Makes a DynamoDB call to retrieve the specificied Currency.
-     * @param currencyType the parameter that indicates the specified Currency
+     * @param currencyAbrv the parameter that indicates the specified Currency
      * @return the currency Object retrieved from DynamoDB
      */
-    public Currency getCurrency(String currencyType) {
-        Currency currency = this.dynamoDBMapper.load(Currency.class, currencyType);
+    public Currency getCurrency(String currencyAbrv) {
+        Currency currency = dynamoDBMapper.load(Currency.class, currencyAbrv);
         if (currency == null) {
             metricsPublisher.addCount(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT, 1);
-            throw new CurrencyNotFoundException("Could not find the currency: " + currencyType);
+            throw new CurrencyNotFoundException("Could not find the currency: " + currencyAbrv);
         }
         metricsPublisher.addCount(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT, 0);
         return currency;
@@ -50,21 +48,14 @@ public class CurrencyDAO {
 
     /**
      * Makes a DynamoDB call to retrieve and update a specified Currency.
-     * @param currencyType the parameter used to specify the Currency to be updated
+     * @param currency the parameter used to specify the Currency to be updated
      * @param currentRate the parameter used to specify the currentRate to be updated in the Currency object
      * @return the new updated currency object
      */
-    public Currency updateCurrency(CurrencyType currencyType, double currentRate) {
-        Currency currency = this.dynamoDBMapper.load(Currency.class, currencyType.getCurrencyAbrv());
-        if (Objects.isNull(currency)) {
-            metricsPublisher.addCount(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT, 1);
-            throw new CurrencyNotFoundException("Couldn't find currency: " + currencyType);
-        } else {
-            currency = new Currency(currentRate, currencyType, currency.getRanking());
-            this.dynamoDBMapper.save(currency);
-        }
-        metricsPublisher.addCount(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT, 0);
+    public Currency updateCurrency(Currency currency, double currentRate) {
+        this.dynamoDBMapper.save(currency);
         return currency;
+
     }
 
 }

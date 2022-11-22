@@ -12,18 +12,18 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Currencies")
 public class Currency {
     private double currentRate;
-    private CurrencyType currencyType;
+    private String currencyAbrv;
     private int ranking;
 
     /**
      * This constructs a Currency object.
      * @param currentRate The current rate used for currency conversion.
-     * @param currencyType The enum containing the currencyAbrv, currencyName, and currencySymbol
+     * @param currencyAbrv The enum containing the currencyAbrv, currencyName, and currencySymbol
      * @param ranking the ranking of popularity of the use of the currency
      */
-    public Currency(double currentRate, CurrencyType currencyType, int ranking) {
+    public Currency(double currentRate, String currencyAbrv, int ranking) {
         this.currentRate = currentRate;
-        this.currencyType = currencyType;
+        this.currencyAbrv = currencyAbrv;
         this.ranking = ranking;
     }
 
@@ -32,9 +32,9 @@ public class Currency {
         return currentRate;
     }
 
-    @DynamoDBHashKey(attributeName = "currencyType")
-    public String getCurrencyType() {
-        return currencyType.getCurrencyAbrv();
+    @DynamoDBHashKey(attributeName = "currencyAbrv")
+    public String getCurrencyAbrv() {
+        return currencyAbrv;
     }
     @DynamoDBAttribute(attributeName = "ranking")
     public int getRanking() {
@@ -50,21 +50,21 @@ public class Currency {
             return false;
         }
         Currency that = (Currency) o;
-        return currencyType.equals(that.currencyType) &&
+        return currencyAbrv.equals(that.currencyAbrv) &&
                 Objects.equals(currentRate, that.currentRate) &&
                 Objects.equals(ranking, that.ranking);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyType,currentRate, ranking);
+        return Objects.hash(currencyAbrv,currentRate, ranking);
     }
 
     @Override
     public String toString() {
         return "Currency{" +
                 "currentRate='" + currentRate + '\'' +
-                ", currencyType='" + currencyType + '\'' +
+                ", currencyAbrv='" + currencyAbrv + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';
     }
