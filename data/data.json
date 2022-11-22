@@ -3,90 +3,90 @@
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": ".943"},
           "currencyAbrv": {"S": "CHF"},
-          "ranking": { "S":  "2"}
+          "currentRate": {"N": ".943"},
+          "ranking": { "N":  "2"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "1.0"},
           "currencyAbrv": {"S": "USD"},
-          "ranking": { "S":  "1"}
+          "currentRate": {"N": "1.0"},
+          "ranking": { "N":  "1"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "0.965"},
           "currencyAbrv": {"S": "Eur"},
-          "ranking": { "S":  "3"}
+          "currentRate": {"N": "0.965"},
+          "ranking": { "N":  "3"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "138.884"},
           "currencyAbrv": {"S": "JPY"},
-          "ranking": { "S":  "4"}
+          "currentRate": {"N": "138.884"},
+          "ranking": { "N":  "4"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "1.890"},
           "currencyAbrv": {"S": "BGN"},
-          "ranking": { "S":  "5"}
+          "currentRate": {"N": "1.890"},
+          "ranking": { "N":  "5"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "23.512"},
           "currencyAbrv": {"S": "CZK"},
-          "ranking": { "S":  "6"}
+          "currentRate": {"N": "23.512"},
+          "ranking": { "N":  "6"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "7.180"},
           "currencyAbrv": {"S": "DKK"},
-          "ranking": { "S":  "7"}
+          "currentRate": {"N": "7.180"},
+          "ranking": { "N":  "7"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "0.841"},
           "currencyAbrv": {"S": "GBP"},
-          "ranking": { "S":  "8"}
+          "currentRate": {"N": "0.841"},
+          "ranking": { "N":  "8"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "397.984"},
           "currencyAbrv": {"S": "HUF"},
-          "ranking": { "S":  "9"}
+          "currentRate": {"N": "397.984"},
+          "ranking": { "N":  "9"}
         }
       }
     },
     {
       "PutRequest": {
         "Item": {
-          "currentRate": {"N": "4.576"},
           "currencyAbrv": {"S": "PLN"},
-          "ranking": { "S":  "10"}
+          "currentRate": {"N": "4.576"},
+          "ranking": { "N":  "10"}
         }
       }
     }

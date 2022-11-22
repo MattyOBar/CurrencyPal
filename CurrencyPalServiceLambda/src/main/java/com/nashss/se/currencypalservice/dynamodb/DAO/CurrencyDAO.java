@@ -37,7 +37,7 @@ public class CurrencyDAO {
      * @return the currency Object retrieved from DynamoDB
      */
     public Currency getCurrency(String currencyAbrv) {
-        Currency currency = dynamoDBMapper.load(Currency.class, currencyAbrv);
+        Currency currency = this.dynamoDBMapper.load(Currency.class, currencyAbrv);
         if (currency == null) {
             metricsPublisher.addCount(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT, 1);
             throw new CurrencyNotFoundException("Could not find the currency: " + currencyAbrv);
@@ -53,6 +53,7 @@ public class CurrencyDAO {
      * @return the new updated currency object
      */
     public Currency updateCurrency(Currency currency, double currentRate) {
+        currency.setCurrentRate(currentRate);
         this.dynamoDBMapper.save(currency);
         return currency;
 

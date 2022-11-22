@@ -31,7 +31,10 @@ class GetCurrencyActivityTest {
         String expectedCurrencyAbrv = "USD";
         int expectedRanking = 1;
 
-        Currency currency = new Currency(expectedRate, expectedCurrencyAbrv, expectedRanking);
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrentRate(expectedRate);
+        currency.setRanking(expectedRanking);
 
         when(currencyDAO.getCurrency(expectedCurrencyAbrv)).thenReturn(currency);
 

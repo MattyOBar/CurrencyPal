@@ -34,15 +34,23 @@ class CurrencyDAOTest {
     @Test
     public void getCurrency_withCurrencyAbrv_callsMapperWithParitionKey() {
         //GIVEN
-        String currencyAbrv = "USD";
-        when(dynamoDBMapper.load(Currency.class, currencyAbrv)).thenReturn(new Currency(1, "USD", 1));
+        double expectedRate = 1;
+        String expectedCurrencyAbrv = "USD";
+        int expectedRanking = 1;
+
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrentRate(expectedRate);
+        currency.setRanking(expectedRanking);
+
+        when(dynamoDBMapper.load(Currency.class, expectedCurrencyAbrv)).thenReturn(currency);
 
         //WHEN
-        Currency currency = currencyDAO.getCurrency(currencyAbrv);
+        currency = currencyDAO.getCurrency(expectedCurrencyAbrv);
 
         //THEN
         assertNotNull(currency);
-        verify(dynamoDBMapper).load(Currency.class, currencyAbrv);
+        verify(dynamoDBMapper).load(Currency.class, expectedCurrencyAbrv);
         verify(metricsPublisher).addCount(eq(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT), anyDouble());
     }
 

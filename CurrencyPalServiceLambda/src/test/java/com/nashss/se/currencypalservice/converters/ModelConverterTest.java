@@ -5,7 +5,6 @@ import com.nashss.se.currencypalservice.models.CurrencyModel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class ModelConverterTest {
     private ModelConverter modelConverter = new ModelConverter();
@@ -13,7 +12,10 @@ public class ModelConverterTest {
     @Test
     void toCurrencyModel_convertsCurrency() {
         //GIVEN
-        Currency currency = new Currency(1, "USD", 1);
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv("USD");
+        currency.setCurrentRate(1.0);
+        currency.setRanking(1);
 
         //WHEN
         CurrencyModel currencyModel = modelConverter.toCurrencyModel(currency);

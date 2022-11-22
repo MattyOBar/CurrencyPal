@@ -11,20 +11,17 @@ import java.util.Objects;
  */
 @DynamoDBTable(tableName = "Currencies")
 public class Currency {
-    private double currentRate;
     private String currencyAbrv;
+    private double currentRate;
     private int ranking;
 
-    /**
-     * This constructs a Currency object.
-     * @param currentRate The current rate used for currency conversion.
-     * @param currencyAbrv The enum containing the currencyAbrv, currencyName, and currencySymbol
-     * @param ranking the ranking of popularity of the use of the currency
-     */
-    public Currency(double currentRate, String currencyAbrv, int ranking) {
-        this.currentRate = currentRate;
+    @DynamoDBHashKey(attributeName = "currencyAbrv")
+    public String getCurrencyAbrv() {
+        return currencyAbrv;
+    }
+
+    public void setCurrencyAbrv(String currencyAbrv) {
         this.currencyAbrv = currencyAbrv;
-        this.ranking = ranking;
     }
 
     @DynamoDBAttribute(attributeName = "currentRate")
@@ -32,13 +29,17 @@ public class Currency {
         return currentRate;
     }
 
-    @DynamoDBHashKey(attributeName = "currencyAbrv")
-    public String getCurrencyAbrv() {
-        return currencyAbrv;
+    public void setCurrentRate(double currentRate) {
+        this.currentRate = currentRate;
     }
+
     @DynamoDBAttribute(attributeName = "ranking")
     public int getRanking() {
         return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
     }
 
     @Override
@@ -57,14 +58,14 @@ public class Currency {
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyAbrv,currentRate, ranking);
+        return Objects.hash(currencyAbrv, currentRate, ranking);
     }
 
     @Override
     public String toString() {
         return "Currency{" +
-                "currentRate='" + currentRate + '\'' +
-                ", currencyAbrv='" + currencyAbrv + '\'' +
+                "currencyAbrv='" + currencyAbrv + '\'' +
+                ", currentRate='" + currentRate + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';
     }
