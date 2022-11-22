@@ -2,15 +2,12 @@ package com.nashss.se.currencypalservice.dynamodb.DAO;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
-import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 import com.nashss.se.currencypalservice.exceptions.CurrencyNotFoundException;
 import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
-
-import static com.nashss.se.currencypalservice.dynamodb.models.CurrencyType.US_DOLLAR;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyDouble;
@@ -27,7 +24,6 @@ class CurrencyDAOTest {
 
     private CurrencyDAO currencyDAO;
 
-    Currency testCurrency = new Currency(1, US_DOLLAR, 1);
     @BeforeEach
     public void setup() {
         openMocks(this);
@@ -37,21 +33,30 @@ class CurrencyDAOTest {
     @Test
     public void getCurrency_withCurrencyAbrv_callsMapperWithParitionKey() {
         //GIVEN
-        when(dynamoDBMapper.load(Currency.class, US_DOLLAR)).thenReturn(testCurrency);
+        double expectedRate = 1;
+        String expectedCurrencyAbrv = "USD";
+        int expectedRanking = 1;
+
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrentRate(expectedRate);
+        currency.setRanking(expectedRanking);
+
+        when(dynamoDBMapper.load(Currency.class, expectedCurrencyAbrv)).thenReturn(currency);
 
         //WHEN
-        Currency currency = currencyDAO.getCurrency(US_DOLLAR);
+        currency = currencyDAO.getCurrency(expectedCurrencyAbrv);
 
         //THEN
         assertNotNull(currency);
-        verify(dynamoDBMapper).load(Currency.class, US_DOLLAR);
+        verify(dynamoDBMapper).load(Currency.class, expectedCurrencyAbrv);
         verify(metricsPublisher).addCount(eq(MetricsConstants.GETCURRENCY_CURRENCYNOTFOUND_COUNT), anyDouble());
     }
 
     @Test
     public void getCurrency_currencyAbrvNotFound_ThrowsCurrencyNotFoundException() {
         //GIVEN
-        CurrencyType nonexistantCurrencyAbrv = null;
+        String nonexistantCurrencyAbrv = null;
         when(dynamoDBMapper.load(Currency.class, nonexistantCurrencyAbrv)).thenReturn(null);
 
         //WHEN + THEN
@@ -62,15 +67,22 @@ class CurrencyDAOTest {
     @Test
     public void updateCurrency_currencyRateIsUpdated_returnsTrue() {
         //GIVEN
-        when(dynamoDBMapper.load(Currency.class, US_DOLLAR)).thenReturn(testCurrency);
+        double expectedRate = 1;
+        String expectedCurrencyAbrv = "USD";
+        int expectedRanking = 1;
+
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrentRate(expectedRate);
+        currency.setRanking(expectedRanking);
+
+        when(dynamoDBMapper.load(Currency.class, expectedCurrencyAbrv)).thenReturn(currency);
 
         //WHEN
-        testCurrency = currencyDAO.updateCurrency(US_DOLLAR, 5.0);
+        currency = currencyDAO.updateCurrency(currency, 5.0);
 
         //THEN
-        assertEquals(5.0, testCurrency.getCurrentRate());
-        verify(dynamoDBMapper).save(testCurrency);
-        verify(metricsPublisher).addCount(eq(MetricsConstants.UPDATECURRENCY_CURRENCYNOTFOUND_COUNT), anyDouble());
-
+        assertEquals(5.0, currency.getCurrentRate());
+        verify(dynamoDBMapper).save(currency);
     }
 }

@@ -1,17 +1,15 @@
 package com.nashss.se.currencypalservice.models;
 
-import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
-
 import java.util.Objects;
 
 public class CurrencyModel {
     private final double currentRate;
-    private final CurrencyType currencyType;
+    private final String currencyAbrv;
     private final int ranking;
 
-    private CurrencyModel(double currentRate, CurrencyType currencyType, int ranking) {
+    private CurrencyModel(double currentRate, String currencyAbrv, int ranking) {
         this.currentRate = currentRate;
-        this.currencyType = currencyType;
+        this.currencyAbrv = currencyAbrv;
         this.ranking = ranking;
     }
 
@@ -19,8 +17,8 @@ public class CurrencyModel {
         return currentRate;
     }
 
-    public CurrencyType getCurrencyType() {
-        return currencyType;
+    public String getCurrencyAbrv() {
+        return currencyAbrv;
     }
 
     public int getRanking() {
@@ -36,13 +34,13 @@ public class CurrencyModel {
             return false;
         }
         CurrencyModel that = (CurrencyModel) o;
-        return currencyType.equals(that.currencyType) &&
+        return currencyAbrv.equals(that.currencyAbrv) &&
                 Objects.equals(currentRate, that.currentRate) &&
                 Objects.equals(ranking, that.ranking);
     }
     @Override
     public int hashCode() {
-        return Objects.hash(currentRate, currencyType, ranking);
+        return Objects.hash(currentRate, currencyAbrv, ranking);
     }
 
     //CHECKSTYLE:OFF:Builder
@@ -52,7 +50,7 @@ public class CurrencyModel {
     public static class Builder {
         private double currentRate;
 
-        private CurrencyType currencyType;
+        private String currencyAbrv;
         private int ranking;
 
         public Builder withCurrentRate(double currentRate) {
@@ -60,8 +58,8 @@ public class CurrencyModel {
             return this;
         }
 
-        public Builder withCurrencyType(CurrencyType currencyType) {
-            this.currencyType = currencyType;
+        public Builder withCurrencyAbrv(String currencyAbrv) {
+            this.currencyAbrv = currencyAbrv;
             return this;
         }
 
@@ -71,7 +69,7 @@ public class CurrencyModel {
         }
 
         public CurrencyModel build() {
-            return new CurrencyModel(currentRate,currencyType, ranking);
+            return new CurrencyModel(currentRate, currencyAbrv, ranking);
         }
     }
 }

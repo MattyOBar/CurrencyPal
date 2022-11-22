@@ -4,7 +4,6 @@ import com.nashss.se.currencypalservice.activity.requests.GetCurrencyRequest;
 import com.nashss.se.currencypalservice.activity.results.GetCurrencyResult;
 import com.nashss.se.currencypalservice.dynamodb.DAO.CurrencyDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
-import com.nashss.se.currencypalservice.dynamodb.models.CurrencyType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -29,15 +28,18 @@ class GetCurrencyActivityTest {
     public void handleRequest_savedCurrencyReturned_ReturnsCurrencyModelInResult() {
         //GIVEN
         double expectedRate = 1;
-        CurrencyType expectedCurrencyType = CurrencyType.US_DOLLAR;
+        String expectedCurrencyAbrv = "USD";
         int expectedRanking = 1;
 
-        Currency currency = new Currency(expectedRate, expectedCurrencyType, expectedRanking);
+        Currency currency = new Currency();
+        currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrentRate(expectedRate);
+        currency.setRanking(expectedRanking);
 
-        when(currencyDAO.getCurrency(expectedCurrencyType)).thenReturn(currency);
+        when(currencyDAO.getCurrency(expectedCurrencyAbrv)).thenReturn(currency);
 
         GetCurrencyRequest request = GetCurrencyRequest.builder()
-                .withCurrencyType(expectedCurrencyType)
+                .withCurrencyAbrv(expectedCurrencyAbrv)
                 .build();
 
         //WHEN
@@ -45,7 +47,7 @@ class GetCurrencyActivityTest {
 
         //THEN
         assertEquals(expectedRate, result.getCurrencyModel().getCurrentRate());
-        assertEquals(expectedCurrencyType, result.getCurrencyModel().getCurrencyType());
+        assertEquals(expectedCurrencyAbrv, result.getCurrencyModel().getCurrencyAbrv());
         assertEquals(expectedRanking, result.getCurrencyModel().getRanking());
 
 
