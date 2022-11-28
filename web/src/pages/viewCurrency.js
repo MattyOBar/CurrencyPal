@@ -1,18 +1,16 @@
 import CurrencyClient from '../api/currencyClient';
-import Header from '../components/header';
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
 
 /**
  * Logic needed for the view playlist page of the website.
  */
-class ViewPlaylist extends BindingClass {
+class ViewCurrency extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage', 'loadAllRates'])
+        this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage', 'loadAllRates'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addRateToPage);
-        this.header = new Header(this.dataStore);
     }
 
     /**
@@ -20,20 +18,18 @@ class ViewPlaylist extends BindingClass {
      */
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
-
+        this.loadAllRates();
     }
 
     /**
      * Add the header to the page and load the MusicPlaylistClient.
      */
     mount() {
-        this.header.addHeaderToPage();
-        this.header.loadData();
-        this.client = new currencyClient();
+        this.client = new CurrencyClient();
         this.clientLoaded();
     }
 
-    addRateToPage() {
+    async addRateToPage() {
         const currencies = this.dataStore.get('currency');
         if(currency = null) {
             return;
@@ -48,12 +44,19 @@ class ViewPlaylist extends BindingClass {
 
     }
 
-    loadAllRates() {
-        cosnt currencies = await this.client.getAllCurrency();
+    async loadAllRates() {
+        const currencies = await this.client.getAllCurrency();
         console.log("currency" + JSON.stringify(currencies));
 
         let html = '';
-        html+= '<row'
+        //needs for each
+        //how to convert multiple json entries
+        html+= '<tr>' +
+        '<th>' + currency.currencyAbrv + '</th>'
+        '<th>' + currency.rate + '</th>' +
+        '</tr>'
+
+        document.getElementById('rates-table').innerHTML = html;
     }
 }
 

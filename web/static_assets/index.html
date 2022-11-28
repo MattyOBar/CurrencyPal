@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript" src="assets/viewCurrency.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
 </head>
  <body>
  <div>
-     <link href="./home.css" rel="stylesheet" />
+     <link href="css/style.css" rel="stylesheet" />
      <div class="home-container">
          <header data-thq="thq-navbar" class="home-navbar-interactive">
-             <img src="/playground_assets/cp-200h.png" class="home-image" />
+<!--             <img src="images/currencyPalLogo.png" class="home-image" /> -->
              <div data-thq="thq-navbar-nav" data-role="Nav" class="home-desktop-menu">
                  <nav data-thq="thq-navbar-nav-links" data-role="Nav" class="home-nav">
                      <a href="home.html" id="homeLink" class="home-navlink">
@@ -33,7 +34,14 @@
          <div id="home" class="home-container1">
              <h1 class="home-heading">The World&apos;s Trusted Currency Authority</h1>
          </div>
-         <div id="display" class="home-container2"></div>
+         <div id="display" class="home-container2">
+             <table id="rates-table">
+                 <tr>
+                     <th>Currency</th>
+                     <th>Rates</th>
+                 </tr>
+             </table>
+         </div>
          <div class="home-container3">
              <span class="home-text06">Amount</span>
              <input type="text" placeholder="1.00" class="home-textinput input" />
@@ -68,11 +76,7 @@
                      <option value="HUF">HUF</option>
                  </select>
              </div>
-             <div id="display-rate">
-                <table id="rates-table">
 
-                </table>
-             </div>
          </div>
      </div>
  </div>

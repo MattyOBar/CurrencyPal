@@ -181,7 +181,7 @@ Resources:
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
       CodeUri: CurrencyPalServiceLambda
-      Handler: com.nashss.se.currencypalservice.lambda.GetCurrencyLambda::handleRequest
+      Handler: com.nashss.se.currencypalservice.lambda.GetAllCurrencyLambda::handleRequest
       Runtime: java11
       Architectures:
         - x86_64

@@ -13,6 +13,10 @@ public class GetAllCurrencyRequest {
     }
 
     //CHECKSTYLE:OFF:Builder
+    public static Builder builder(){
+        return new Builder();
+    }
+    //CHECKSTYLE:OFF:Builder
     public static class Builder {
 
         public GetAllCurrencyRequest build() {
