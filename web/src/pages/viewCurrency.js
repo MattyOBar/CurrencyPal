@@ -9,7 +9,7 @@ import DataStore from "../util/DataStore";
 class ViewPlaylist extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage'])
+        this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage', 'loadAllRates'])
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addRateToPage);
         this.header = new Header(this.dataStore);
@@ -45,6 +45,10 @@ class ViewPlaylist extends BindingClass {
 
         rateHtml+= '<p>' + rate + '</p>';
         document.getElementById('display-rate').innerHTML = rateHtml;
+
+    }
+
+    loadAllRates() {
 
     }
 }
