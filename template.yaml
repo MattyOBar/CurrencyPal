@@ -175,6 +175,26 @@ Resources:
           Properties:
             Path: /currencies/{currencyAbrv}
             Method: get
+
+  GetAllCurrencyLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessDynamoDBTablesRole.Arn
+      CodeUri: CurrencyPalServiceLambda
+      Handler: com.nashss.se.currencypalservice.lambda.GetCurrencyLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /currencies/
+            Method: get
 #
 #  GetPlaylistSongsLambda:
 #    Type: AWS::Serverless::Function

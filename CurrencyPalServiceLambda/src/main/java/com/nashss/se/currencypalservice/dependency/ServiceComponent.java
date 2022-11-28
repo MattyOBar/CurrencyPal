@@ -19,6 +19,11 @@ public interface ServiceComponent {
      */
     GetCurrencyActivity provideGetCurrencyActivity();
 
+    /**
+     * Provides the relevant activity.
+     * @return GetCurrencyActivity
+     */
+    GetAllCurrencyActivity provideGetAllCurrencyActivity();
 
     /**
      * Provides the relevant activity.

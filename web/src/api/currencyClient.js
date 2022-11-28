@@ -63,6 +63,15 @@ export default class CurrencyClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
+
+    async getCurrency(errorCallback) {
+        try {
+            const response = await this.client.get(`currency/`);
+            return response.data.currency;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
    //call to api needs work
     async updateAllCurrency(errorCallback) {
         try {

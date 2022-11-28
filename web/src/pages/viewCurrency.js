@@ -46,7 +46,7 @@ class ViewPlaylist extends BindingClass {
         rateHtml+= '<p>' + rate + '</p>';
         document.getElementById('display-rate').innerHTML = rateHtml;
 
-        }
+    }
 }
 
 const main = async () => {
