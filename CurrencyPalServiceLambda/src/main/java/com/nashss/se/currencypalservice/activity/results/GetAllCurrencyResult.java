@@ -1,6 +1,5 @@
 package com.nashss.se.currencypalservice.activity.results;
 
-import com.nashss.se.currencypalservice.activity.requests.GetAllCurrencyRequest;
 import com.nashss.se.currencypalservice.models.CurrencyModel;
 
 import java.util.Set;
@@ -23,6 +22,7 @@ public class GetAllCurrencyResult {
                 '}';
     }
 
+    //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
     }

@@ -6,15 +6,19 @@ import com.nashss.se.currencypalservice.converters.ModelConverter;
 import com.nashss.se.currencypalservice.dynamodb.DAO.CurrencyDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
 import com.nashss.se.currencypalservice.models.CurrencyModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.inject.Inject;
 
-
+/**
+ * Implementation of the GetAllCurrencyActivity for the CurrencyPal.
+ *
+ */
 public class GetAllCurrencyActivity {
     private final Logger log = LogManager.getLogger();
 
@@ -29,12 +33,16 @@ public class GetAllCurrencyActivity {
     public GetAllCurrencyActivity(CurrencyDAO currencyDAO) {
         this.currencyDAO = currencyDAO;
     }
-
+    /**
+     * This method handles the incoming request by retrieving the playlist from the data base.
+     * @param getAllCurrencyRequest the request object containing the CurrencyType.
+     * @return getAllCurrencyResult the result object containing the API defined {@link CurrencyModel}.
+     */
     public GetAllCurrencyResult handleRequest(final GetAllCurrencyRequest getAllCurrencyRequest) {
         log.info("Recieved GetAllCurrencyRequest {}", getAllCurrencyRequest);
         List<Currency> currencyList = currencyDAO.getAllCurrency();
         Set<CurrencyModel> currencySet = new HashSet<CurrencyModel>();
-        for(Currency currency : currencyList) {
+        for (Currency currency : currencyList) {
             CurrencyModel currencyModel = new ModelConverter().toCurrencyModel(currency);
             currencySet.add(currencyModel);
         }
