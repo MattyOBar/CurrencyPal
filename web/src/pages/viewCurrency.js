@@ -49,7 +49,11 @@ class ViewPlaylist extends BindingClass {
     }
 
     loadAllRates() {
+        cosnt currencies = await this.client.getAllCurrency();
+        console.log("currency" + JSON.stringify(currencies));
 
+        let html = '';
+        html+= '<row'
     }
 }
 
