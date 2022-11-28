@@ -43,4 +43,13 @@ public enum CurrencyType {
     public String getCurrencySymbol() {
         return currencySymbol;
     }
+
+    @Override
+    public String toString() {
+        return "CurrencyType{" +
+                "currencyAbrv='" + currencyAbrv + '\'' +
+                ", currencyName='" + currencyName + '\'' +
+                ", currencySymbol='" + currencySymbol + '\'' +
+                '}';
+    }
 }
