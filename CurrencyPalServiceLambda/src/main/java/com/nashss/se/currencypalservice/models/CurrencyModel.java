@@ -54,6 +54,9 @@ public class CurrencyModel {
     public static Builder builder() {
         return new Builder();
     }
+
+
+
     public static class Builder {
         private double currentRate;
 

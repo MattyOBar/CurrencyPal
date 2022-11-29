@@ -57,16 +57,17 @@ class ViewCurrency extends BindingClass {
 
         let html = '';
         let currency;
+
         //needs for each
         //how to convert multiple json entries
 
         for (currency of currencies) {
             html+= '<tr>' +
-            '<td>' + currency.ranking + '</td>' +
-            '<td>' + currency.currencyName + '</td>' +
-            '<td>' + currency.currencyAbrv + '</td>' +
-            '<td>' + currency.currentRate + '</td>'
-            '</tr>'
+                '<td>' + currency.ranking + '</td>' +
+                '<td>' + currency.currencyName + '</td>' +
+                '<td>' + currency.currencyAbrv + '</td>' +
+                '<td>' + currency.currentRate + '</td>'
+                '</tr>';
         }
 
         document.getElementById('rates-table').innerHTML = html;
