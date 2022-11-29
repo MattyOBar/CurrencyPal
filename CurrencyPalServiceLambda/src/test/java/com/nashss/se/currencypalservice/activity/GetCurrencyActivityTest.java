@@ -29,10 +29,12 @@ class GetCurrencyActivityTest {
         //GIVEN
         double expectedRate = 1;
         String expectedCurrencyAbrv = "USD";
+        String expectedCurrencyName = "United States Dollar";
         int expectedRanking = 1;
 
         Currency currency = new Currency();
         currency.setCurrencyAbrv(expectedCurrencyAbrv);
+        currency.setCurrencyName(expectedCurrencyName);
         currency.setCurrentRate(expectedRate);
         currency.setRanking(expectedRanking);
 
@@ -47,6 +49,7 @@ class GetCurrencyActivityTest {
 
         //THEN
         assertEquals(expectedRate, result.getCurrencyModel().getCurrentRate());
+        assertEquals(expectedCurrencyName, result.getCurrencyModel().getCurrencyName());
         assertEquals(expectedCurrencyAbrv, result.getCurrencyModel().getCurrencyAbrv());
         assertEquals(expectedRanking, result.getCurrencyModel().getRanking());
 
