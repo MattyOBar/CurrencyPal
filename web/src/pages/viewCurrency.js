@@ -11,6 +11,7 @@ class ViewCurrency extends BindingClass {
         this.bindClassMethods(['clientLoaded', 'mount', 'addRateToPage', 'loadAllRates'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addRateToPage);
+
     }
 
     /**
@@ -18,7 +19,9 @@ class ViewCurrency extends BindingClass {
      */
     async clientLoaded() {
         const urlParams = new URLSearchParams(window.location.search);
+
         this.loadAllRates();
+        this.dataStore.set('currency', document.getElementById('currency-usd').innerText);
     }
 
     /**
@@ -30,16 +33,21 @@ class ViewCurrency extends BindingClass {
     }
 
     async addRateToPage() {
-        const currencies = this.dataStore.get('currency');
+        const currency = this.dataStore.get('currency');
+
         if(currency == null) {
             return;
         }
-        document.getElementById('currency-usd').innerText = currency.currencyAbrv;
+        console.log("currency" + currency);
+        const currencyRate = await this.client.getCurrency(currency);
+        console.log("currencyRate " + JSON.stringify(currencyRate));
 
-        let rateHtml = '';
-        let rate;
+        let rateHtml = ' ';
 
-        rateHtml+= '<p>' + rate + '</p>';
+        rateHtml+= '<p>ranking: ' + currencyRate.ranking + '</p>';
+        rateHtml+= '<p>abv: ' + currencyRate.currencyAbrv + '</p>';
+        rateHtml+= '<p>rate: ' + currencyRate.currentRate + '</p>';
+
         document.getElementById('display-rate').innerHTML = rateHtml;
 
     }
