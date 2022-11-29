@@ -20,7 +20,6 @@
 }
 .home-image {
   width: 120px;
-  border: 2px dashed rgba(120, 120, 120, 0.4);
   height: 56px;
   object-fit: cover;
   object-position: center;
