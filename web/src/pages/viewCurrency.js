@@ -31,7 +31,7 @@ class ViewCurrency extends BindingClass {
 
     async addRateToPage() {
         const currencies = this.dataStore.get('currency');
-        if(currency = null) {
+        if(currency == null) {
             return;
         }
         document.getElementById('currency-usd').innerText = currency.currencyAbrv;
@@ -46,7 +46,6 @@ class ViewCurrency extends BindingClass {
 
     async loadAllRates() {
         const currencies = await this.client.getAllCurrency();
-        console.log("currency" + JSON.stringify(currencies));
 
         let html = '';
         //needs for each
