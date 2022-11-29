@@ -13,7 +13,7 @@ export default class CurrencyClient extends BindingClass {
 
     constructor(props = {}){
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'updateAllCurrency', 'getCurrency', 'getTransaction', 'createTransaction', 'updateTransaction', 'getCustomer', 'createCustomer', 'updateCustomer'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'updateAllCurrency', 'getAllCurrency', 'getCurrency', 'getTransaction', 'createTransaction', 'updateTransaction', 'getCustomer', 'createCustomer', 'updateCustomer'];
         this.bindClassMethods(methodsToBind, this);
         this.props = props;
 
@@ -59,6 +59,15 @@ export default class CurrencyClient extends BindingClass {
         try {
             const response = await this.client.get(`currency/${currencyType}`);
             return response.data.currency;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    async getAllCurrency(errorCallback) {
+        try {
+            const response = await this.client.get(`currencies/`);
+            return response.data.currencyModelSet;
         } catch (error) {
             this.handleError(error, errorCallback)
         }

@@ -6,14 +6,15 @@ import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 
+import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 /**
  * Accesses data for our currency objects.
  */
-
 @Singleton
 public class CurrencyDAO {
     private final DynamoDBMapper dynamoDBMapper;
@@ -45,6 +46,9 @@ public class CurrencyDAO {
         return currency;
     }
 
+    public List<Currency> getAllCurrency() {
+        return dynamoDBMapper.scan(Currency.class, new DynamoDBScanExpression());
+    }
     /**
      * Makes a DynamoDB call to retrieve and update a specified Currency.
      * @param currency the parameter used to specify the Currency to be updated

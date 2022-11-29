@@ -21,7 +21,7 @@
     {
       "PutRequest": {
         "Item": {
-          "currencyAbrv": {"S": "Eur"},
+          "currencyAbrv": {"S": "EUR"},
           "currentRate": {"N": "0.965"},
           "ranking": { "N":  "3"}
         }
