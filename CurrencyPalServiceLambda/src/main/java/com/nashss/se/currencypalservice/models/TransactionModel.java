@@ -74,8 +74,8 @@ public class TransactionModel {
         return Objects.hash(transactionId, customerName, startCurrency, endCurrency, startAmount, endAmount);
     }
     //CHECKSTYLE:OFF:Builder
-    public static CurrencyModel.Builder builder() {
-        return new CurrencyModel.Builder();
+    public static TransactionModel.Builder builder() {
+        return new TransactionModel.Builder();
     }
     public static class Builder {
         private String transactionId;
