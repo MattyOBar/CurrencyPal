@@ -100,5 +100,43 @@
         }
       }
     }
+  ],
+  "Transactions" : [
+    {
+      "PutRequest": {
+        "Item": {
+          "transactionId": {"S": "12345"},
+          "customerName" : {"S": "Mason Snacking"},
+          "startCurrency": {"S": "USD"},
+          "endCurrency": {"S": "EUR"},
+          "startAmount": { "N":  "100"},
+          "endAmount": { "N":  "110"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "transactionId": {"S": "23456"},
+          "customerName" : {"S": "Alex Lounging"},
+          "startCurrency": {"S": "EUR"},
+          "endCurrency": {"S": "USD"},
+          "startAmount": { "N":  "100"},
+          "endAmount": { "N":  "98"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "transactionId": {"S": "34567"},
+          "customerName" : {"S": "Matthew Barred"},
+          "startCurrency": {"S": "USD"},
+          "endCurrency": {"S": "EUR"},
+          "startAmount": { "N":  "100"},
+          "endAmount": { "N":  "110"}
+        }
+      }
+    }
   ]
 }
