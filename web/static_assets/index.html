@@ -40,10 +40,11 @@
              </table>
          </div>
          <div class="home-container3">
-             <span class="home-text06">Amount</span>
-             <input type="text" placeholder="1.00" class="home-textinput input" />
-             <button type="button" class="home-button button">&gt;</button>
-             <div>
+             <input type="text" placeholder="Enter Amount" class="home-textinput input" />
+             <input type="text" placeholder="Customer Name" class="home-customerinput input" />
+             <button type="button" class="convert-button button">Convert</button>
+
+             <div class="start-currency-dropdown">
                  <label for="start-currency-dropdown">Start Currency: </label>
                  <select name="start-currency-dropdown" id="start-currency-dropdown">
                      <option value="placeHolder">Select Currency</option>
@@ -58,7 +59,7 @@
                      <option value="HUF">HUF</option>
                  </select>
              </div>
-             <div>
+             <div class="end-currency-dropdown">
                  <label for="end-currency-dropdown">End Currency: </label>
                  <select name="end-currency-dropdown" id="end-currency-dropdown">
                      <option value="placeHolder">Select Currency</option>
@@ -72,6 +73,9 @@
                      <option value="GBP">GBP</option>
                      <option value="HUF">HUF</option>
                  </select>
+             </div>
+             <div class="convertedAmount">
+                 <label
              </div>
          </div>
      </div>
