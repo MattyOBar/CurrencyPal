@@ -1,7 +1,9 @@
 package com.nashss.se.currencypalservice.converters;
 
 import com.nashss.se.currencypalservice.dynamodb.models.Currency;
+import com.nashss.se.currencypalservice.dynamodb.models.Customer;
 import com.nashss.se.currencypalservice.models.CurrencyModel;
+import com.nashss.se.currencypalservice.models.CustomerModel;
 
 /**
  * Converts between Data and Coral models.
@@ -18,6 +20,14 @@ public class ModelConverter {
                 .withCurrencyAbrv(currency.getCurrencyAbrv())
                 .withCurrentRate(currency.getCurrentRate())
                 .withRating(currency.getRanking())
+                .build();
+    }
+
+    public CustomerModel toCustomerModel(Customer newCustomer) {
+        return CustomerModel.builder()
+                .withCustomerId(newCustomer.getCustomerId())
+                .withName(newCustomer.getName())
+                .withDateOfBirth(newCustomer.getDateOfBirth())
                 .build();
     }
 }

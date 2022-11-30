@@ -59,4 +59,9 @@ public class CustomerDAO {
         metricsPublisher.addCount(MetricsConstants.UPDATECUSTOMER_CUSTOMERNOTFOUND_COUNT, 0);
         return customer;
     }
+
+    public Customer saveCustomer(Customer customer) {
+        this.dynamoDBMapper.save(customer);
+        return customer;
+    }
 }
