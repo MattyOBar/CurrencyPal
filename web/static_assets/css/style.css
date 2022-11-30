@@ -96,32 +96,40 @@
 
 .home-textinput {
   top: 58px;
-  left: 10px;
+  left: 7px;
   height: 62px;
   position: absolute;
 }
 
 .home-customerinput {
     top: 80px;
-    left: 165px;
+    left: 160px;
     position: absolute;
+}
+
+.convertedAmount {
+    top: 65px;
+    left: 850px;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #999999;
 }
 
 .convert-button {
   top: 80px;
-  left: 555px;
+  left: 770px;
   width: 62px;
   position: absolute;
 }
 
 .start-currency-dropdown {
   top: 80px;
-  left: 320px;
+  left: 310px;
   position: absolute;
 }
 .end-currency-dropdown {
   top:80px;
-  left: 630px;
+  left: 535px;
   position: absolute;
 }
 
