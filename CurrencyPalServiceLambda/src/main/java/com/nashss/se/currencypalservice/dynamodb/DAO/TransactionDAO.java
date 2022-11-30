@@ -7,6 +7,8 @@ import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
+import javax.inject.Inject;
+
 public class TransactionDAO {
     private DynamoDBMapper dynamoDBMapper;
     private MetricsPublisher metricsPublisher;
@@ -15,6 +17,7 @@ public class TransactionDAO {
      * @param dynamoDBMapper the link used to interact with the Currency table
      * @param metricsPublisher the link used to record metrics
      */
+    @Inject
     public TransactionDAO(DynamoDBMapper dynamoDBMapper, MetricsPublisher metricsPublisher) {
         this.dynamoDBMapper = dynamoDBMapper;
         this.metricsPublisher = metricsPublisher;
