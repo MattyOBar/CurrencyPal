@@ -5,10 +5,10 @@ import com.nashss.se.currencypalservice.activity.results.CreateCustomerResult;
 import com.nashss.se.currencypalservice.converters.ModelConverter;
 import com.nashss.se.currencypalservice.dynamodb.DAO.CustomerDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Customer;
-import com.nashss.se.currencypalservice.exceptions.CustomerNotFoundException;
 import com.nashss.se.currencypalservice.models.CustomerModel;
 import com.nashss.se.currencypalservice.utils.CurrencyPalServiceUtil;
 import org.apache.logging.log4j.LogManager;
+
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
