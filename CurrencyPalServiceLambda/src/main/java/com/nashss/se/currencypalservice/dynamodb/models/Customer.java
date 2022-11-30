@@ -67,10 +67,15 @@ public class Customer {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Customer customer = (Customer) o;
-        return customerId.equals(customer.customerId) && Objects.equals(name, customer.name) && Objects.equals(dateOfBirth, customer.dateOfBirth);
+        return customerId.equals(customer.customerId) && Objects.equals(name, customer.name) &&
+                Objects.equals(dateOfBirth, customer.dateOfBirth);
     }
 
     @Override
