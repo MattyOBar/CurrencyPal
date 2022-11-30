@@ -46,6 +46,7 @@ public class GetAllCurrencyActivity {
             CurrencyModel currencyModel = new ModelConverter().toCurrencyModel(currency);
             currencySet.add(currencyModel);
         }
+
         return GetAllCurrencyResult.builder()
                 .withCurrencies(currencySet)
                 .build();
