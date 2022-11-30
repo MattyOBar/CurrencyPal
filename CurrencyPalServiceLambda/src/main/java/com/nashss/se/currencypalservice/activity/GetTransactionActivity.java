@@ -5,8 +5,8 @@ import com.nashss.se.currencypalservice.activity.results.GetTransactionResult;
 import com.nashss.se.currencypalservice.converters.ModelConverter;
 import com.nashss.se.currencypalservice.dynamodb.DAO.TransactionDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Transaction;
-
 import com.nashss.se.currencypalservice.models.TransactionModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
