@@ -47,9 +47,8 @@ public class CreateCustomerActivity {
 
         CustomerModel customerModel = new ModelConverter().toCustomerModel(newCustomer);
         return CreateCustomerResult.builder()
-                .withCustomerId(customerModel)
+                .withCustomer(customerModel)
                 .build();
-
     }
 
 }
