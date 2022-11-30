@@ -9,14 +9,23 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Transactions")
 public class Transaction {
 
-    private String transactionId;
+    private final String transactionId;
     private String customerName;
     private String startCurrency;
     private String endCurrency;
     private double startAmount;
     private double endAmount;
-
-    public Transaction(String transactionId, String customerName, String startCurrency, String endCurrency, double startAmount, double endAmount){
+    /**
+     * transaction constructor.
+     * @param transactionId unique id.
+     * @param customerName customer making a transaction.
+     * @param startCurrency abrv for base currency.
+     * @param endCurrency abrv for the final currency.
+     * @param startAmount amount customer wants to exchange.
+     * @param endAmount amount set to 99.
+     */
+    public Transaction(String transactionId, String customerName,
+                       String startCurrency, String endCurrency, double startAmount, double endAmount) {
         this.transactionId = transactionId;
         this.customerName = customerName;
         this.startCurrency = startCurrency;
@@ -26,23 +35,23 @@ public class Transaction {
     }
 
     @DynamoDBHashKey(attributeName = "transactionId")
-    public String getTransactionId(){
+    public String getTransactionId() {
         return transactionId;
     }
 
     @DynamoDBAttribute(attributeName = "customerName")
-    public String getCustomerName(){
+    public String getCustomerName() {
         return customerName;
     }
 
 
     @DynamoDBAttribute(attributeName = "startingCurrency")
-    public String  getStartCurrency(){
+    public String  getStartCurrency() {
         return startCurrency;
     }
 
     @DynamoDBAttribute(attributeName = "endCurrency")
-    public String getEndCurrency(){
+    public String getEndCurrency() {
         return endCurrency;
     }
 
@@ -67,12 +76,12 @@ public class Transaction {
     }
 
     @DynamoDBAttribute(attributeName = "startAmount")
-    public double getStartAmount(){
+    public double getStartAmount() {
         return startAmount;
     }
 
     @DynamoDBAttribute(attributeName = "endAmount")
-    public double getEndAmount(){
+    public double getEndAmount() {
         return endAmount;
     }
 
@@ -90,15 +99,20 @@ public class Transaction {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Transaction that = (Transaction) o;
-        return Double.compare(that.startAmount, startAmount) == 0 && Double.compare(that.endAmount, endAmount) == 0 && Objects.equals(transactionId, that.transactionId) && Objects.equals(startUser, that.startUser) && Objects.equals(endUser, that.endUser) && Objects.equals(startCurrency, that.startCurrency) && Objects.equals(endCurrency, that.endCurrency);
+        return Double.compare(that.startAmount, startAmount) == 0 && Double.compare(that.endAmount, endAmount) == 0 &&
+                transactionId.equals(that.transactionId) && Objects.equals(customerName, that.customerName) &&
+                Objects.equals(startCurrency, that.startCurrency) && Objects.equals(endCurrency, that.endCurrency);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(transactionId, customerName, startCurrency, endCurrency, startAmount, endAmount);
     }
-
 }
