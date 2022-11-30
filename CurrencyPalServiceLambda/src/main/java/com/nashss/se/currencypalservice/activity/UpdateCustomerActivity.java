@@ -44,7 +44,7 @@ public class UpdateCustomerActivity {
         customer = customerDAO.saveCustomer(customer);
 
         publishExceptionMetrics(false, false);
-        return UpdateCustomerRequest.builder()
+        return UpdateCustomerResult.builder()
                 .withCustomer(new ModelConverter().toCustomerModel(customer))
                 .build();
     }
