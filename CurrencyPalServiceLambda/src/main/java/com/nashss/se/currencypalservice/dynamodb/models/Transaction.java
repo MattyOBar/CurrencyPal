@@ -9,7 +9,7 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Transactions")
 public class Transaction {
 
-    private String transactionId;
+    private final String transactionId;
     private String customerName;
     private String startCurrency;
     private String endCurrency;
@@ -100,5 +100,4 @@ public class Transaction {
     public int hashCode() {
         return Objects.hash(transactionId, customerName, startCurrency, endCurrency, startAmount, endAmount);
     }
-
 }
