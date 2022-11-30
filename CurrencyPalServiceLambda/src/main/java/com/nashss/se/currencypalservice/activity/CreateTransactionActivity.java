@@ -47,8 +47,13 @@ public class CreateTransactionActivity {
         double conversionRate = currencyDAO.getCurrency(endCurrency).getCurrentRate();
         double endAmount = startAmount * conversionRate;
 
-        Transaction transaction = new Transaction(transactionId, customerName, startCurrency,
-                endCurrency, startAmount, endAmount);
+        Transaction transaction = new Transaction();
+        transaction.setTransactionId(transactionId);
+        transaction.setCustomerName(customerName);
+        transaction.setStartCurrency(startCurrency);
+        transaction.setEndCurrency(endCurrency);
+        transaction.setStartAmount(startAmount);
+        transaction.setEndAmount(endAmount);
 
         transactionDAO.saveTransaction(transaction);
         TransactionModel transactionModel = new ModelConverter().toTransactionModel(transaction);

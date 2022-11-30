@@ -8,7 +8,9 @@ import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class TransactionDAO {
     private DynamoDBMapper dynamoDBMapper;
     private MetricsPublisher metricsPublisher;
@@ -29,7 +31,7 @@ public class TransactionDAO {
      * @return the transaction Object retrieved from DynamoDB.
      */
     public Transaction getTransaction(String transactionId) {
-        Transaction transaction = dynamoDBMapper.load(Transaction.class, transactionId);
+        Transaction transaction = this.dynamoDBMapper.load(Transaction.class, transactionId);
         if (transaction ==  null) {
             metricsPublisher.addCount(MetricsConstants.GETTRANSACTION_TRANSACTIONNOTFOUND_COUNT, 1);
             throw new TransactionNotFoundException("Could not find transaction with id: " + transactionId);

@@ -110,7 +110,7 @@
           "startCurrency": {"S": "USD"},
           "endCurrency": {"S": "EUR"},
           "startAmount": { "N":  "100"},
-          "endAmount": { "N":  "110"}
+          "endAmount": { "N":  "999999"}
         }
       }
     },
@@ -122,7 +122,7 @@
           "startCurrency": {"S": "EUR"},
           "endCurrency": {"S": "USD"},
           "startAmount": { "N":  "100"},
-          "endAmount": { "N":  "98"}
+          "endAmount": { "N":  "999999"}
         }
       }
     },
@@ -134,7 +134,7 @@
           "startCurrency": {"S": "USD"},
           "endCurrency": {"S": "EUR"},
           "startAmount": { "N":  "100"},
-          "endAmount": { "N":  "110"}
+          "endAmount": { "N":  "99999"}
         }
       }
     }

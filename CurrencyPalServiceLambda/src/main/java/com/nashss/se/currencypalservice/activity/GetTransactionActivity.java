@@ -38,7 +38,7 @@ public class GetTransactionActivity {
      * @return getTransactionResult the result object containing the API defined {@link TransactionModel}.
      */
     public GetTransactionResult handleRequest(final GetTransactionRequest getTransactionRequest) {
-        log.info("Received GetCurrencyRequest {}", getTransactionRequest);
+        log.info("Received GetTransactionRequest {}", getTransactionRequest);
         String transactionId = getTransactionRequest.getTransactionId();
         Transaction transaction = transactionDAO.getTransaction(transactionId);
         TransactionModel transactionModel = new ModelConverter().toTransactionModel(transaction);

@@ -9,30 +9,12 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Transactions")
 public class Transaction {
 
-    private final String transactionId;
+    private String transactionId;
     private String customerName;
     private String startCurrency;
     private String endCurrency;
     private double startAmount;
     private double endAmount;
-    /**
-     * transaction constructor.
-     * @param transactionId unique id.
-     * @param customerName customer making a transaction.
-     * @param startCurrency abrv for base currency.
-     * @param endCurrency abrv for the final currency.
-     * @param startAmount amount customer wants to exchange.
-     * @param endAmount amount set to 99.
-     */
-    public Transaction(String transactionId, String customerName,
-                       String startCurrency, String endCurrency, double startAmount, double endAmount) {
-        this.transactionId = transactionId;
-        this.customerName = customerName;
-        this.startCurrency = startCurrency;
-        this.endCurrency = endCurrency;
-        this.startAmount = startAmount;
-        this.endAmount = endAmount;
-    }
 
     @DynamoDBHashKey(attributeName = "transactionId")
     public String getTransactionId() {
@@ -57,6 +39,10 @@ public class Transaction {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public void setTransactionId(String transactionId) {
+        this.transactionId = transactionId;
     }
 
     public void setStartCurrency(String startCurrency) {
