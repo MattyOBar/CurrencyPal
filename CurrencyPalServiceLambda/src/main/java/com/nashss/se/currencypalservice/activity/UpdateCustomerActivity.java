@@ -7,7 +7,6 @@ import com.nashss.se.currencypalservice.dynamodb.DAO.CustomerDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Customer;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 import com.nashss.se.currencypalservice.utils.CurrencyPalServiceUtil;
-import net.bytebuddy.matcher.StringMatcher;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,7 +26,6 @@ public class UpdateCustomerActivity {
         log.info("Received updateCustomerRequest {}", updateCustomerRequest);
 
         if (!CurrencyPalServiceUtil.isValidString(updateCustomerRequest.getCustomerId())) {
-            publishExceptionMetrics(true, false);
             throw new InvalidAttributeValueException("CustomerID" + updateCustomerRequest.getCustomerId() +
                     "contains an illegal character");
         }
@@ -35,7 +33,6 @@ public class UpdateCustomerActivity {
         Customer customer = customerDAO.getCustomerActivity(updateCustomerRequest.getCustomerId());
 
         if (!customer.getCustomerId().equals(updateCustomerRequest.getCustomerId())) {
-            publishExceptionMetrics(false, true);
             throw new InvalidAttributeValueException("Can not change " + customer.getCustomerId());
         }
 
@@ -43,8 +40,7 @@ public class UpdateCustomerActivity {
         customer.setDateOfBirth(updateCustomerRequest.getDateOfBirth());
         customer = customerDAO.saveCustomer(customer);
 
-        publishExceptionMetrics(false, false);
-        return UpdateCustomerRequest.builder()
+        return UpdateCustomerResult.builder()
                 .withCustomer(new ModelConverter().toCustomerModel(customer))
                 .build();
     }

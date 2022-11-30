@@ -41,7 +41,6 @@ public class UpdateCustomerRequest {
         return new Builder();
     }
 
-    @JsonPOJOBuilder
     public static class Builder {
         private String customerId;
         private String name;

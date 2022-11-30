@@ -3,6 +3,8 @@ package com.nashss.se.currencypalservice.dynamodb.models;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import java.util.Objects;
+
 @DynamoDBTable(tableName = "Customers")
 public class Customer {
     String customerId;
@@ -54,4 +56,25 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId='" + customerId + '\'' +
+                ", name='" + name + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return customerId.equals(customer.customerId) && Objects.equals(name, customer.name) && Objects.equals(dateOfBirth, customer.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customerId, name, dateOfBirth);
+    }
 }
