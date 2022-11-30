@@ -29,7 +29,7 @@ class GetCurrencyActivityTest {
         //GIVEN
         double expectedRate = 1;
         String expectedCurrencyAbrv = "USD";
-        String expectedCurrencyName = "United States Dollar";
+        String expectedCurrencyName = "US Dollar";
         int expectedRanking = 1;
 
         Currency currency = new Currency();
