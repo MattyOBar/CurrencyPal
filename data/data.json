@@ -4,6 +4,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "CHF"},
+          "currencyName" : {"S": "Swiss Franc"},
           "currentRate": {"N": ".943"},
           "ranking": { "N":  "2"}
         }
@@ -13,6 +14,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "USD"},
+          "currencyName" : {"S": "US Dollar"},
           "currentRate": {"N": "1.0"},
           "ranking": { "N":  "1"}
         }
@@ -22,6 +24,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "EUR"},
+          "currencyName" : {"S": "Euro"},
           "currentRate": {"N": "0.965"},
           "ranking": { "N":  "3"}
         }
@@ -31,6 +34,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "JPY"},
+          "currencyName" : {"S": "Japanese Yen"},
           "currentRate": {"N": "138.884"},
           "ranking": { "N":  "4"}
         }
@@ -40,6 +44,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "BGN"},
+          "currencyName" : {"S": "Bulgarian Lev"},
           "currentRate": {"N": "1.890"},
           "ranking": { "N":  "5"}
         }
@@ -49,6 +54,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "CZK"},
+          "currencyName" : {"S": "Czech Republic Koruna"},
           "currentRate": {"N": "23.512"},
           "ranking": { "N":  "6"}
         }
@@ -58,6 +64,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "DKK"},
+          "currencyName" : {"S": "Danish Krone"},
           "currentRate": {"N": "7.180"},
           "ranking": { "N":  "7"}
         }
@@ -67,6 +74,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "GBP"},
+          "currencyName" : {"S": "British Pound Sterling"},
           "currentRate": {"N": "0.841"},
           "ranking": { "N":  "8"}
         }
@@ -76,6 +84,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "HUF"},
+          "currencyName" : {"S": "Hungarian Forint"},
           "currentRate": {"N": "397.984"},
           "ranking": { "N":  "9"}
         }
@@ -85,6 +94,7 @@
       "PutRequest": {
         "Item": {
           "currencyAbrv": {"S": "PLN"},
+          "currencyName" : {"S": "Polish Zloty"},
           "currentRate": {"N": "4.576"},
           "ranking": { "N":  "10"}
         }

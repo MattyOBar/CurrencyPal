@@ -70,14 +70,11 @@
   right: 0px;
   width: 778px;
   bottom: -10px;
-  height: 343px;
+  height: 275px;
   margin: auto;
   display: flex;
   position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
   align-items: center;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
   flex-direction: column;
   justify-content: flex-start;
   background-color: #99c4e0;
@@ -91,77 +88,50 @@
   margin: auto;
   display: flex;
   position: absolute;
-  box-shadow: 5px 5px 10px 0px #d4d4d4;
   align-items: flex-start;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
   flex-direction: column;
   justify-content: center;
   background-color: #E0F1F7;
 }
-.home-text06 {
-  top: 23px;
-  left: 25px;
-  position: absolute;
-}
 
 .home-textinput {
   top: 58px;
-  left: 23px;
+  left: 7px;
   height: 62px;
   position: absolute;
 }
 
-.home-button {
-  top: 75px;
-  left: 581px;
-  width: 48px;
+.home-customerinput {
+    top: 80px;
+    left: 160px;
+    position: absolute;
+}
+
+.convertedAmount {
+    top: 65px;
+    left: 850px;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid #999999;
+}
+
+.convert-button {
+  top: 80px;
+  left: 770px;
+  width: 62px;
   position: absolute;
 }
 
 .start-currency-dropdown {
-  top: 75px;
-  left: 250px;
+  top: 80px;
+  left: 310px;
   position: absolute;
 }
 .end-currency-dropdown {
-  top: 75px;
-  left: 750px;
+  top:80px;
+  left: 535px;
   position: absolute;
 }
 
-@media(max-width: 1200px) {
-  .home-nav {
-    position: relative;
-  }
-  .home-navlink {
-    top: 19px;
-    left: -160px;
-    position: absolute;
-  }
-  .home-navlink1 {
-    top: 19px;
-    left: -100px;
-    position: absolute;
-    text-decoration: none;
-  }
-  .home-navlink2 {
-    text-decoration: none;
-  }
 
-
-}
-@media(max-width: 767px) {
-  .home-navbar-interactive {
-    padding-left: var(--dl-space-space-twounits);
-    padding-right: var(--dl-space-space-twounits);
-  }
-  .home-desktop-menu {
-    display: none;
-  }
-}
-@media(max-width: 479px) {
-  .home-navbar-interactive {
-    padding: var(--dl-space-space-unit);
-  }
 }
