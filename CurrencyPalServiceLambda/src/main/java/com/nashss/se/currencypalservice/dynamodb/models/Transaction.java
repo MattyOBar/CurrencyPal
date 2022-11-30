@@ -27,7 +27,7 @@ public class Transaction {
     }
 
 
-    @DynamoDBAttribute(attributeName = "startingCurrency")
+    @DynamoDBAttribute(attributeName = "startCurrency")
     public String  getStartCurrency() {
         return startCurrency;
     }

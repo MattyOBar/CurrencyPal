@@ -1,7 +1,9 @@
 package com.nashss.se.currencypalservice.activity.requests;
 
-import org.apache.commons.lang3.builder.Builder;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+@JsonDeserialize(builder = CreateTransactionRequest.Builder.class)
 public class CreateTransactionRequest {
     private final String transactionId;
     private final String customerName;
@@ -61,6 +63,7 @@ public class CreateTransactionRequest {
         return new Builder();
     }
 
+    @JsonPOJOBuilder
     public static class Builder {
         private String transactionId;
         private String customerName;
