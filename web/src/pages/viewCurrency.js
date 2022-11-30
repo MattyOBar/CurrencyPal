@@ -58,9 +58,6 @@ class ViewCurrency extends BindingClass {
         let html = '';
         let currency;
 
-        //needs for each
-        //how to convert multiple json entries
-
         for (currency of currencies) {
             html+= '<tr>' +
                 '<td>' + currency.ranking + '</td>' +
