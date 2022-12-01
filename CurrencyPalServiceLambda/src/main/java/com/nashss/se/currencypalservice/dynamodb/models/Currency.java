@@ -12,6 +12,8 @@ import java.util.Objects;
 @DynamoDBTable(tableName = "Currencies")
 public class Currency {
     private String currencyAbrv;
+
+    private String currencyName;
     private double currentRate;
     private int ranking;
 
@@ -22,6 +24,15 @@ public class Currency {
 
     public void setCurrencyAbrv(String currencyAbrv) {
         this.currencyAbrv = currencyAbrv;
+    }
+
+    @DynamoDBAttribute(attributeName = "currencyName")
+    public String getCurrencyName() {
+        return currencyName;
+    }
+
+    public void setCurrencyName(String currencyName) {
+        this.currencyName = currencyName;
     }
 
     @DynamoDBAttribute(attributeName = "currentRate")
@@ -52,19 +63,21 @@ public class Currency {
         }
         Currency that = (Currency) o;
         return currencyAbrv.equals(that.currencyAbrv) &&
+                Objects.equals(currencyName, that.currencyName) &&
                 Objects.equals(currentRate, that.currentRate) &&
                 Objects.equals(ranking, that.ranking);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(currencyAbrv, currentRate, ranking);
+        return Objects.hash(currencyAbrv, currencyName, currentRate, ranking);
     }
 
     @Override
     public String toString() {
         return "Currency{" +
                 "currencyAbrv='" + currencyAbrv + '\'' +
+                ", currencyName='" + currencyName + '\'' +
                 ", currentRate='" + currentRate + '\'' +
                 ", ranking='" + ranking + '\'' +
                 '}';

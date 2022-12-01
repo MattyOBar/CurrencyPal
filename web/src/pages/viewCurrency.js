@@ -21,7 +21,6 @@ class ViewCurrency extends BindingClass {
         const urlParams = new URLSearchParams(window.location.search);
 
         this.loadAllRates();
-        this.dataStore.set('currency', document.getElementById('currency-usd').innerText);
     }
 
     /**
@@ -45,6 +44,7 @@ class ViewCurrency extends BindingClass {
         let rateHtml = ' ';
 
         rateHtml+= '<p>ranking: ' + currencyRate.ranking + '</p>';
+        rateHtml+= '<p>name: ' + currencyRate.currencyName + '</p>';
         rateHtml+= '<p>abv: ' + currencyRate.currencyAbrv + '</p>';
         rateHtml+= '<p>rate: ' + currencyRate.currentRate + '</p>';
 
@@ -56,12 +56,16 @@ class ViewCurrency extends BindingClass {
         const currencies = await this.client.getAllCurrency();
 
         let html = '';
-        //needs for each
-        //how to convert multiple json entries
-        html+= '<tr>' +
-        '<th>' + currency.currencyAbrv + '</th>'
-        '<th>' + currency.rate + '</th>' +
-        '</tr>'
+        let currency;
+
+        for (currency of currencies) {
+            html+= '<tr>' +
+                '<td>' + currency.ranking + '</td>' +
+                '<td>' + currency.currencyName + '</td>' +
+                '<td>' + currency.currencyAbrv + '</td>' +
+                '<td>' + currency.currentRate + '</td>'
+                '</tr>';
+        }
 
         document.getElementById('rates-table').innerHTML = html;
     }
