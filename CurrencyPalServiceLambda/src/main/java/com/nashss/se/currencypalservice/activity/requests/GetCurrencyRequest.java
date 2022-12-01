@@ -38,7 +38,4 @@ public class GetCurrencyRequest {
             return new GetCurrencyRequest(currencyAbrv);
         }
     }
-
-
-
 }

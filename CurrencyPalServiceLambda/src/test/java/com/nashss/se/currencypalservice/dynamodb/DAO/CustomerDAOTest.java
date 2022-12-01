@@ -14,6 +14,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 class CustomerDAOTest {
     @Mock
@@ -25,7 +26,7 @@ class CustomerDAOTest {
 
     @BeforeEach
     public void setup() {
-        initMocks(this);
+        openMocks(this);
         customerDAO = new CustomerDAO(dynamoDBMapper, metricsPublisher);
     }
 
