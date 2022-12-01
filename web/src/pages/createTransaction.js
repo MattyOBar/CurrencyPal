@@ -10,8 +10,7 @@ class CreateTransaction extends BindingClass {
         super();
         this.bindClassMethods(['clientLoaded', 'mount', 'convert'], this);
         this.dataStore = new DataStore();
-        this.dataStore.addChangeListener(this.convert);
-
+//        this.dataStore.addChangeListener(this.convert);
     }
 
     /**
@@ -45,7 +44,6 @@ class CreateTransaction extends BindingClass {
         this.dataStore.set('transaction', transaction);
         document.getElementById('convertButton').innerText = 'Convert';
         document.getElementById('amountConvertedBox').innerText = transaction.endAmount;
-
     }
 }
 

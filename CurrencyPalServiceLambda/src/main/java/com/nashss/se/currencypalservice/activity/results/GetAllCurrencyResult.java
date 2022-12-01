@@ -2,25 +2,19 @@ package com.nashss.se.currencypalservice.activity.results;
 
 import com.nashss.se.currencypalservice.models.CurrencyModel;
 
-import java.util.Set;
+import java.util.List;
 
 public class GetAllCurrencyResult {
-    private final Set<CurrencyModel> currencyModelSet;
+    private final List<CurrencyModel> currencyModelList;
 
-    private GetAllCurrencyResult(Set<CurrencyModel> currencyModelSet) {
-        this.currencyModelSet = currencyModelSet;
+    private GetAllCurrencyResult(List<CurrencyModel> currencyModelList) {
+        this.currencyModelList = currencyModelList;
     }
 
-    public Set<CurrencyModel> getCurrencyModelSet() {
-        return currencyModelSet;
+    public List<CurrencyModel> getCurrencyModelSet() {
+        return currencyModelList;
     }
 
-    @Override
-    public String toString() {
-        return "GetAllCurrencyResult{" +
-                "currencyModelSet=" + currencyModelSet +
-                '}';
-    }
 
     //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
@@ -28,15 +22,15 @@ public class GetAllCurrencyResult {
     }
 
     public static class Builder {
-        private Set<CurrencyModel> currencyModelSet;
+        private List<CurrencyModel> currencyModelList;
 
-        public Builder withCurrencies(Set<CurrencyModel> currencyModelSet) {
-            this.currencyModelSet = currencyModelSet;
+        public Builder withCurrencies(List<CurrencyModel> currencyModelList) {
+            this.currencyModelList = currencyModelList;
             return this;
         }
 
         public GetAllCurrencyResult build() {
-            return new GetAllCurrencyResult(currencyModelSet);
+            return new GetAllCurrencyResult(currencyModelList);
         }
     }
 }
