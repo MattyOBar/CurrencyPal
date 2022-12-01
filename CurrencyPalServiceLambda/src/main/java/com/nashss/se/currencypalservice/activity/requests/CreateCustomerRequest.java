@@ -3,14 +3,11 @@ package com.nashss.se.currencypalservice.activity.requests;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
-import java.awt.*;
-
 @JsonDeserialize(builder = CreateCustomerRequest.Builder.class)
 public class CreateCustomerRequest {
     private final String customerId;
     private final String name;
     private final String dateOfBirth;
-
 
     /**
      * This constructs a Customer object.

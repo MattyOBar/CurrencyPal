@@ -23,7 +23,11 @@ public class ModelConverter {
                 .withRating(currency.getRanking())
                 .build();
     }
-
+    /**
+     * Converts a provided {@link Customer} into a {@link CustomerModel} representation.
+     * @param newCustomer the customer to convert
+     * @return the converted playlist
+     */
     public CustomerModel toCustomerModel(Customer newCustomer) {
         return CustomerModel.builder()
                 .withCustomerId(newCustomer.getCustomerId())
