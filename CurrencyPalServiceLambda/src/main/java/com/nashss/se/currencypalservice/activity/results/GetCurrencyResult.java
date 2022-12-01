@@ -38,8 +38,4 @@ public class GetCurrencyResult {
             return new GetCurrencyResult(currencyModel);
         }
     }
-
-
-
-
 }

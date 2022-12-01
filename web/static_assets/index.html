@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="assets/viewCurrency.js"></script>
+    <script type="text/javascript" src="assets/viewTransaction.js"></script>
+    <script type="text/javascript" src="assets/createTransaction.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="assets/viewCurrency.js"></script>
     <style>table, th, td, tr {border: 1px solid;}</style>
@@ -34,27 +35,20 @@
          </div>
          <div id="display" class="home-container2">
              <table id="rates-table-head">
-                 <tr>
-                     <th>Ranking</th>
-                     <th>Currency Name</th>
-                     <th>Currency Abrv</th>
-                     <th>Rates</th>
-                 </tr>
+
              </table>
              <table id="rates-table">
                  <tr>
-                     <th>Ranking</th>
-                     <th>Currency Name</th>
-                     <th>Currency Abrv</th>
-                     <th>Rates</th>
+                     <th>Loading The Rates Please Wait</th>
                  </tr>
              </table>
          </div>
          <div class="home-container3">
-             <span class="home-text06">Amount</span>
-             <input type="text" placeholder="1.00" class="home-textinput input" />
-             <button type="button" class="home-button button">&gt;</button>
-             <div>
+             <input type="text" placeholder="Enter Amount" class="home-textinput input" id="startAmount"/>
+             <input type="text" placeholder="Customer Name" class="home-customerinput input" id="customerName"/>
+             <button type="button" class="convert-button button" id="convertButton">Convert</button>
+
+             <div class="start-currency-dropdown">
                  <label for="start-currency-dropdown">Start Currency: </label>
                  <select name="start-currency-dropdown" id="start-currency-dropdown">
                      <option value="placeHolder">Select Currency</option>
@@ -69,7 +63,7 @@
                      <option value="HUF">HUF</option>
                  </select>
              </div>
-             <div>
+             <div class="end-currency-dropdown">
                  <label for="end-currency-dropdown">End Currency: </label>
                  <select name="end-currency-dropdown" id="end-currency-dropdown">
                      <option value="placeHolder">Select Currency</option>
@@ -83,6 +77,9 @@
                      <option value="GBP">GBP</option>
                      <option value="HUF">HUF</option>
                  </select>
+             </div>
+             <div class="convertedAmount" id="amountConvertedBox">
+                 <p>AmountConverted</p>
              </div>
          </div>
      </div>

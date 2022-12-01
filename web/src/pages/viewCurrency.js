@@ -55,7 +55,12 @@ class ViewCurrency extends BindingClass {
     async loadAllRates() {
         const currencies = await this.client.getAllCurrency();
 
-        let html = '';
+        let html =  `<tr>
+                     <th>Ranking</th>
+                     <th>Currency Name</th>
+                     <th>Currency Abrv</th>
+                     <th>Rates</th>
+                     </tr>`;
         let currency;
 
         for (currency of currencies) {
