@@ -28,14 +28,14 @@ public class UpdateCustomerActivity {
         if (!CurrencyPalServiceUtil.isValidString(updateCustomerRequest.getCustomerId())) {
 
             throw new InvalidAttributeValueException("CustomerID" + updateCustomerRequest.getCustomerId() +
-                    "contains an illegal character");
+                    " contains an illegal character");
         }
 
         Customer customer = customerDAO.getCustomerActivity(updateCustomerRequest.getCustomerId());
 
         if (!customer.getCustomerId().equals(updateCustomerRequest.getCustomerId())) {
 
-            throw new InvalidAttributeValueException("Can not change " + customer.getCustomerId());
+            throw new InvalidAttributeValueException("Can not change customer ID [ " + customer.getCustomerId() + " ] of the customer.");
         }
 
         customer.setName(updateCustomerRequest.getName());

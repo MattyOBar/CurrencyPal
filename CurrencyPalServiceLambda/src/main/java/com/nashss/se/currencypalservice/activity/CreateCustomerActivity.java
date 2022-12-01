@@ -29,7 +29,7 @@ public class CreateCustomerActivity {
 
         if (!CurrencyPalServiceUtil.isValidString(createCustomerRequest.getCustomerId())) {
             throw new InvalidAttributeValueException("CustomerId " + createCustomerRequest.getCustomerId() +
-                    "contains illegal characters.");
+                    " contains illegal characters.");
         }
 
         if (!CurrencyPalServiceUtil.isValidString(createCustomerRequest.getName())) {
