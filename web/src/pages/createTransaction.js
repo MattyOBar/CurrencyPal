@@ -10,7 +10,6 @@ class CreateTransaction extends BindingClass {
         super();
         this.bindClassMethods(['clientLoaded', 'mount', 'convert'], this);
         this.dataStore = new DataStore();
-//        this.dataStore.addChangeListener(this.convert);
     }
 
     /**
@@ -35,12 +34,7 @@ class CreateTransaction extends BindingClass {
         const startCurrency = document.getElementById('start-currency-dropdown').value;
         const endCurrency = document.getElementById('end-currency-dropdown').value;
         const startAmount = document.getElementById('startAmount').value;
-        console.log("customerName: " + customerName);
-        console.log("startCurrency: " + startCurrency);
-        console.log("endCurrency: " + endCurrency);
-        console.log("startAmount: " + startAmount);
         const transaction = await this.client.createTransaction(customerName, startCurrency, endCurrency, startAmount);
-        console.log('transaction' + JSON.stringify(transaction));
         this.dataStore.set('transaction', transaction);
         document.getElementById('convertButton').innerText = 'Convert';
         document.getElementById('amountConvertedBox').innerText = transaction.endAmount;

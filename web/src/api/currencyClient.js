@@ -90,7 +90,6 @@ export default class CurrencyClient extends BindingClass {
                 endCurrency: endCurrency,
                 startAmount: startAmount,
         });
-        console.log('response' + response);
         return response.data.transactionModel;
         } catch (error) {
         this.handleError(error, errorCallback)

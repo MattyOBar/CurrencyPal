@@ -18,7 +18,7 @@ public class TransactionModel {
      * @param startCurrency abrv for base currency.
      * @param endCurrency abrv for the final currency.
      * @param startAmount amount customer wants to exchange.
-     * @param endAmount amount set to 99.
+     * @param endAmount calculated at createTransactionActivity
      */
     public TransactionModel(String transactionId, String customerName, String startCurrency,
                             String endCurrency, double startAmount, double endAmount) {

@@ -35,14 +35,9 @@ class ViewTransaction extends BindingClass {
         if(transaction == null) {
             return;
         }
-
-        console.log("transaction" + transaction);
         const transactionRecieved = await this.client.getTransaction(transaction);
-        console.log("transactionRecieved " + JSON.stringify(transactionRecieved));
-
         let endAmountHtml = ' ';
         endAmountHtml += '<p>Amount Converted: ' + transactionRecieved.endAmount + '</p>';
-
         document.getElementById('amountConvertedBox').innerHTML = endAmountHtml;
     }
 
