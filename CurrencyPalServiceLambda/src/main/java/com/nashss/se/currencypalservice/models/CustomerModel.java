@@ -61,7 +61,7 @@ public class CustomerModel {
         private String name;
         private String dateOfBirth;
 
-        public Builder withId(String customerId) {
+        public Builder withCustomerId(String customerId) {
             this.customerId = customerId;
             return this;
         }

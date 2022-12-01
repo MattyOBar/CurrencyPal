@@ -7,6 +7,8 @@ import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
+import javax.inject.Inject;
+
 public class CustomerDAO {
 
     private DynamoDBMapper dynamoDBMapper;
@@ -18,7 +20,7 @@ public class CustomerDAO {
      * @param dynamoDBMapper   the link used to interact with the Currency table
      * @param metricsPublisher the link used to record metrics
      */
-
+    @Inject
     public CustomerDAO(DynamoDBMapper dynamoDBMapper, MetricsPublisher metricsPublisher) {
         this.dynamoDBMapper = dynamoDBMapper;
         this.metricsPublisher = metricsPublisher;
@@ -57,6 +59,15 @@ public class CustomerDAO {
             this.dynamoDBMapper.save(customer);
         }
         metricsPublisher.addCount(MetricsConstants.UPDATECUSTOMER_CUSTOMERNOTFOUND_COUNT, 0);
+        return customer;
+    }
+    /**
+     * Makes a DynamoDB call to retrieve and update a Customer.
+     * @param customer customer to be saved
+     * @return customer the new updated customer object
+     */
+    public Customer saveCustomer(Customer customer) {
+        this.dynamoDBMapper.save(customer);
         return customer;
     }
 }
