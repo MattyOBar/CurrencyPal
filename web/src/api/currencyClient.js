@@ -75,24 +75,23 @@ export default class CurrencyClient extends BindingClass {
 
     async getTransaction(errorCallback) {
         try {
-            const response = await this.client.get(`transaction/`);
+            const response = await this.client.get(`transactions/`);
             return response.data.transactionModel;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
     }
 
-    async createTransaction(errorCallback) {
+    async createTransaction(customerName, startCurrency, endCurrency, startAmount, errorCallback) {
         try {
-            const response = await this.client.post(`transaction`, {
-                transactionID: transactionID,
+            const response = await this.client.post(`transactions`, {
                 customerName: customerName,
                 startCurrency: startCurrency,
                 endCurrency: endCurrency,
                 startAmount: startAmount,
-                endAmount, endAmount,
         });
-        return response.data.transaction;
+        console.log('response' + response);
+        return response.data.transactionModel;
         } catch (error) {
         this.handleError(error, errorCallback)
         }
@@ -120,35 +119,7 @@ export default class CurrencyClient extends BindingClass {
      **/
     async getTransaction(transactionId, errorCallback) {
         try {
-            const response = await this.client.get(`transaction/${transactionId}`);
-            return response.data.transaction;
-        } catch (error) {
-            this.handleError(error, errorCallback)
-        }
-    }
-
-     /**
-         * Create a new transaction.
-         * @param currency The currency of the transaction to create.
-         * @param customerId The user who is the owner of the transaction.
-         * @param amountToConvert amount to convert.
-         * @param amountConverted amount after convert.
-         * @param conversionRate rate for the currency chosen.
-         * @param isShown keeps track of transactions shown on front end.
-         * @param errorCallback (Optional) A function to execute if the call fails.
-         * @returns The transaction that has been created.
-         */
-    async createTransaction(currency, customerId, amountToConvert, amountConverted, conversionRate, isShown, transactionDateTime , errorCallback) {
-        try {
-            const response = await this.client.post(`transaction`, {
-                currency: currency,
-                customerId: customerId,
-                amountToConvert: amountToConvert,
-                amountConverted: amountConverted,
-                conversionRate: conversionRate,
-                isShown: isShown,
-                transactionDateTime: transactionDateTime,
-            });
+            const response = await this.client.get(`transactions/${transactionId}`);
             return response.data.transaction;
         } catch (error) {
             this.handleError(error, errorCallback)

@@ -36,12 +36,22 @@ class CreateTransaction extends BindingClass {
         const startCurrency = document.getElementById('start-currency-dropdown').value;
         const endCurrency = document.getElementById('end-currency-dropdown').value;
         const startAmount = document.getElementById('startAmount').value;
-
+        console.log("customerName: " + customerName);
+        console.log("startCurrency: " + startCurrency);
+        console.log("endCurrency: " + endCurrency);
+        console.log("startAmount: " + startAmount);
         const transaction = await this.client.createTransaction(customerName, startCurrency, endCurrency, startAmount);
+        console.log('transaction' + JSON.stringify(transaction));
         this.datastore.set('transaction', transaction);
         document.getElementById('convertButton').innerText = 'Convert';
         document.getElementById('amountConvertedBox').innerText = transaction.endAmount;
 
+    }
+
+    getOption(elementId) {
+        selectElement = document.querySelector(elementId);
+        output = selectElement.options[selectElement.selectedIndex].value;
+        document.querySelector('.output').textContent = output;
     }
 
 }
