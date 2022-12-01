@@ -37,7 +37,8 @@ public class CreateCustomerActivity {
         log.info("Received CreateCustomerRequest {}", createCustomerRequest);
 
         if (!CurrencyPalServiceUtil.isValidString(createCustomerRequest.getCustomerId())) {
-           try {
+
+            try {
                 throw new InvalidAttributeValueException("CustomerId " + createCustomerRequest.getCustomerId() +
                         " contains illegal characters.");
             } catch (InvalidAttributeValueException e) {
