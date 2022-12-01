@@ -72,6 +72,32 @@ export default class CurrencyClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
+
+    async getTransaction(errorCallback) {
+        try {
+            const response = await this.client.get(`transaction/`);
+            return response.data.transactionModel;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    async createTransaction(errorCallback) {
+        try {
+            const response = await this.client.post(`transaction`, {
+                transactionID: transactionID,
+                customerName: customerName,
+                startCurrency: startCurrency,
+                endCurrency: endCurrency,
+                startAmount: startAmount,
+                endAmount, endAmount,
+        });
+        return response.data.transaction;
+        } catch (error) {
+        this.handleError(error, errorCallback)
+        }
+    }
+
    //call to api needs work
     async updateAllCurrency(errorCallback) {
         try {
@@ -84,6 +110,7 @@ export default class CurrencyClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
+
     /**
      * Gets the transaction for the given transaction ID.
      * @param transactionId given a unique transactionID

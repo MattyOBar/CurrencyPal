@@ -27,7 +27,8 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createCurrency: path.resolve(__dirname, 'src', 'pages', 'createCurrency.js'),
+    viewTransaction: path.resolve(__dirname, 'src', 'pages', 'viewTransaction.js'),
+    createTransaction: path.resolve(__dirname, 'src', 'pages', 'createTransaction.js'),
     viewCurrency: path.resolve(__dirname, 'src', 'pages', 'viewCurrency.js'),
   },
   output: {

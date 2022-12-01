@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="assets/viewCurrency.js"></script>
+    <script type="text/javascript" src="assets/viewTransaction.js"></script>
+    <script type="text/javascript" src="assets/createTransaction.js"></script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="assets/viewCurrency.js"></script>
     <style>table, th, td, tr {border: 1px solid;}</style>
@@ -51,9 +52,9 @@
              </table>
          </div>
          <div class="home-container3">
-             <input type="text" placeholder="Enter Amount" class="home-textinput input" />
-             <input type="text" placeholder="Customer Name" class="home-customerinput input" />
-             <button type="button" class="convert-button button">Convert</button>
+             <input type="text" placeholder="Enter Amount" class="home-textinput input" id="startAmount"/>
+             <input type="text" placeholder="Customer Name" class="home-customerinput input" id="customerName"/>
+             <button type="button" class="convert-button button" id="convertButton">Convert</button>
 
              <div class="start-currency-dropdown">
                  <label for="start-currency-dropdown">Start Currency: </label>
@@ -85,7 +86,7 @@
                      <option value="HUF">HUF</option>
                  </select>
              </div>
-             <div class="convertedAmount">
+             <div class="convertedAmount" id="amountConvertedBox">
                  <p>AmountConverted</p>
              </div>
          </div>
