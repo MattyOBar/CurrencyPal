@@ -29,7 +29,7 @@ public class CreateCustomerResult {
     public static class Builder {
         private CustomerModel customer;
 
-        public Builder withPlaylist(CustomerModel customer) {
+        public Builder withCustomer(CustomerModel customer) {
             this.customer = customer;
             return this;
         }
