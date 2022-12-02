@@ -6,14 +6,18 @@ import com.nashss.se.currencypalservice.metrics.MetricsConstants;
 import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+
 @Singleton
 public class TransactionDAO {
-    private DynamoDBMapper dynamoDBMapper;
-    private MetricsPublisher metricsPublisher;
+    private final DynamoDBMapper dynamoDBMapper;
+    private final MetricsPublisher metricsPublisher;
     /**
      * Instantiates a TransactionDao object.
      * @param dynamoDBMapper the link used to interact with the Currency table
@@ -26,7 +30,7 @@ public class TransactionDAO {
     }
 
     /**
-     * Makes a DynamoDB call to retrieve the specificied transaction.
+     * Makes a DynamoDB call to retrieve the specified transaction.
      * @param transactionId the parameter that indicates the specified transaction.
      * @return the transaction Object retrieved from DynamoDB.
      */
@@ -40,6 +44,9 @@ public class TransactionDAO {
         return transaction;
     }
 
+    public List<Transaction> getAllTransaction() {
+        return dynamoDBMapper.scan(Transaction.class, new DynamoDBScanExpression());
+    }
     /**
      * Makes a DynamoDB call to retrieve and update a specified Transaction.
      * @param transaction the parameter used to specify the transaction to be updated
@@ -54,11 +61,10 @@ public class TransactionDAO {
 
     /**
      * Makes a DynamoDB call to save the given transaction.
+     *
      * @param transaction the parameter used to specify the transaction to be updated.
-     * @return the transaction saved to dynamoDB.
      */
-    public Transaction saveTransaction(Transaction transaction) {
+    public void saveTransaction(Transaction transaction) {
         this.dynamoDBMapper.save(transaction);
-        return transaction;
     }
 }
