@@ -6,12 +6,14 @@ import com.nashss.se.currencypalservice.converters.ModelConverter;
 import com.nashss.se.currencypalservice.dynamodb.DAO.TransactionDAO;
 import com.nashss.se.currencypalservice.dynamodb.models.Transaction;
 import com.nashss.se.currencypalservice.models.TransactionModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 public class GetAllTransactionActivity {
     private final Logger log = LogManager.getLogger();

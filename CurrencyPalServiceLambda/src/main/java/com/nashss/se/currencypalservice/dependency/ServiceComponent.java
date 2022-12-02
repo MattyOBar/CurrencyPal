@@ -1,6 +1,12 @@
 package com.nashss.se.currencypalservice.dependency;
 
-import com.nashss.se.currencypalservice.activity.*;
+import com.nashss.se.currencypalservice.activity.CreateCustomerActivity;
+import com.nashss.se.currencypalservice.activity.CreateTransactionActivity;
+import com.nashss.se.currencypalservice.activity.GetAllCurrencyActivity;
+import com.nashss.se.currencypalservice.activity.GetAllTransactionActivity;
+import com.nashss.se.currencypalservice.activity.GetCurrencyActivity;
+import com.nashss.se.currencypalservice.activity.GetTransactionActivity;
+import com.nashss.se.currencypalservice.activity.UpdateCustomerActivity;
 
 import dagger.Component;
 

@@ -8,9 +8,11 @@ import com.nashss.se.currencypalservice.metrics.MetricsPublisher;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.List;
+
 
 @Singleton
 public class TransactionDAO {
