@@ -13,7 +13,7 @@ export default class CurrencyClient extends BindingClass {
 
     constructor(props = {}){
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'updateAllCurrency', 'getAllCurrency', 'getCurrency', 'getTransaction', 'createTransaction', 'updateTransaction', 'getCustomer', 'createCustomer', 'updateCustomer'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'updateAllCurrency', 'getAllCurrency', 'getCurrency', 'getTransaction', 'createTransaction', 'updateTransaction', 'getAllTransaction', 'getCustomer', 'createCustomer', 'updateCustomer'];
         this.bindClassMethods(methodsToBind, this);
         this.props = props;
 
@@ -125,6 +125,14 @@ export default class CurrencyClient extends BindingClass {
         }
     }
 
+    async getAllTransaction(errorCallback) {
+            try {
+                const response = await this.client.get(`transactions/`);
+                return response.data.transactionModelSet;
+            } catch (error) {
+                this.handleError(error, errorCallback)
+            }
+        }
     /**
          * update the transactions is shown for viewing purposes
          * @param errorCallback (Optional) A function to execute if the call fails.

@@ -8,7 +8,7 @@ import DataStore from "../util/DataStore";
 class ViewTransaction extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'showEndAmount'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'showEndAmount', 'loadAllRates'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.addRateToPage);
 
@@ -42,6 +42,34 @@ class ViewTransaction extends BindingClass {
     }
 
 }
+
+     async loadAllRates() {
+                const transactions = await this.client.getAllTransaction();
+
+                let html =  `<tr>
+                             <th>TransactionId</th>
+                             <th>Customer Name</th>
+                             <th>Start Currency</th>
+                             <th>End Currency</th>
+                             <th>Start Amount</th>
+                             <th>End Amount</th>
+                             </tr>`;
+                let transaction;
+
+                for (transaction of transactions) {
+                    html+= '<tr>' +
+                        '<td>' + transaction.transactionId + '</td>' +
+                        '<td>' + transaction.customerName + '</td>' +
+                        '<td>' + transaction.startCurrency + '</td>' +
+                        '<td>' + transaction.endCurrency + '</td>' +
+                        '<td>' + transaction.startAmount + '</td>' +
+                        '<td>' + transaction.endAmount + '</td>'
+                        '</tr>';
+                }
+
+                document.getElementById('rates-table').innerHTML = html;
+            }
+        }
 
 const main = async () => {
     const viewTransaction = new ViewTransaction();
