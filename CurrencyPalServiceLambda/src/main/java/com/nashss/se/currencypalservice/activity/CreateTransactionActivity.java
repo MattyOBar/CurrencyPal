@@ -68,4 +68,6 @@ public class CreateTransactionActivity {
         return transactionId;
     }
 
+    public static class GetAllTransactionActivity {
+    }
 }
