@@ -127,7 +127,7 @@ Resources:
                       - !Ref 'AWS::Region'
                       - ':'
                       - !Ref 'AWS::AccountId'
-                      - ':table/currencies'
+                      - ':table/Currencies'
 #        - PolicyName: 'AccessCustomerTable'
 #          PolicyDocument:
 #            Version: '2012-10-17'
@@ -141,21 +141,21 @@ Resources:
 #                      - !Ref 'AWS::Region'
 #                      - ':'
 #                      - !Ref 'AWS::AccountId'
-#                      - ':table/customers'
-#        - PolicyName: 'AccessTransactionTable'
-#          PolicyDocument:
-#            Version: '2012-10-17'
-#            Statement:
-#              - Effect: Allow
-#                Action: dynamodb:*
-#                Resource:
-#                  Fn::Join:
-#                    - ''
-#                    - - 'arn:aws:dynamodb:'
-#                      - !Ref 'AWS::Region'
-#                      - ':'
-#                      - !Ref 'AWS::AccountId'
-#                      - ':table/transactions'
+#                      - ':table/Customers'
+        - PolicyName: 'AccessTransactionTable'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/Transactions'
   GetCurrencyLambda:
     Type: AWS::Serverless::Function
     Properties:
