@@ -73,15 +73,6 @@ export default class CurrencyClient extends BindingClass {
         }
     }
 
-    async getTransaction(errorCallback) {
-        try {
-            const response = await this.client.get(`transactions/`);
-            return response.data.transactionModel;
-        } catch (error) {
-            this.handleError(error, errorCallback)
-        }
-    }
-
     async createTransaction(customerName, startCurrency, endCurrency, startAmount, errorCallback) {
         try {
             const response = await this.client.post(`transactions`, {
